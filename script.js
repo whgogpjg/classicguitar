@@ -48,7 +48,7 @@ const revealObserver = new IntersectionObserver(entries => entries.forEach(entry
 }), {threshold: .06});
 document.querySelectorAll('.reveal').forEach(element => revealObserver.observe(element));
 
-const grid = document.querySelector('#repertoire-grid');
+const grid = document.querySelector('#repertoire-grid:not([data-catalog])');
 const search = document.querySelector('#piece-search');
 const empty = document.querySelector('#empty-state');
 let activeFilter = 'all';
