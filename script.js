@@ -1,3 +1,8 @@
+const mobileStylesheet = document.createElement('link');
+mobileStylesheet.rel = 'stylesheet';
+mobileStylesheet.href = 'mobile.css';
+document.head.append(mobileStylesheet);
+
 const repertoire = [
   {type:'solo',typeKo:'솔로',era:'르네상스',level:'중급',title:'황제의 노래',composer:'Luys de Narváez',note:'비우엘라의 섬세한 변주',query:'Narvaez Cancion del Emperador classical guitar'},
   {type:'solo',typeKo:'솔로',era:'바로크',level:'최상급',title:'샤콘느 BWV 1004',composer:'J. S. Bach',note:'줄리언 브림 편곡·연주',video:'5z9Pld-4K4c'},
@@ -32,12 +37,25 @@ const menuButton = document.querySelector('.menu-toggle');
 if (header && menuButton) {
   menuButton.addEventListener('click', () => {
     const isOpen = header.classList.toggle('menu-open');
+    document.body.classList.toggle('nav-open', isOpen);
     menuButton.setAttribute('aria-expanded', String(isOpen));
+    menuButton.setAttribute('aria-label', isOpen ? '메뉴 닫기' : '메뉴 열기');
   });
   document.querySelectorAll('.desktop-nav a').forEach(link => link.addEventListener('click', () => {
     header.classList.remove('menu-open');
+    document.body.classList.remove('nav-open');
     menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.setAttribute('aria-label', '메뉴 열기');
   }));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && header.classList.contains('menu-open')) {
+      header.classList.remove('menu-open');
+      document.body.classList.remove('nav-open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', '메뉴 열기');
+      menuButton.focus();
+    }
+  });
 }
 
 const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
