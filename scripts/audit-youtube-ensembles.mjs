@@ -12,6 +12,7 @@ const concurrency = Number(options.concurrency || 4);
 const maxQueries = Number(options['max-queries'] || 2);
 const requestTimeout = Number(options.timeout || 5000);
 const limit = Number(options.limit || 0);
+const offset = Number(options.offset || 0);
 const requestedTypes = new Set((options.types || 'duo,trio,quartet').split(','));
 const outputPath = path.resolve(root, options.output || 'ensemble-youtube-audit.json');
 const dataPath = path.resolve(root, options.data || 'ensemble-verification-data.js');
@@ -26,12 +27,13 @@ const keyFor = work => `${work.type}|${work.title}|${work.composer}`;
 const normalize = value => String(value || '')
   .normalize('NFKD')
   .replace(/[\u0300-\u036f]/g, '')
+  .normalize('NFC')
   .replace(/[’‘`]/g, "'")
   .toLocaleLowerCase();
 
 const stopwords = new Set([
   'the','and','from','with','for','in','of','on','no','op','bwv','rv','major','minor','movement',
-  'suite','concerto','sonata','prelude','fugue','dance','theme','spanish','version','arrangement','arr',
+  'suite','concerto','sonata','divertimento','prelude','fugue','dance','theme','spanish','version','arrangement','arr',
   'duo','duet','trio','quartet','serenade',
   'classical','guitar','guitars','de','del','la','las','el','los','le','les','un','une','aus','et','en',
   'air','song','music','complete','excerpt','발췌'
@@ -44,8 +46,12 @@ function titleTokens(title) {
 }
 
 function catalogueReferences(title) {
-  return [...normalize(title).matchAll(/\b(?:bwv|rv|k|op)\.?\s*\d+(?:\s*(?:no\.?)\s*\d+)?/g)]
-    .map(match => match[0].replace(/[.\s]/g, ''));
+  return [...normalize(title).matchAll(/\b(?:bwv|rv|kv?|op)\.?\s*\d+(?:\s*(?:no\.?)\s*\d+)?/g)]
+    .map(match => match[0].replace(/[^\p{L}\p{N}]/gu, '').replace(/^kv/, 'k'));
+}
+
+function ordinalReferences(title) {
+  return [...normalize(title).matchAll(/\b(?:no|nr)\.?\s*(\d+)\b/g)].map(match => match[1]);
 }
 
 function compactWords(value) {
@@ -66,7 +72,7 @@ const ensemblePatterns = {
     /(2\s*\u91cd\u594f|\u4e8c\u91cd\u594f|\u30c7\u30e5\u30aa).{0,12}\u30ae\u30bf\u30fc/,
     /altius duo|quantum guitar duo|kupinski guitar duo/,
     /\bguitar\s*(duo|duet)\b/, /\b(duo|duet)\s*(for|of|de|di|para)?\s*guitars?\b/,
-    /\b(two|2)\s+(classical\s+)?guitars?\b/, /guitarrenduo/, /duo\s+de\s+guitarr/,
+    /\btwo\s+(classical\s+)?guitars?\b/, /(?<!no\s)(?<!no\.\s)\b2\s+(classical\s+)?guitars?\b/, /guitarrenduo/, /duo\s+de\s+guitarr/,
     /duo\s+de\s+viol/, /dos\s+guitarr/, /due\s+chitarr/, /duo\s+de\s+guitares?/,
     /기타\s*(듀오|2\s*중주|이중주)/, /(듀오|2\s*중주|이중주).{0,12}기타/,
     /katona twins|assad brothers|beijing guitar duo|eden stell|duo melis|soloduo|solo duo|siquiera lima|grigoryan brothers|presti.{0,8}lagoya|폴리포니\s*기타\s*듀오/
@@ -77,7 +83,7 @@ const ensemblePatterns = {
     /\u30ae\u30bf\u30fc.{0,8}(3\s*\u91cd\u594f|\u4e09\u91cd\u594f|\u30c8\u30ea\u30aa)/,
     /(3\s*\u91cd\u594f|\u4e09\u91cd\u594f|\u30c8\u30ea\u30aa).{0,12}\u30ae\u30bf\u30fc/,
     /\bguitar\s*trio\b/, /\btrio\s*(for|of|de|di|para)?\s*guitars?\b/,
-    /\b(three|3)\s+(classical\s+)?guitars?\b/, /gitarrentrio/, /trio\s+de\s+guitarr/,
+    /\bthree\s+(classical\s+)?guitars?\b/, /(?<!no\s)(?<!no\.\s)\b3\s+(classical\s+)?guitars?\b/, /gitarrentrio/, /trio\s+de\s+guitarr/,
     /trio\s+de\s+viol/, /tres\s+guitarr/, /tre\s+chitarr/, /trio\s+de\s+guitares?/,
     /기타\s*(트리오|3\s*중주|삼중주)/, /(트리오|3\s*중주|삼중주).{0,12}기타/,
     /amsterdam guitar trio|california guitar trio|trio con brio/
@@ -88,7 +94,7 @@ const ensemblePatterns = {
     /\u30ae\u30bf\u30fc.{0,8}(4\s*\u91cd\u594f|\u56db\u91cd\u594f|\u30ab\u30eb\u30c6\u30c3\u30c8)/,
     /(4\s*\u91cd\u594f|\u56db\u91cd\u594f|\u30ab\u30eb\u30c6\u30c3\u30c8).{0,12}\u30ae\u30bf\u30fc/,
     /\bguitar\s*quartet\b/, /\bquartet\s*(for|of|de|di|para)?\s*guitars?\b/,
-    /\b(four|4)\s+(classical\s+)?guitars?\b/, /gitarrenquartett/, /quarteto\s+de\s+guitarr/,
+    /\bfour\s+(classical\s+)?guitars?\b/, /(?<!no\s)(?<!no\.\s)\b4\s+(classical\s+)?guitars?\b/, /gitarrenquartett/, /quarteto\s+de\s+guitarr/,
     /quarteto\s+de\s+viol/, /cuarteto\s+de\s+guitarr/, /quattro\s+chitarr/, /quatuor\s+de\s+guitares?/,
     /기타\s*(콰르텟|쿼텟|4\s*중주|사중주)/, /(콰르텟|쿼텟|4\s*중주|사중주).{0,12}기타/,
     /los angeles guitar quartet|brazilian guitar quartet|canadian guitar quartet|aquarelle guitar quartet|\blagq\b|\bbgq\b/
@@ -182,19 +188,39 @@ async function youtubeSearch(query) {
 function qualifies(work, video) {
   const title = normalize(video.title);
   const configurationText = `${title} ${normalize(video.channel)}`;
-  if (!title || excludedPatterns.test(title)) return false;
-  if (/me\s+and\s+myself|one[-\s]man|multitrack|split[-\s]screen/.test(title)) return false;
+  if (!title || excludedPatterns.test(configurationText) || /\btabs?\b/.test(configurationText)) return false;
+  if (/me\s+and\s+myself|played\s+by\s+me|one[-\s]man|multitrack|split[-\s]screen/.test(title)) return false;
+  if (work.type === 'duo' && /(?:violin|cello|piano|trombone|flute|mandolin|ukulele).{0,16}(?:(?:and|&|\/)\s*)?guitar|guitar.{0,16}(?:(?:and|&|\/)\s*)?(?:violin|cello|piano|trombone|flute|mandolin|ukulele)/.test(title)) return false;
   if (!ensemblePatterns[work.type].some(pattern => pattern.test(configurationText))) return false;
   const tokens = titleTokens(work.title);
+  const primaryTokens = titleTokens(String(work.title).split(/\bfrom\b/i)[0]);
   const matchedTokens = tokens.filter(token => title.includes(token));
   const references = catalogueReferences(work.title);
-  const candidateReferenceText = normalize(video.title).replace(/[.\s]/g, '');
-  const mustMatchReference = references.length > 0 && tokens.length === 0;
-  const referencesMatch = !mustMatchReference || references.every(reference => candidateReferenceText.includes(reference));
+  const candidateReferences = catalogueReferences(video.title);
+  const referenceMatches = (reference, candidateReference) => {
+    if (reference === candidateReference) return true;
+    const referenceHasNumber = /no\d+$/.test(reference);
+    const candidateHasNumber = /no\d+$/.test(candidateReference);
+    if (referenceHasNumber && candidateHasNumber) return false;
+    return reference.replace(/no\d+$/, '') === candidateReference.replace(/no\d+$/, '');
+  };
+  const referencesMatch = references.length === 0 || candidateReferences.length === 0 ||
+    references.some(reference => candidateReferences.some(candidateReference => referenceMatches(reference, candidateReference)));
   if (!referencesMatch) return false;
+  const ordinals = ordinalReferences(work.title);
+  const candidateOrdinals = ordinalReferences(video.title);
+  if (ordinals.length && candidateOrdinals.length && !ordinals.some(number => candidateOrdinals.includes(number))) return false;
+  if (ordinals.length) {
+    const bareTitleNumbers = [...title.matchAll(/\b([\p{L}]+)\s+(\d{1,2})\b/gu)]
+      .filter(match => tokens.includes(match[1]))
+      .map(match => match[2]);
+    if (bareTitleNumbers.length && !ordinals.some(number => bareTitleNumbers.includes(number))) return false;
+  }
   const composerMatch = composerTokens(work.composer).some(token => configurationText.includes(token));
   const exactTitleMatch = compactWords(video.title).includes(compactWords(work.title));
-  if (tokens.length === 0) return references.length > 0 && composerMatch;
+  if (tokens.length === 0) return references.length > 0 &&
+    candidateReferences.some(candidateReference => references.some(reference => referenceMatches(reference, candidateReference))) && composerMatch;
+  if (primaryTokens.length && !primaryTokens.some(token => title.includes(token))) return false;
   const enoughTitleTokens = matchedTokens.length >= Math.min(3, tokens.length);
   return enoughTitleTokens && (composerMatch || exactTitleMatch);
 }
@@ -216,9 +242,9 @@ function qualifiedVideos(work, candidates) {
 function queriesFor(work) {
   const base = `"${work.title}" ${work.composer}`;
   const refinedPhrases = {
-    duo: ['"guitar duo"', '"two guitars"', '\uae30\ud0c0 2\uc911\uc8fc \u30ae\u30bf\u30fc2\u91cd\u594f'],
-    trio: ['"guitar trio"', '"three guitars"', '\uae30\ud0c0 3\uc911\uc8fc \u30ae\u30bf\u30fc3\u91cd\u594f'],
-    quartet: ['"guitar quartet"', '"four guitars"', '\uae30\ud0c0 4\uc911\uc8fc \u30ae\u30bf\u30fc4\u91cd\u594f']
+    duo: ['"guitar duo"', '"two guitars"', '"duo de guitarras"', '"duo di chitarre"', '\uae30\ud0c0 2\uc911\uc8fc \u30ae\u30bf\u30fc2\u91cd\u594f'],
+    trio: ['"guitar trio"', '"three guitars"', '"trio de guitarras"', '"trio di chitarre"', '\uae30\ud0c0 3\uc911\uc8fc \u30ae\u30bf\u30fc3\u91cd\u594f'],
+    quartet: ['"guitar quartet"', '"four guitars"', '"cuarteto de guitarras"', '"quartetto di chitarre"', '\uae30\ud0c0 4\uc911\uc8fc \u30ae\u30bf\u30fc4\u91cd\u594f']
   };
   return refinedPhrases[work.type].slice(0, maxQueries).map(phrase => `${base} ${phrase}`);
   /* Kept below for audit-history readability; unreachable after the refined query set. */
@@ -284,10 +310,15 @@ const sourceReports = mergeReportPaths.length
     : [];
 const bestResult = (current, candidate) => {
   if (!current) return candidate;
-  if (candidate.verified !== current.verified) return candidate.verified ? candidate : current;
-  if (candidate.evidenceCount !== current.evidenceCount) return candidate.evidenceCount > current.evidenceCount ? candidate : current;
-  if (Boolean(candidate.error) !== Boolean(current.error)) return candidate.error ? current : candidate;
-  return current;
+  const preferred = candidate.verified !== current.verified
+    ? (candidate.verified ? candidate : current)
+    : candidate.evidenceCount !== current.evidenceCount
+      ? (candidate.evidenceCount > current.evidenceCount ? candidate : current)
+      : (candidate.error && !current.error ? current : candidate);
+  const candidates = [...new Map([...(current.candidates || []), ...(candidate.candidates || [])]
+    .map(video => [video.id, video])).values()];
+  const searchedQueries = [...new Set([...(current.searchedQueries || []), ...(candidate.searchedQueries || [])])];
+  return {...preferred, candidates, searchedQueries, error: current.error && candidate.error ? candidate.error : ''};
 };
 const mergedSourceResults = new Map();
 for (const sourceReport of sourceReports) {
@@ -301,13 +332,14 @@ if (baseReport) {
   if (options['merge-only'] === 'true') works = [];
   else {
     const retryUnverified = options['retry-unverified'] === 'true';
+    const retryOneEvidence = options['retry-one-evidence'] === 'true';
     const retryKeys = new Set(baseReport.results
-      .filter(result => !result.verified && (retryUnverified || result.error))
+      .filter(result => !result.verified && (retryUnverified || (retryOneEvidence && result.evidenceCount === 1) || result.error))
       .map(result => result.key));
     works = works.filter(work => retryKeys.has(keyFor(work)));
   }
 }
-if (limit > 0) works = works.slice(0, limit);
+if (offset > 0 || limit > 0) works = works.slice(offset, limit > 0 ? offset + limit : undefined);
 console.log(`[audit] checking ${works.length} works with threshold ${threshold}`);
 const auditedResults = await runPool(works, concurrency, auditWork);
 let results = baseReport ? (() => {
@@ -327,6 +359,12 @@ if (options.rejudge === 'true') {
     return {...result, videos, evidenceCount: videos.length, verified: videos.length >= threshold};
   });
 }
+const excludedDuplicateKeys = new Set([
+  'duo|Scherzino|Manuel María Ponce'
+]);
+results = results.map(result => excludedDuplicateKeys.has(result.key)
+  ? {...result, verified: false, evidenceCount: 0, videos: [], exclusion: 'duplicate catalogue entry'}
+  : result);
 const verifiedResults = results.filter(result => result.verified);
 const report = {
   generatedAt: new Date().toISOString(),
