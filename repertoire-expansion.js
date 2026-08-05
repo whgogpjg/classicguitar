@@ -55,11 +55,11 @@
       ['Yellow','Coldplay',2000,4],['The Scientist','Coldplay',2002,5],['Viva la Vida','Coldplay',2008,4],['Fix You','Coldplay',2005,5],['Paradise','Coldplay',2011,4],
       ['Perfect','Ed Sheeran',2017,4],['Photograph','Ed Sheeran',2014,4],['Thinking Out Loud','Ed Sheeran',2014,5],['Someone Like You','Adele',2011,5],['Easy on Me','Adele',2021,4],
       ['Just the Way You Are','Bruno Mars',2010,4],['When I Was Your Man','Bruno Mars',2012,4],['All of Me','John Legend',2013,5],['I’m Yours','Jason Mraz',2008,4],['Love Story','Taylor Swift',2008,4],
-      ['Cardigan','Taylor Swift',2020,4],['Anti-Hero','Taylor Swift',2022,4],['Lovely','Billie Eilish & Khalid',2018,4],['What Was I Made For?','Billie Eilish',2023,4],['Birds of a Feather','Billie Eilish',2024,4],
-      ['From the Start','Laufey',2023,3],['Valentine','Laufey',2022,3],['Until I Found You','Stephen Sanchez',2021,3],['Golden Hour','JVKE',2022,4],['Beautiful Things','Benson Boone',2024,4],
-      ['Lose Control','Teddy Swims',2023,4],['Die with a Smile','Lady Gaga & Bruno Mars',2024,4],['APT.','ROSÉ & Bruno Mars',2024,3],['A Bar Song (Tipsy)','Shaboozey',2024,3],['Espresso','Sabrina Carpenter',2024,3],
-      ['Man I Need','Olivia Dean',2025,4],['Luther','Kendrick Lamar & SZA',2024,3],['Ordinary','Alex Warren',2025,3],['Messy','Lola Young',2024,4],['That’s So True','Gracie Abrams',2024,3],
-      ['Sailor Song','Gigi Perez',2024,4],['Azizam','Ed Sheeran',2025,3],['Anxiety','Doechii',2025,4],['Bad Thing (Bunny Hop)','Ariana Grande',2026,3],['Hate That I Made You Love Me','Ariana Grande',2026,4]
+      ['Cardigan','Taylor Swift',2020,4],['Anti-Hero','Taylor Swift',2022,4],['Lovely','Billie Eilish & Khalid',2018,4],['What Was I Made For?','Billie Eilish',2023,4],['Vincent','Don McLean',1971,4],
+      ['From the Start','Laufey',2023,3],['Valentine','Laufey',2022,3],['Until I Found You','Stephen Sanchez',2021,3],['Golden Hour','JVKE',2022,4],['Mad World','Roland Orzabal',1982,4],
+      ['Dust in the Wind','Kerry Livgren',1977,4],['Die with a Smile','Lady Gaga & Bruno Mars',2024,4],['APT.','ROSÉ & Bruno Mars',2024,3],['Africa','David Paich & Jeff Porcaro',1982,5],['Billie Jean','Michael Jackson',1982,5],
+      ['Smooth Criminal','Michael Jackson',1987,5],['Sultans of Swing','Mark Knopfler',1978,6],['The Winner Takes It All','Benny Andersson & Björn Ulvaeus',1980,5],['Dancing Queen','Benny Andersson, Björn Ulvaeus & Stig Anderson',1976,4],['Right Here Waiting','Richard Marx',1989,4],
+      ['Unchained Melody','Alex North & Hy Zaret',1955,4],['Nothing’s Gonna Change My Love for You','Michael Masser & Gerry Goffin',1984,4],['Killing Me Softly with His Song','Charles Fox & Norman Gimbel',1971,4],['Can’t Take My Eyes Off You','Bob Crewe & Bob Gaudio',1967,4],['Hate That I Made You Love Me','Ariana Grande',2026,4]
     ]},
     { genre:'kpop', region:'asia', technique:'rhythm', mood:'bright', items:[
       ['Spring Day','BTS',2017,5],['Dynamite','BTS',2020,4],['Butter','BTS',2021,3],['Fake Love','BTS',2018,4],['Boy with Luv','BTS feat. Halsey',2019,4],
@@ -67,9 +67,9 @@
       ['Stay','BLACKPINK',2016,4],['Lovesick Girls','BLACKPINK',2020,4],['How You Like That','BLACKPINK',2020,3],['On the Ground','ROSÉ',2021,3],['Gone','ROSÉ',2021,4],
       ['Through the Night','IU',2017,5],['Love Poem','IU',2019,5],['Blueming','IU',2019,4],['Eight','IU feat. SUGA',2020,4],['Love Wins All','IU',2024,5],
       ['Ditto','NewJeans',2022,4],['Hype Boy','NewJeans',2022,3],['Super Shy','NewJeans',2023,3],['OMG','NewJeans',2023,4],['Next Level','aespa',2021,4],
-      ['Drama','aespa',2023,4],['Supernova','aespa',2024,3],['LOVE DIVE','IVE',2022,3],['I AM','IVE',2023,4],['Perfect Night','LE SSERAFIM',2023,3],
+      ['Drama','aespa',2023,4],['서른 즈음에','강승원 / 김광석',1994,5],['LOVE DIVE','IVE',2022,3],['I AM','IVE',2023,4],['Perfect Night','LE SSERAFIM',2023,3],
       ['ANTIFRAGILE','LE SSERAFIM',2022,3],['What Is Love?','TWICE',2018,4],['Feel Special','TWICE',2019,4],['How Can I Love the Heartbreak','AKMU',2019,5],['Fine','TAEYEON',2017,4],
-      ['You Were Beautiful','DAY6',2017,5],['Drowning','WOODZ',2023,4],['Golden','HUNTR/X',2025,4],['Soda Pop','Saja Boys',2025,3],['Your Idol','Saja Boys',2025,3]
+      ['You Were Beautiful','DAY6',2017,5],['Drowning','WOODZ',2023,4],['사랑했지만','한동준 / 김광석',1991,5],['Soda Pop','Saja Boys',2025,3],['너의 의미','김창완 / 산울림',1984,4]
     ]},
     { genre:'jazz-world', region:'global', technique:'rhythm', mood:'dance', items:[
       ['Autumn Leaves','Joseph Kosma',1945,5],['Fly Me to the Moon','Bart Howard',1954,4],['Misty','Erroll Garner',1954,5],['Blue Moon','Richard Rodgers',1934,4],['My Funny Valentine','Richard Rodgers',1937,5],
@@ -90,7 +90,6 @@
   });
 
   packs.forEach(pack => pack.items.forEach(([title, composer, year, duration], index) => {
-    const recent = year >= 2024;
     const moodCycle = [pack.mood, 'lyrical', 'meditative', 'dramatic', 'bright', 'dance'];
     const techniqueCycle = [pack.technique, 'arpeggio', 'voicing', 'rhythm', 'harmonics'];
     catalog.push({
@@ -98,10 +97,29 @@
       difficulty: index % 9 === 8 ? 'advanced' : index % 5 === 0 ? 'beginner' : 'intermediate',
       region: pack.region, technique: techniqueCycle[index % techniqueCycle.length], mood: moodCycle[index % moodCycle.length],
       source: 'transcription', genre: pack.genre, year, duration, title, composer,
-      status: recent ? 'recent' : 'popular', video: '',
+      status: 'arrangement', video: '',
       query: `${composer} ${title} classical guitar arrangement`
     });
   }));
+
+  // Only songs with an explicitly identified classical/nylon-string performance receive this badge and direct video.
+  const verifiedPerformances = new Map([
+    ['APT.','gmGvPlvpmRY'],
+    ['Die with a Smile','wp5hnHkImdk'],
+    ['Love Wins All','b0sIGXZBf8Y'],
+    ['Soda Pop','unv8F3IK2qU'],
+    ['Hate That I Made You Love Me','mAJaeuh2_N4'],
+    ['What Was I Made For?','31uNEwpSyQk'],
+    ['Golden Hour','VnAHHKD-vs4'],
+    ['Suzume','HJPIfQHhAzY'],
+    ['Idol','wv3iRrTj-cM'],
+    ['Kick Back','XnGpROd2468']
+  ]);
+  catalog.forEach(work => {
+    if (!verifiedPerformances.has(work.title)) return;
+    work.status = 'verified';
+    work.video = verifiedPerformances.get(work.title);
+  });
 
   catalog.forEach((work, index) => { work.id = `work-${String(index + 1).padStart(3, '0')}`; });
   if (catalog.length !== 520) console.warn(`Expected 520 works, found ${catalog.length}`);

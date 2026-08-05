@@ -18,7 +18,7 @@
     source: {original:'기타 원곡', transcription:'편곡·전사'},
     genre: {classical:'클래식 기타', film:'영화 음악', screen:'TV·뮤지컬', game:'게임 음악', anime:'애니·지브리', pop:'팝·록 명곡', 'recent-pop':'컨템퍼러리 팝', kpop:'K-pop·한국', 'jazz-world':'재즈·월드'},
     release: {recent:'2020년 이후', millennium:'2000–2019', legacy:'2000년 이전'},
-    status: {core:'기타 레퍼토리', popular:'인기 편곡', recent:'최신곡 · 편곡 탐색'}
+    status: {core:'기타 레퍼토리', arrangement:'클래식 기타 편곡', verified:'클래식 기타 연주 영상 확인'}
   };
   const filterKeys = ['genre','release','era','difficulty','region','technique','mood','duration','source'];
   const difficultyOrder = {beginner:0, intermediate:1, advanced:2, virtuoso:3};
