@@ -241,6 +241,143 @@
     ]
   });
 
+  const addGroupPack = ({ type, era, difficulty, region, technique, mood, source, genre = 'classical', items }) => {
+    items.forEach(([title, composer, duration, itemGenre = genre, itemEra = era, itemRegion = region, itemSource = source]) => catalog.push({
+      type, era: itemEra, difficulty, region: itemRegion, technique, mood, source: itemSource,
+      genre: itemGenre, year: null, duration, title, composer,
+      status: itemSource === 'original' ? 'core' : 'arrangement', video: '',
+      query: `${composer} ${title} classical guitar ${type}`
+    }));
+  };
+
+  addGroupPack({
+    type: 'trio', era: 'contemporary', difficulty: 'advanced', region: 'global', technique: 'counterpoint', mood: 'bright', source: 'original',
+    items: [
+      ['Trio in F major, Op. 12', 'Filippo Gragnani', 14, undefined, 'classical', 'italy'],
+      ['Little Suite No. 2', 'John W. Duarte', 9, undefined, 'modern', 'france-uk'],
+      ['Cassibile', 'Jean-Michel Coquery', 8],
+      ['Pakhra', 'Jean-Michel Coquery', 7],
+      ['Le drøm de la bergère', 'Lilith Guégamian', 8],
+      ['Suite Homenajes', 'Christian Cruz', 12],
+      ['Confluence', 'Eddie Healy', 9],
+      ['Tango per T(r)E', 'Paolo De Stefano', 8, 'jazz-world', undefined, 'italy'],
+      ['El corazón del mundo', 'Eddie Healy', 10],
+      ['Séquences', 'Guy-Jean Maggio', 9]
+    ]
+  });
+
+  addGroupPack({
+    type: 'trio', era: 'baroque', difficulty: 'advanced', region: 'central-europe', technique: 'counterpoint', mood: 'dramatic', source: 'transcription',
+    items: [
+      ['Trio in G minor, RV 85', 'Antonio Vivaldi', 9, undefined, undefined, 'italy'],
+      ['Concerto in A minor, RV 356', 'Antonio Vivaldi', 10, undefined, undefined, 'italy'],
+      ['Toccata and Fugue in D minor, BWV 565', 'J. S. Bach', 9],
+      ['Little Fugue in G minor, BWV 578', 'J. S. Bach', 5],
+      ['Concerto for Two Violins, BWV 1043', 'J. S. Bach', 16],
+      ['Passacaglia in G minor, HWV 432', 'G. F. Handel', 8],
+      ['Eine kleine Nachtmusik, K. 525', 'W. A. Mozart', 16, undefined, 'classical'],
+      ['Rondo alla Turca, K. 331', 'W. A. Mozart', 4, undefined, 'classical'],
+      ['The Marriage of Figaro Overture, K. 492', 'W. A. Mozart', 5, undefined, 'classical'],
+      ['Symphony No. 40 — 1st movement', 'W. A. Mozart', 8, undefined, 'classical']
+    ]
+  });
+
+  addGroupPack({
+    type: 'trio', era: 'romantic', difficulty: 'advanced', region: 'global', technique: 'voicing', mood: 'dramatic', source: 'transcription',
+    items: [
+      ['William Tell Overture', 'Gioachino Rossini', 8, undefined, undefined, 'italy'],
+      ['Hungarian Dance No. 5', 'Johannes Brahms', 4, undefined, undefined, 'central-europe'],
+      ['Slavonic Dance, Op. 46 No. 8', 'Antonín Dvořák', 5, undefined, undefined, 'central-europe'],
+      ['Arabesque No. 1', 'Claude Debussy', 5, undefined, 'modern', 'france-uk'],
+      ['Pavane pour une infante défunte', 'Maurice Ravel', 6, undefined, 'modern', 'france-uk'],
+      ['Boléro', 'Maurice Ravel', 9, undefined, 'modern', 'france-uk'],
+      ['Sevilla, Op. 47 No. 3', 'Isaac Albéniz', 5, undefined, undefined, 'spain'],
+      ['Asturias, Op. 47 No. 5', 'Isaac Albéniz', 7, undefined, undefined, 'spain'],
+      ['Andaluza, Op. 37 No. 5', 'Enrique Granados', 5, undefined, undefined, 'spain'],
+      ['Spanish Dance No. 1 from La vida breve', 'Manuel de Falla', 4, undefined, 'modern', 'spain']
+    ]
+  });
+
+  addGroupPack({
+    type: 'trio', era: 'contemporary', difficulty: 'intermediate', region: 'latin-america', technique: 'rhythm', mood: 'dance', source: 'transcription', genre: 'jazz-world',
+    items: [
+      ['Fuga y Misterio', 'Astor Piazzolla', 5],
+      ['Primavera Porteña', 'Astor Piazzolla', 6],
+      ['Libertango', 'Astor Piazzolla', 4],
+      ['Água e Vinho', 'Egberto Gismonti', 4],
+      ['Tico-Tico no Fubá', 'Zequinha de Abreu', 4],
+      ['Danza Brasilera', 'Jorge Morel', 4],
+      ['Farewell to Stromness', 'Peter Maxwell Davies', 5, 'classical', undefined, 'france-uk'],
+      ['Merry-Go-Round of Life', 'Joe Hisaishi', 5, 'anime', undefined, 'asia'],
+      ['Bohemian Rhapsody', 'Queen', 6, 'pop', undefined, 'global'],
+      ['Gabriel’s Oboe', 'Ennio Morricone', 4, 'film', undefined, 'italy']
+    ]
+  });
+
+  addGroupPack({
+    type: 'quartet', era: 'contemporary', difficulty: 'virtuoso', region: 'global', technique: 'rhythm', mood: 'dramatic', source: 'original',
+    items: [
+      ['Uarekena', 'Sérgio Assad', 10, undefined, undefined, 'latin-america'],
+      ['Road to the Sun', 'Pat Metheny', 7, 'jazz-world', undefined, 'north-america'],
+      ['Hamsa', 'Roland Dyens', 11, undefined, undefined, 'france-uk'],
+      ['Danças Nativas', 'Clarice Assad', 12, 'jazz-world', undefined, 'latin-america'],
+      ['Music in Four Sharps', 'Ian Krouse', 11, undefined, undefined, 'north-america'],
+      ['Labyrinth on a Theme of Led Zeppelin', 'Ian Krouse', 8, 'pop', undefined, 'north-america'],
+      ['Thule', 'Ian Krouse', 10, undefined, undefined, 'north-america'],
+      ['The Walls', 'Fred Hand', 9, undefined, undefined, 'north-america'],
+      ['Chameleon', 'Matthew Dunne', 8, undefined, undefined, 'north-america'],
+      ['Pluck, Strum and Hammer', 'Bryan Johanson', 9, undefined, undefined, 'north-america']
+    ]
+  });
+
+  addGroupPack({
+    type: 'quartet', era: 'contemporary', difficulty: 'advanced', region: 'global', technique: 'voicing', mood: 'bright', source: 'original',
+    items: [
+      ['A Bolero in Saint-Louis', 'Laurent Méneret', 7],
+      ['Live Sound', 'Claudio Maccari', 8, undefined, undefined, 'italy'],
+      ['Ouverture', 'Luc Lévesque', 6],
+      ['Strummed Heat, Midnight Feet', 'Mark Houghton', 7, 'jazz-world'],
+      ['Rumba surprise', 'Thierry Tisserand', 6, 'jazz-world', undefined, 'france-uk'],
+      ['Starry Night', 'Philip Hemmo', 8, undefined, undefined, 'north-america'],
+      ['Sérénade', 'Laurent Méneret', 7],
+      ['Suite Western Cactustown', 'Luc Lévesque', 12, 'film'],
+      ['Le navire de Bayonne', 'Traditional / Varié', 5, 'jazz-world', undefined, 'france-uk', 'transcription'],
+      ['Prélude, Op. 18', 'César Franck', 5, undefined, 'romantic', 'france-uk', 'transcription']
+    ]
+  });
+
+  addGroupPack({
+    type: 'quartet', era: 'baroque', difficulty: 'advanced', region: 'central-europe', technique: 'counterpoint', mood: 'dramatic', source: 'transcription',
+    items: [
+      ['Toccata and Fugue in D minor, BWV 565', 'J. S. Bach', 9],
+      ['Little Fugue in G minor, BWV 578', 'J. S. Bach', 5],
+      ['Italian Concerto, BWV 971', 'J. S. Bach', 13],
+      ['Spring from The Four Seasons, RV 269', 'Antonio Vivaldi', 10, undefined, undefined, 'italy'],
+      ['Arrival of the Queen of Sheba', 'G. F. Handel', 4],
+      ['Eine kleine Nachtmusik, K. 525', 'W. A. Mozart', 16, undefined, 'classical'],
+      ['The Marriage of Figaro Overture, K. 492', 'W. A. Mozart', 5, undefined, 'classical'],
+      ['William Tell Overture', 'Gioachino Rossini', 8, undefined, 'romantic', 'italy'],
+      ['Largo from String Quartet “American”', 'Antonín Dvořák', 7, undefined, 'romantic'],
+      ['Hungarian Dance No. 5', 'Johannes Brahms', 4, undefined, 'romantic']
+    ]
+  });
+
+  addGroupPack({
+    type: 'quartet', era: 'modern', difficulty: 'advanced', region: 'global', technique: 'rhythm', mood: 'dance', source: 'transcription',
+    items: [
+      ['Four, for Tango', 'Astor Piazzolla', 7, 'jazz-world', 'contemporary', 'latin-america'],
+      ['Primavera Porteña', 'Astor Piazzolla', 6, 'jazz-world', 'contemporary', 'latin-america'],
+      ['Libertango', 'Astor Piazzolla', 4, 'jazz-world', 'contemporary', 'latin-america'],
+      ['Spanish Dance No. 1 from La vida breve', 'Manuel de Falla', 4, undefined, undefined, 'spain'],
+      ['Ritual Fire Dance', 'Manuel de Falla', 5, undefined, undefined, 'spain'],
+      ['Pavane pour une infante défunte', 'Maurice Ravel', 6, undefined, undefined, 'france-uk'],
+      ['Petite Suite', 'Claude Debussy', 13, undefined, undefined, 'france-uk'],
+      ['Waltz No. 2', 'Dmitri Shostakovich', 4, undefined, undefined, 'central-europe'],
+      ['Merry-Go-Round of Life', 'Joe Hisaishi', 5, 'anime', 'contemporary', 'asia'],
+      ['Bohemian Rhapsody', 'Queen', 6, 'pop', 'contemporary', 'global']
+    ]
+  });
+
   // Only songs with an explicitly identified classical/nylon-string performance receive this badge and direct video.
   const verifiedPerformances = new Map([
     ['APT.','gmGvPlvpmRY'],
@@ -261,6 +398,6 @@
   });
 
   catalog.forEach((work, index) => { work.id = `work-${String(index + 1).padStart(3, '0')}`; });
-  if (catalog.length !== 600) console.warn(`Expected 600 works, found ${catalog.length}`);
+  if (catalog.length !== 680) console.warn(`Expected 680 works, found ${catalog.length}`);
   window.repertoireCatalog = catalog;
 })();

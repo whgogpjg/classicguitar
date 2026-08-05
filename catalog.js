@@ -5,7 +5,7 @@
   document.head.append(stylesheet);
   document.title = '클래식 기타 레퍼토리 파인더 — Aria';
   const description = document.querySelector('meta[name="description"]');
-  if (description) description.content = '600곡을 편성, 장르, 발표 시기, 난이도, 지역, 기법, 분위기와 연주 시간으로 찾는 클래식 기타 레퍼토리';
+  if (description) description.content = '680곡을 편성, 장르, 발표 시기, 난이도, 지역, 기법, 분위기와 연주 시간으로 찾는 클래식 기타 레퍼토리';
 
   const labels = {
     type: {solo:'솔로', duo:'듀오', trio:'트리오', quartet:'콰르텟', ensemble:'중주'},
