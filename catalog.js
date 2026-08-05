@@ -5,7 +5,7 @@
   document.head.append(stylesheet);
   document.title = '클래식 기타 레퍼토리 파인더 — Aria';
   const description = document.querySelector('meta[name="description"]');
-  if (description) description.content = '680곡을 조건별로 찾고 연주 영상과 무료 원전·정식 출판 악보 출처를 확인하는 클래식 기타 레퍼토리';
+  if (description) description.content = '750곡을 조건별로 찾고 연주 영상과 무료 원전·정식 출판 악보 출처를 확인하는 클래식 기타 레퍼토리';
 
   const labels = {
     type: {solo:'솔로', duo:'듀오', trio:'트리오', quartet:'콰르텟', ensemble:'중주'},
@@ -16,7 +16,7 @@
     mood: {lyrical:'서정적', dance:'춤곡풍', meditative:'명상적', dramatic:'극적', bright:'밝음', dark:'어두움'},
     duration: {short:'5분 이하', medium:'6–10분', long:'11분 이상'},
     source: {original:'기타 원곡', transcription:'편곡·전사'},
-    genre: {classical:'클래식 기타', film:'영화 음악', screen:'TV·뮤지컬', game:'게임 음악', anime:'애니·지브리', pop:'팝·록 명곡', 'recent-pop':'컨템퍼러리 팝', kpop:'K-pop·한국', 'jazz-world':'재즈·월드'},
+    genre: {classical:'클래식 기타', crossover:'세미클래식·크로스오버', film:'영화 음악', screen:'TV·뮤지컬', game:'게임 음악', anime:'애니·지브리', pop:'팝·록 명곡', 'recent-pop':'컨템퍼러리 팝', kpop:'K-pop·한국', 'jazz-world':'재즈·월드'},
     release: {recent:'2020년 이후', millennium:'2000–2019', legacy:'2000년 이전'},
     status: {core:'기타 레퍼토리', arrangement:'클래식 기타 편곡', verified:'클래식 기타 연주 영상 확인'}
   };
@@ -231,6 +231,10 @@
       if (preset === 'screen') state.genre = controls.genre.value = 'film';
       if (preset === 'game') state.genre = controls.genre.value = 'game';
       if (preset === 'kpop') state.genre = controls.genre.value = 'kpop';
+      if (preset === 'duo-film') { state.type = 'duo'; state.genre = controls.genre.value = 'film'; }
+      if (preset === 'duo-crossover') { state.type = 'duo'; state.genre = controls.genre.value = 'crossover'; }
+      if (preset === 'duo-pop') { state.type = 'duo'; state.genre = controls.genre.value = 'pop'; }
+      if (preset === 'duo-korean') { state.type = 'duo'; state.genre = controls.genre.value = 'kpop'; }
       render();
       document.querySelector('#library')?.scrollIntoView({behavior:'smooth', block:'start'});
     }));

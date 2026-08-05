@@ -241,6 +241,100 @@
     ]
   });
 
+  addDuoPack({
+    era: 'contemporary', difficulty: 'intermediate', region: 'global', technique: 'voicing', mood: 'lyrical', source: 'transcription', genre: 'film',
+    items: [
+      ['Minor Swing', 'Django Reinhardt & Stéphane Grappelli', 4, 'jazz-world'],
+      ['Game of Thrones Main Title', 'Ramin Djawadi', 4, 'screen'],
+      ['The Pink Panther Theme', 'Henry Mancini', 3],
+      ['Maria from West Side Story', 'Leonard Bernstein', 4, 'screen'],
+      ['Mambo from West Side Story', 'Leonard Bernstein', 3, 'screen'],
+      ['I Feel Pretty from West Side Story', 'Leonard Bernstein', 3, 'screen'],
+      ['Somewhere from West Side Story', 'Leonard Bernstein', 4, 'screen'],
+      ['America from West Side Story', 'Leonard Bernstein', 5, 'screen'],
+      ["Theme from Schindler's List", 'John Williams', 5],
+      ['Canción del Mariachi', 'César Rosas', 3],
+      ['Love Theme from Cinema Paradiso', 'Ennio Morricone', 4],
+      ['Once Upon a Time in the West', 'Ennio Morricone', 5],
+      ['Playing Love', 'Ennio Morricone', 4],
+      ["Deborah's Theme", 'Ennio Morricone', 5],
+      ['Speak Softly, Love', 'Nino Rota', 4],
+      ['Love Theme from Romeo and Juliet', 'Nino Rota', 4],
+      ['Somewhere in Time', 'John Barry', 4],
+      ['Merry Christmas Mr. Lawrence', 'Ryuichi Sakamoto', 5],
+      ["Comptine d'un autre été", 'Yann Tiersen', 3],
+      ['Concerning Hobbits', 'Howard Shore', 4]
+    ]
+  });
+
+  addDuoPack({
+    era: 'modern', difficulty: 'intermediate', region: 'global', technique: 'voicing', mood: 'meditative', source: 'transcription', genre: 'crossover',
+    items: [
+      ['Canon in D', 'Johann Pachelbel', 5, undefined, 'baroque', 'central-europe'],
+      ['Air on the G String, BWV 1068', 'J. S. Bach', 5, undefined, 'baroque', 'central-europe'],
+      ['Jesu, Joy of Man’s Desiring, BWV 147', 'J. S. Bach', 4, undefined, 'baroque', 'central-europe'],
+      ['Ave Maria, D. 839', 'Franz Schubert', 5, undefined, 'romantic', 'central-europe'],
+      ['Ave Maria', 'J. S. Bach / Charles Gounod', 5, undefined, 'romantic', 'france-uk'],
+      ['Gymnopédie No. 1', 'Erik Satie', 4, undefined, 'modern', 'france-uk'],
+      ['Gnossienne No. 1', 'Erik Satie', 4, undefined, 'modern', 'france-uk'],
+      ['The Swan', 'Camille Saint-Saëns', 4, undefined, 'romantic', 'france-uk'],
+      ['Méditation from Thaïs', 'Jules Massenet', 5, undefined, 'romantic', 'france-uk'],
+      ["Salut d'Amour, Op. 12", 'Edward Elgar', 4, undefined, 'romantic', 'france-uk'],
+      ['Sicilienne, Op. 78', 'Gabriel Fauré', 4, undefined, 'romantic', 'france-uk'],
+      ['Csárdás', 'Vittorio Monti', 5, undefined, 'romantic', 'italy'],
+      ['Nella Fantasia', 'Ennio Morricone', 4],
+      ['River Flows in You', 'Yiruma', 4, undefined, 'contemporary', 'asia'],
+      ['Kiss the Rain', 'Yiruma', 4, undefined, 'contemporary', 'asia']
+    ]
+  });
+
+  addDuoPack({
+    era: 'contemporary', difficulty: 'intermediate', region: 'global', technique: 'rhythm', mood: 'bright', source: 'transcription', genre: 'pop',
+    items: [
+      ['Day Tripper', 'The Beatles', 3],
+      ['Come Together', 'The Beatles', 4],
+      ['Sweet Home Alabama', 'Lynyrd Skynyrd', 5],
+      ['Mad World', 'Roland Orzabal', 4],
+      ['Light My Fire', 'The Doors', 5],
+      ['Yesterday', 'The Beatles', 3],
+      ['Here Comes the Sun', 'The Beatles', 4],
+      ['Eleanor Rigby', 'The Beatles', 3],
+      ['Norwegian Wood', 'The Beatles', 3],
+      ['Shape of My Heart', 'Sting & Dominic Miller', 5],
+      ['Fragile', 'Sting', 4],
+      ['Tears in Heaven', 'Eric Clapton & Will Jennings', 5],
+      ['Hotel California', 'Don Felder, Don Henley & Glenn Frey', 6],
+      ['Stairway to Heaven', 'Jimmy Page & Robert Plant', 7],
+      ['The Sound of Silence', 'Paul Simon', 4],
+      ['Scarborough Fair / Canticle', 'Traditional / Paul Simon', 4],
+      ['Hallelujah', 'Leonard Cohen', 5],
+      ['Nothing Else Matters', 'James Hetfield & Lars Ulrich', 6],
+      ['Every Breath You Take', 'Sting', 4],
+      ['Sultans of Swing', 'Mark Knopfler', 6]
+    ]
+  });
+
+  addDuoPack({
+    era: 'contemporary', difficulty: 'intermediate', region: 'asia', technique: 'voicing', mood: 'lyrical', source: 'transcription', genre: 'kpop',
+    items: [
+      ['서른 즈음에', '강승원 / 김광석', 5],
+      ['사랑했지만', '한동준 / 김광석', 5],
+      ['바람이 불어오는 곳', '김광석', 4],
+      ['이등병의 편지', '김현성 / 김광석', 5],
+      ['어느 60대 노부부 이야기', '김목경 / 김광석', 6],
+      ['옛사랑', '이영훈 / 이문세', 5],
+      ['광화문 연가', '이영훈 / 이문세', 5],
+      ['붉은 노을', '이영훈 / 이문세', 4],
+      ['가로수 그늘 아래 서면', '이영훈 / 이문세', 5],
+      ['그대 내 품에', '유재하', 5],
+      ['사랑하기 때문에', '유재하', 5],
+      ['제주도의 푸른 밤', '최성원', 4],
+      ['걱정 말아요 그대', '전인권', 5],
+      ['너의 의미', '김창완 / 산울림', 4],
+      ['인연', '이선희', 5]
+    ]
+  });
+
   const addGroupPack = ({ type, era, difficulty, region, technique, mood, source, genre = 'classical', items }) => {
     items.forEach(([title, composer, duration, itemGenre = genre, itemEra = era, itemRegion = region, itemSource = source]) => catalog.push({
       type, era: itemEra, difficulty, region: itemRegion, technique, mood, source: itemSource,
@@ -398,6 +492,6 @@
   });
 
   catalog.forEach((work, index) => { work.id = `work-${String(index + 1).padStart(3, '0')}`; });
-  if (catalog.length !== 680) console.warn(`Expected 680 works, found ${catalog.length}`);
+  if (catalog.length !== 750) console.warn(`Expected 750 works, found ${catalog.length}`);
   window.repertoireCatalog = catalog;
 })();
