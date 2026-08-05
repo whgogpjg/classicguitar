@@ -5,7 +5,7 @@
   document.head.append(stylesheet);
   document.title = '클래식 기타 레퍼토리 파인더 — Aria';
   const description = document.querySelector('meta[name="description"]');
-  if (description) description.content = '200곡을 편성, 시대, 난이도, 지역, 기법, 분위기, 연주 시간으로 찾는 클래식 기타 레퍼토리';
+  if (description) description.content = '520곡을 편성, 장르, 발표 시기, 난이도, 지역, 기법, 분위기와 연주 시간으로 찾는 클래식 기타 레퍼토리';
 
   const labels = {
     type: {solo:'솔로', duo:'듀오', trio:'트리오', quartet:'콰르텟', ensemble:'중주'},
@@ -15,9 +15,12 @@
     technique: {arpeggio:'아르페지오', tremolo:'트레몰로', counterpoint:'대위법', scales:'스케일', slurs:'슬러', harmonics:'하모닉스', rhythm:'리듬', percussion:'타악적 주법', voicing:'성부 표현'},
     mood: {lyrical:'서정적', dance:'춤곡풍', meditative:'명상적', dramatic:'극적', bright:'밝음', dark:'어두움'},
     duration: {short:'5분 이하', medium:'6–10분', long:'11분 이상'},
-    source: {original:'기타 원곡', transcription:'편곡·전사'}
+    source: {original:'기타 원곡', transcription:'편곡·전사'},
+    genre: {classical:'클래식 기타', film:'영화 음악', screen:'TV·뮤지컬', game:'게임 음악', anime:'애니·지브리', pop:'팝·록 명곡', 'recent-pop':'컨템퍼러리 팝', kpop:'K-pop·한국', 'jazz-world':'재즈·월드'},
+    release: {recent:'2020년 이후', millennium:'2000–2019', legacy:'2000년 이전'},
+    status: {core:'기타 레퍼토리', popular:'인기 편곡', recent:'최신곡 · 편곡 탐색'}
   };
-  const filterKeys = ['era','difficulty','region','technique','mood','duration','source'];
+  const filterKeys = ['genre','release','era','difficulty','region','technique','mood','duration','source'];
   const difficultyOrder = {beginner:0, intermediate:1, advanced:2, virtuoso:3};
   const fold = value => String(value).toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
@@ -27,7 +30,7 @@
     const search = document.querySelector('#piece-search');
     if (!grid || !search || !works.length) return;
 
-    const state = {type:'all', era:'all', difficulty:'all', region:'all', technique:'all', mood:'all', duration:'all', source:'all', sort:'recommended'};
+    const state = {type:'all', genre:'all', release:'all', era:'all', difficulty:'all', region:'all', technique:'all', mood:'all', duration:'all', source:'all', sort:'recommended'};
     let visible = 24;
     const controls = Object.fromEntries(filterKeys.map(key => [key, document.querySelector(`#piece-${key}`)]));
     const sortControl = document.querySelector('#piece-sort');
@@ -56,13 +59,21 @@
       return band === 'all' || (band === 'short' && minutes <= 5) || (band === 'medium' && minutes >= 6 && minutes <= 10) || (band === 'long' && minutes >= 11);
     }
 
+    function releaseMatches(year, band) {
+      if (band === 'all') return true;
+      if (!year) return band === 'legacy';
+      return (band === 'recent' && year >= 2020) || (band === 'millennium' && year >= 2000 && year <= 2019) || (band === 'legacy' && year < 2000);
+    }
+
     function getResults() {
       const term = fold(search.value.trim());
       const filtered = works.filter(work => {
         const typeMatch = state.type === 'all' || work.type === state.type || (state.type === 'ensemble' && work.type !== 'solo');
         const eraMatch = state.era === 'all' || work.era === state.era || (state.era === 'modern-plus' && ['modern','contemporary'].includes(work.era));
-        const text = fold(`${work.title} ${work.composer} ${labels.era[work.era]} ${labels.region[work.region]} ${labels.technique[work.technique]}`);
+        const text = fold(`${work.title} ${work.composer} ${work.year || ''} ${labels.genre[work.genre]} ${labels.era[work.era]} ${labels.region[work.region]} ${labels.technique[work.technique]}`);
         return typeMatch && eraMatch &&
+          (state.genre === 'all' || work.genre === state.genre) &&
+          releaseMatches(work.year, state.release) &&
           (state.difficulty === 'all' || work.difficulty === state.difficulty) &&
           (state.region === 'all' || work.region === state.region) &&
           (state.technique === 'all' || work.technique === state.technique) &&
@@ -76,6 +87,7 @@
         if (state.sort === 'composer') return a.composer.localeCompare(b.composer, 'en');
         if (state.sort === 'duration') return a.duration - b.duration || a.title.localeCompare(b.title, 'ko');
         if (state.sort === 'difficulty') return difficultyOrder[a.difficulty] - difficultyOrder[b.difficulty] || a.title.localeCompare(b.title, 'ko');
+        if (state.sort === 'newest') return (b.year || 0) - (a.year || 0) || a.title.localeCompare(b.title, 'ko');
         return Number(a.id.slice(-3)) - Number(b.id.slice(-3));
       });
     }
@@ -101,9 +113,10 @@
         ? `<button class="play-circle play-video" data-video="${work.video}" data-title="${work.title} — ${work.composer}" aria-label="${work.title} 영상 재생">▶</button>`
         : `<button class="play-circle search-youtube" data-query="${work.query}" aria-label="${work.title} YouTube에서 찾기">↗</button>`;
       return `<article class="piece-card catalog-card ${work.video ? 'has-video' : ''}" ${thumb}>
-        <div class="piece-meta"><span>${String(index + 1).padStart(3, '0')} · ${labels.type[work.type]}</span><span>${labels.era[work.era]}</span></div>
+        <div class="piece-meta"><span>${String(index + 1).padStart(3, '0')} · ${labels.type[work.type]}</span><span>${work.year || labels.era[work.era]}</span></div>
         <h3>${work.title}</h3><p class="composer">${work.composer}</p>
-        <div class="catalog-tags"><span>${labels.difficulty[work.difficulty]}</span><span>${labels.region[work.region]}</span><span>${labels.technique[work.technique]}</span><span>${labels.mood[work.mood]}</span></div>
+        <div class="catalog-status ${work.status || 'core'}">${labels.status[work.status || 'core']}</div>
+        <div class="catalog-tags"><span>${labels.genre[work.genre]}</span><span>${labels.difficulty[work.difficulty]}</span><span>${labels.technique[work.technique]}</span><span>${labels.mood[work.mood]}</span></div>
         <div class="piece-bottom"><span>약 ${work.duration}분 · ${labels.source[work.source]}</span>${action}</div>
       </article>`;
     }
@@ -123,7 +136,7 @@
     }
 
     function reset({keepSearch = false} = {}) {
-      Object.assign(state, {type:'all', era:'all', difficulty:'all', region:'all', technique:'all', mood:'all', duration:'all', source:'all', sort:'recommended'});
+      Object.assign(state, {type:'all', genre:'all', release:'all', era:'all', difficulty:'all', region:'all', technique:'all', mood:'all', duration:'all', source:'all', sort:'recommended'});
       if (!keepSearch) search.value = '';
       filterKeys.forEach(key => { if (controls[key]) controls[key].value = 'all'; });
       if (sortControl) sortControl.value = 'recommended';
@@ -153,6 +166,10 @@
       if (preset === 'ensemble') state.type = 'ensemble';
       if (preset === 'modern') state.era = controls.era.value = 'modern-plus';
       if (preset === 'short') state.duration = controls.duration.value = 'short';
+      if (preset === 'recent') state.release = controls.release.value = 'recent';
+      if (preset === 'screen') state.genre = controls.genre.value = 'film';
+      if (preset === 'game') state.genre = controls.genre.value = 'game';
+      if (preset === 'kpop') state.genre = controls.genre.value = 'kpop';
       render();
       document.querySelector('#library')?.scrollIntoView({behavior:'smooth', block:'start'});
     }));
