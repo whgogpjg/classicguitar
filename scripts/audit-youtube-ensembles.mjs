@@ -1,0 +1,363 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import vm from 'node:vm';
+
+const root = path.resolve(import.meta.dirname, '..');
+const options = Object.fromEntries(process.argv.slice(2).map(argument => {
+  const [key, value = 'true'] = argument.replace(/^--/, '').split('=');
+  return [key, value];
+}));
+const threshold = Number(options.threshold || 2);
+const concurrency = Number(options.concurrency || 4);
+const maxQueries = Number(options['max-queries'] || 2);
+const requestTimeout = Number(options.timeout || 5000);
+const limit = Number(options.limit || 0);
+const requestedTypes = new Set((options.types || 'duo,trio,quartet').split(','));
+const outputPath = path.resolve(root, options.output || 'ensemble-youtube-audit.json');
+const dataPath = path.resolve(root, options.data || 'ensemble-verification-data.js');
+
+const context = {window: {}, console};
+vm.createContext(context);
+for (const filename of ['repertoire-data.js', 'repertoire-expansion.js']) {
+  vm.runInContext(fs.readFileSync(path.join(root, filename), 'utf8'), context, {filename});
+}
+
+const keyFor = work => `${work.type}|${work.title}|${work.composer}`;
+const normalize = value => String(value || '')
+  .normalize('NFKD')
+  .replace(/[\u0300-\u036f]/g, '')
+  .replace(/[’‘`]/g, "'")
+  .toLocaleLowerCase();
+
+const stopwords = new Set([
+  'the','and','from','with','for','in','of','on','no','op','bwv','rv','major','minor','movement',
+  'suite','concerto','sonata','prelude','fugue','dance','theme','spanish','version','arrangement','arr',
+  'duo','duet','trio','quartet','serenade',
+  'classical','guitar','guitars','de','del','la','las','el','los','le','les','un','une','aus','et','en',
+  'air','song','music','complete','excerpt','발췌'
+]);
+
+function titleTokens(title) {
+  return [...normalize(title).matchAll(/[\p{L}\p{N}]+/gu)]
+    .map(match => match[0])
+    .filter(token => token.length >= 3 && !stopwords.has(token) && !/^\d+$/.test(token));
+}
+
+function catalogueReferences(title) {
+  return [...normalize(title).matchAll(/\b(?:bwv|rv|k|op)\.?\s*\d+(?:\s*(?:no\.?)\s*\d+)?/g)]
+    .map(match => match[0].replace(/[.\s]/g, ''));
+}
+
+function compactWords(value) {
+  return [...normalize(value).matchAll(/[\p{L}\p{N}]+/gu)].map(match => match[0]).join(' ');
+}
+
+function composerTokens(composer) {
+  return [...normalize(composer).matchAll(/[\p{L}]+/gu)]
+    .map(match => match[0])
+    .filter(token => token.length >= 3 && !['traditional','anonymous','arrangement','johnann','maria','the'].includes(token));
+}
+
+const ensemblePatterns = {
+  duo: [
+    /\uae30\ud0c0.{0,8}(\ub4c0\uc624|2\s*\uc911\uc8fc|\uc774\uc911\uc8fc)/,
+    /(\ub4c0\uc624|2\s*\uc911\uc8fc|\uc774\uc911\uc8fc).{0,12}\uae30\ud0c0/,
+    /\u30ae\u30bf\u30fc.{0,8}(2\s*\u91cd\u594f|\u4e8c\u91cd\u594f|\u30c7\u30e5\u30aa)/,
+    /(2\s*\u91cd\u594f|\u4e8c\u91cd\u594f|\u30c7\u30e5\u30aa).{0,12}\u30ae\u30bf\u30fc/,
+    /altius duo|quantum guitar duo|kupinski guitar duo/,
+    /\bguitar\s*(duo|duet)\b/, /\b(duo|duet)\s*(for|of|de|di|para)?\s*guitars?\b/,
+    /\b(two|2)\s+(classical\s+)?guitars?\b/, /guitarrenduo/, /duo\s+de\s+guitarr/,
+    /duo\s+de\s+viol/, /dos\s+guitarr/, /due\s+chitarr/, /duo\s+de\s+guitares?/,
+    /기타\s*(듀오|2\s*중주|이중주)/, /(듀오|2\s*중주|이중주).{0,12}기타/,
+    /katona twins|assad brothers|beijing guitar duo|eden stell|duo melis|soloduo|solo duo|siquiera lima|grigoryan brothers|presti.{0,8}lagoya|폴리포니\s*기타\s*듀오/
+  ],
+  trio: [
+    /\uae30\ud0c0.{0,8}(\ud2b8\ub9ac\uc624|3\s*\uc911\uc8fc|\uc0bc\uc911\uc8fc)/,
+    /(\ud2b8\ub9ac\uc624|3\s*\uc911\uc8fc|\uc0bc\uc911\uc8fc).{0,12}\uae30\ud0c0/,
+    /\u30ae\u30bf\u30fc.{0,8}(3\s*\u91cd\u594f|\u4e09\u91cd\u594f|\u30c8\u30ea\u30aa)/,
+    /(3\s*\u91cd\u594f|\u4e09\u91cd\u594f|\u30c8\u30ea\u30aa).{0,12}\u30ae\u30bf\u30fc/,
+    /\bguitar\s*trio\b/, /\btrio\s*(for|of|de|di|para)?\s*guitars?\b/,
+    /\b(three|3)\s+(classical\s+)?guitars?\b/, /gitarrentrio/, /trio\s+de\s+guitarr/,
+    /trio\s+de\s+viol/, /tres\s+guitarr/, /tre\s+chitarr/, /trio\s+de\s+guitares?/,
+    /기타\s*(트리오|3\s*중주|삼중주)/, /(트리오|3\s*중주|삼중주).{0,12}기타/,
+    /amsterdam guitar trio|california guitar trio|trio con brio/
+  ],
+  quartet: [
+    /\uae30\ud0c0.{0,8}(\ucf70\ub974\ud14b|\ucffc\ud14b|4\s*\uc911\uc8fc|\uc0ac\uc911\uc8fc)/,
+    /(\ucf70\ub974\ud14b|\ucffc\ud14b|4\s*\uc911\uc8fc|\uc0ac\uc911\uc8fc).{0,12}\uae30\ud0c0/,
+    /\u30ae\u30bf\u30fc.{0,8}(4\s*\u91cd\u594f|\u56db\u91cd\u594f|\u30ab\u30eb\u30c6\u30c3\u30c8)/,
+    /(4\s*\u91cd\u594f|\u56db\u91cd\u594f|\u30ab\u30eb\u30c6\u30c3\u30c8).{0,12}\u30ae\u30bf\u30fc/,
+    /\bguitar\s*quartet\b/, /\bquartet\s*(for|of|de|di|para)?\s*guitars?\b/,
+    /\b(four|4)\s+(classical\s+)?guitars?\b/, /gitarrenquartett/, /quarteto\s+de\s+guitarr/,
+    /quarteto\s+de\s+viol/, /cuarteto\s+de\s+guitarr/, /quattro\s+chitarr/, /quatuor\s+de\s+guitares?/,
+    /기타\s*(콰르텟|쿼텟|4\s*중주|사중주)/, /(콰르텟|쿼텟|4\s*중주|사중주).{0,12}기타/,
+    /los angeles guitar quartet|brazilian guitar quartet|canadian guitar quartet|aquarelle guitar quartet|\blagq\b|\bbgq\b/
+  ]
+};
+
+const excludedPatterns = /sheet\s*music|score|tutorial|lesson|how\s+to|play\s+along|backing\s+track|midi|synthesia|tablature|\btab\b|악보|레슨|강좌|반주/;
+
+function extractInitialData(html) {
+  const markers = ['var ytInitialData = ', 'ytInitialData = '];
+  let markerIndex = -1;
+  for (const marker of markers) {
+    markerIndex = html.indexOf(marker);
+    if (markerIndex >= 0) break;
+  }
+  if (markerIndex < 0) return null;
+  const start = html.indexOf('{', markerIndex);
+  if (start < 0) return null;
+  let depth = 0;
+  let inString = false;
+  let escaped = false;
+  for (let index = start; index < html.length; index += 1) {
+    const char = html[index];
+    if (inString) {
+      if (escaped) escaped = false;
+      else if (char === '\\') escaped = true;
+      else if (char === '"') inString = false;
+      continue;
+    }
+    if (char === '"') inString = true;
+    else if (char === '{') depth += 1;
+    else if (char === '}') {
+      depth -= 1;
+      if (depth === 0) return JSON.parse(html.slice(start, index + 1));
+    }
+  }
+  return null;
+}
+
+function textFrom(node) {
+  if (!node) return '';
+  if (typeof node.simpleText === 'string') return node.simpleText;
+  return Array.isArray(node.runs) ? node.runs.map(run => run.text || '').join('') : '';
+}
+
+function collectVideos(rootNode) {
+  const videos = [];
+  const seenNodes = new Set();
+  const visit = node => {
+    if (!node || typeof node !== 'object' || seenNodes.has(node)) return;
+    seenNodes.add(node);
+    if (node.videoRenderer?.videoId) {
+      const video = node.videoRenderer;
+      videos.push({
+        id: video.videoId,
+        title: textFrom(video.title),
+        channel: textFrom(video.ownerText) || textFrom(video.longBylineText),
+        duration: textFrom(video.lengthText),
+        published: textFrom(video.publishedTimeText)
+      });
+    }
+    for (const value of Object.values(node)) visit(value);
+  };
+  visit(rootNode);
+  return [...new Map(videos.map(video => [video.id, video])).values()];
+}
+
+async function youtubeSearch(query) {
+  const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}&sp=EgIQAQ%253D%253D`;
+  for (let attempt = 0; attempt < 1; attempt += 1) {
+    try {
+      const response = await fetch(url, {
+        headers: {
+          'accept-language': 'en-US,en;q=0.9,ko;q=0.8',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/136 Safari/537.36',
+          cookie: 'CONSENT=YES+cb.20210328-17-p0.en+FX+410'
+        },
+        signal: AbortSignal.timeout(requestTimeout)
+      });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const data = extractInitialData(await response.text());
+      if (data) return collectVideos(data);
+    } catch (error) {
+      throw error;
+    }
+    await new Promise(resolve => setTimeout(resolve, 350 * (attempt + 1)));
+  }
+  return [];
+}
+
+function qualifies(work, video) {
+  const title = normalize(video.title);
+  const configurationText = `${title} ${normalize(video.channel)}`;
+  if (!title || excludedPatterns.test(title)) return false;
+  if (/me\s+and\s+myself|one[-\s]man|multitrack|split[-\s]screen/.test(title)) return false;
+  if (!ensemblePatterns[work.type].some(pattern => pattern.test(configurationText))) return false;
+  const tokens = titleTokens(work.title);
+  const matchedTokens = tokens.filter(token => title.includes(token));
+  const references = catalogueReferences(work.title);
+  const candidateReferenceText = normalize(video.title).replace(/[.\s]/g, '');
+  const mustMatchReference = references.length > 0 && tokens.length === 0;
+  const referencesMatch = !mustMatchReference || references.every(reference => candidateReferenceText.includes(reference));
+  if (!referencesMatch) return false;
+  const composerMatch = composerTokens(work.composer).some(token => configurationText.includes(token));
+  const exactTitleMatch = compactWords(video.title).includes(compactWords(work.title));
+  if (tokens.length === 0) return references.length > 0 && composerMatch;
+  const enoughTitleTokens = matchedTokens.length >= Math.min(3, tokens.length);
+  return enoughTitleTokens && (composerMatch || exactTitleMatch);
+}
+
+function qualifiedVideos(work, candidates) {
+  const channels = new Set();
+  const videos = [];
+  for (const video of candidates) {
+    if (!qualifies(work, video)) continue;
+    const channelKey = normalize(video.channel).replace(/\s+-\s+topic$/, '') || video.id;
+    if (channels.has(channelKey)) continue;
+    channels.add(channelKey);
+    videos.push(video);
+    if (videos.length >= 4) break;
+  }
+  return videos;
+}
+
+function queriesFor(work) {
+  const base = `"${work.title}" ${work.composer}`;
+  const refinedPhrases = {
+    duo: ['"guitar duo"', '"two guitars"', '\uae30\ud0c0 2\uc911\uc8fc \u30ae\u30bf\u30fc2\u91cd\u594f'],
+    trio: ['"guitar trio"', '"three guitars"', '\uae30\ud0c0 3\uc911\uc8fc \u30ae\u30bf\u30fc3\u91cd\u594f'],
+    quartet: ['"guitar quartet"', '"four guitars"', '\uae30\ud0c0 4\uc911\uc8fc \u30ae\u30bf\u30fc4\u91cd\u594f']
+  };
+  return refinedPhrases[work.type].slice(0, maxQueries).map(phrase => `${base} ${phrase}`);
+  /* Kept below for audit-history readability; unreachable after the refined query set. */
+  const phrases = {
+    duo: ['classical guitar duo guitar duet 기타 2중주', 'two guitars guitar duo 기타 듀오'],
+    trio: ['classical guitar trio three guitars 기타 3중주', 'guitar trio 기타 트리오'],
+    quartet: ['classical guitar quartet four guitars 기타 4중주', 'guitar quartet 기타 콰르텟']
+  };
+  return phrases[work.type].slice(0, maxQueries).map(phrase => `${base} ${phrase}`);
+}
+
+async function auditWork(work) {
+  const candidates = new Map();
+  const searchedQueries = [];
+  let error = '';
+  for (const query of queriesFor(work)) {
+    if (qualifiedVideos(work, candidates.values()).length >= threshold) break;
+    searchedQueries.push(query);
+    try {
+      const videos = await youtubeSearch(query);
+      for (const video of videos) {
+        if (!candidates.has(video.id) && candidates.size < 36) candidates.set(video.id, video);
+      }
+    } catch (caught) {
+      error = caught.message;
+    }
+  }
+  const videos = qualifiedVideos(work, candidates.values()).map(video => ({
+    ...video,
+    url: `https://www.youtube.com/watch?v=${video.id}`
+  }));
+  return {
+    key: keyFor(work), type: work.type, title: work.title, composer: work.composer,
+    verified: videos.length >= threshold, evidenceCount: videos.length,
+    videos, candidates: [...candidates.values()], searchedQueries, error
+  };
+}
+
+async function runPool(items, workerCount, worker) {
+  const results = new Array(items.length);
+  let cursor = 0;
+  async function run() {
+    while (cursor < items.length) {
+      const index = cursor;
+      cursor += 1;
+      results[index] = await worker(items[index], index);
+      const done = results.filter(Boolean).length;
+      if (done % 10 === 0 || done === items.length) {
+        const verified = results.filter(result => result?.verified).length;
+        console.log(`[audit] ${done}/${items.length} checked, ${verified} verified`);
+      }
+    }
+  }
+  await Promise.all(Array.from({length: workerCount}, run));
+  return results;
+}
+
+const mergeReportPaths = (options['merge-reports'] || '').split(',').filter(Boolean);
+const sourceReports = mergeReportPaths.length
+  ? mergeReportPaths.map(filename => JSON.parse(fs.readFileSync(path.resolve(root, filename), 'utf8')))
+  : options['retry-errors-from']
+    ? [JSON.parse(fs.readFileSync(path.resolve(root, options['retry-errors-from']), 'utf8'))]
+    : [];
+const bestResult = (current, candidate) => {
+  if (!current) return candidate;
+  if (candidate.verified !== current.verified) return candidate.verified ? candidate : current;
+  if (candidate.evidenceCount !== current.evidenceCount) return candidate.evidenceCount > current.evidenceCount ? candidate : current;
+  if (Boolean(candidate.error) !== Boolean(current.error)) return candidate.error ? current : candidate;
+  return current;
+};
+const mergedSourceResults = new Map();
+for (const sourceReport of sourceReports) {
+  for (const result of sourceReport.results) {
+    mergedSourceResults.set(result.key, bestResult(mergedSourceResults.get(result.key), result));
+  }
+}
+const baseReport = sourceReports.length ? {results: [...mergedSourceResults.values()]} : null;
+let works = context.window.repertoireCatalog.filter(work => requestedTypes.has(work.type));
+if (baseReport) {
+  if (options['merge-only'] === 'true') works = [];
+  else {
+    const retryUnverified = options['retry-unverified'] === 'true';
+    const retryKeys = new Set(baseReport.results
+      .filter(result => !result.verified && (retryUnverified || result.error))
+      .map(result => result.key));
+    works = works.filter(work => retryKeys.has(keyFor(work)));
+  }
+}
+if (limit > 0) works = works.slice(0, limit);
+console.log(`[audit] checking ${works.length} works with threshold ${threshold}`);
+const auditedResults = await runPool(works, concurrency, auditWork);
+let results = baseReport ? (() => {
+  const merged = new Map(baseReport.results.map(result => [result.key, result]));
+  for (const result of auditedResults) merged.set(result.key, bestResult(merged.get(result.key), result));
+  return [...merged.values()];
+})() : auditedResults;
+if (options.rejudge === 'true') {
+  const worksByKey = new Map(context.window.repertoireCatalog.map(work => [keyFor(work), work]));
+  results = results.map(result => {
+    const work = worksByKey.get(result.key);
+    if (!work) return result;
+    const videos = qualifiedVideos(work, result.candidates || []).map(video => ({
+      ...video,
+      url: `https://www.youtube.com/watch?v=${video.id}`
+    }));
+    return {...result, videos, evidenceCount: videos.length, verified: videos.length >= threshold};
+  });
+}
+const verifiedResults = results.filter(result => result.verified);
+const report = {
+  generatedAt: new Date().toISOString(),
+  method: 'YouTube public search; title/composer and guitar configuration matched; at least 2 distinct channels; score, lesson, MIDI, backing track and solo multitrack excluded',
+  threshold,
+  searched: results.length,
+  verified: verifiedResults.length,
+  rejected: results.length - verifiedResults.length,
+  byType: Object.fromEntries([...requestedTypes].map(type => {
+    const typed = results.filter(result => result.type === type);
+    return [type, {searched: typed.length, verified: typed.filter(result => result.verified).length}];
+  })),
+  results
+};
+
+fs.mkdirSync(path.dirname(outputPath), {recursive: true});
+fs.writeFileSync(outputPath, `${JSON.stringify(report, null, 2)}\n`, 'utf8');
+console.log(`[audit] report written to ${path.relative(root, outputPath)}`);
+
+if (options['report-only'] !== 'true') {
+  const evidence = Object.fromEntries(verifiedResults.map(result => [result.key, result.videos]));
+  const clientData = `(() => {\n  const audit = ${JSON.stringify({
+    generatedAt: report.generatedAt,
+    threshold: report.threshold,
+    searched: report.searched,
+    verified: report.verified,
+    rejected: report.rejected,
+    byType: report.byType,
+    evidence
+  }, null, 2)};\n  const keyFor = work => \`${'${work.type}|${work.title}|${work.composer}'}\`;\n  const before = window.repertoireCatalog || [];\n  const after = before.filter(work => {\n    if (work.type === 'solo') return true;\n    const videos = audit.evidence[keyFor(work)] || [];\n    if (videos.length < audit.threshold) return false;\n    work.ensembleVideos = videos;\n    work.status = 'ensemble-verified';\n    work.video = videos[0].id;\n    return true;\n  });\n  after.forEach((work, index) => { work.id = \`work-${'${String(index + 1).padStart(3, \'0\')}'}\`; });\n  window.repertoireCatalog = after;\n  window.ensembleVerificationAudit = audit;\n})();\n`;
+  fs.mkdirSync(path.dirname(dataPath), {recursive: true});
+  fs.writeFileSync(dataPath, clientData, 'utf8');
+  console.log(`[audit] client data written to ${path.relative(root, dataPath)}`);
+}

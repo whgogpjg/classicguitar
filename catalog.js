@@ -5,7 +5,7 @@
   document.head.append(stylesheet);
   document.title = '클래식 기타 레퍼토리 파인더 — Aria';
   const description = document.querySelector('meta[name="description"]');
-  if (description) description.content = '750곡을 조건별로 찾고 연주 영상과 무료 원전·정식 출판 악보 출처를 확인하는 클래식 기타 레퍼토리';
+  if (description) description.content = '클래식 기타 레퍼토리를 조건별로 찾고, 검증된 중주 영상과 악보 출처를 확인하는 아카이브';
 
   const labels = {
     type: {solo:'솔로', duo:'듀오', trio:'트리오', quartet:'콰르텟', ensemble:'중주'},
@@ -18,7 +18,7 @@
     source: {original:'기타 원곡', transcription:'편곡·전사'},
     genre: {classical:'클래식 기타', crossover:'세미클래식·크로스오버', film:'영화 음악', screen:'TV·뮤지컬', game:'게임 음악', anime:'애니·지브리', pop:'팝·록 명곡', 'recent-pop':'컨템퍼러리 팝', kpop:'K-pop·한국', 'jazz-world':'재즈·월드'},
     release: {recent:'2020년 이후', millennium:'2000–2019', legacy:'2000년 이전'},
-    status: {core:'기타 레퍼토리', arrangement:'클래식 기타 편곡', verified:'클래식 기타 연주 영상 확인'}
+    status: {core:'기타 레퍼토리', arrangement:'클래식 기타 편곡', verified:'클래식 기타 연주 영상 확인', 'ensemble-verified':'편성 연주 2개 이상 확인'}
   };
   const filterKeys = ['genre','release','era','difficulty','region','technique','mood','duration','source'];
   const difficultyOrder = {beginner:0, intermediate:1, advanced:2, virtuoso:3};
@@ -90,6 +90,15 @@
     const search = document.querySelector('#piece-search');
     if (!grid || !search || !works.length) return;
 
+    const heroCount = document.querySelector('.repertoire-hero .chapter-meta span:first-child');
+    const finderEyebrow = document.querySelector('.repertoire .section-heading .eyebrow');
+    const finderCopy = document.querySelector('.repertoire .section-heading > p');
+    const noteCopy = document.querySelector('.catalog-note p');
+    if (heroCount) heroCount.textContent = `${works.length} CURATED WORKS`;
+    if (finderEyebrow) finderEyebrow.textContent = `${works.length} CURATED WORKS`;
+    if (finderCopy) finderCopy.textContent = `솔로 ${works.filter(work => work.type === 'solo').length}곡과 YouTube 다중 검증을 통과한 중주곡을 함께 찾습니다. 중주 카드는 판정에 사용한 실제 연주 링크를 제공합니다.`;
+    if (noteCopy) noteCopy.textContent = '중주는 곡명·작곡가와 기타 편성이 일치하는 실제 연주가 서로 다른 YouTube 채널 2곳 이상에서 확인된 곡만 등록합니다. 동일 채널 중복과 악보·MIDI·레슨·반주 영상은 제외했습니다. 각 카드의 검증 버튼에서 근거 영상을 직접 확인할 수 있습니다.';
+
     const state = {type:'all', genre:'all', release:'all', era:'all', difficulty:'all', region:'all', technique:'all', mood:'all', duration:'all', source:'all', sort:'recommended'};
     let visible = 24;
     const controls = Object.fromEntries(filterKeys.map(key => [key, document.querySelector(`#piece-${key}`)]));
@@ -113,6 +122,17 @@
     document.querySelectorAll('[data-type-count]').forEach(counter => {
       const type = counter.dataset.typeCount;
       counter.textContent = type === 'all' ? works.length : works.filter(work => work.type === type).length;
+    });
+
+    const presetHasResults = {
+      'duo-film': work => work.type === 'duo' && work.genre === 'film',
+      'duo-crossover': work => work.type === 'duo' && work.genre === 'crossover',
+      'duo-pop': work => work.type === 'duo' && work.genre === 'pop',
+      'duo-korean': work => work.type === 'duo' && work.genre === 'kpop'
+    };
+    document.querySelectorAll('[data-preset]').forEach(button => {
+      const test = presetHasResults[button.dataset.preset];
+      if (test) button.hidden = !works.some(test);
     });
 
     function durationMatches(minutes, band) {
@@ -173,12 +193,15 @@
         ? `<button class="play-circle play-video" data-video="${work.video}" data-title="${work.title} — ${work.composer}" aria-label="${work.title} 영상 재생">▶</button>`
         : `<button class="play-circle search-youtube" data-query="${work.query}" aria-label="${work.title} YouTube에서 찾기">↗</button>`;
       const scoreAction = `<button class="score-button open-score" data-score-id="${work.id}" aria-label="${work.title} 악보 찾기"><span aria-hidden="true">♩</span> 악보</button>`;
+      const evidenceAction = work.ensembleVideos?.length
+        ? `<button class="score-button open-evidence" data-evidence-id="${work.id}" aria-label="${work.title} 편성 검증 영상 보기"><span aria-hidden="true">▶</span> 검증 ${work.ensembleVideos.length}</button>`
+        : '';
       return `<article class="piece-card catalog-card ${work.video ? 'has-video' : ''}" ${thumb}>
         <div class="piece-meta"><span>${String(index + 1).padStart(3, '0')} · ${labels.type[work.type]}</span><span>${work.year || labels.era[work.era]}</span></div>
         <h3>${work.title}</h3><p class="composer">${work.composer}</p>
         <div class="catalog-status ${work.status || 'core'}">${labels.status[work.status || 'core']}</div>
         <div class="catalog-tags"><span>${labels.genre[work.genre]}</span><span>${labels.difficulty[work.difficulty]}</span><span>${labels.technique[work.technique]}</span><span>${labels.mood[work.mood]}</span></div>
-        <div class="piece-bottom"><span>약 ${work.duration}분 · ${labels.source[work.source]}</span><div class="piece-actions">${scoreAction}${action}</div></div>
+        <div class="piece-bottom"><span>약 ${work.duration}분 · ${labels.source[work.source]}</span><div class="piece-actions">${scoreAction}${evidenceAction}${action}</div></div>
       </article>`;
     }
 
@@ -254,6 +277,11 @@
     const scoreMeta = document.querySelector('#score-meta');
     const scoreLinks = document.querySelector('#score-links');
     const closeScore = () => { if (scoreModal?.open) scoreModal.close(); };
+    const evidenceModal = document.querySelector('#evidence-modal');
+    const evidenceTitle = document.querySelector('#evidence-title');
+    const evidenceMeta = document.querySelector('#evidence-meta');
+    const evidenceLinks = document.querySelector('#evidence-links');
+    const closeEvidence = () => { if (evidenceModal?.open) evidenceModal.close(); };
 
     document.addEventListener('click', event => {
       const trigger = event.target.closest('.open-score');
@@ -289,6 +317,38 @@
     });
     document.querySelector('#close-score-modal')?.addEventListener('click', closeScore);
     scoreModal?.addEventListener('click', event => { if (event.target === scoreModal) closeScore(); });
+
+    document.addEventListener('click', event => {
+      const trigger = event.target.closest('.open-evidence');
+      if (!trigger || !evidenceModal || !evidenceLinks) return;
+      const work = works.find(item => item.id === trigger.dataset.evidenceId);
+      if (!work?.ensembleVideos?.length) return;
+      if (evidenceTitle) evidenceTitle.textContent = `${work.title} — ${work.composer}`;
+      if (evidenceMeta) evidenceMeta.textContent = `${labels.type[work.type]} 연주로 확인된 서로 다른 채널 ${work.ensembleVideos.length}곳`;
+      const nodes = work.ensembleVideos.map((video, index) => {
+        const link = document.createElement('a');
+        link.href = video.url;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.className = 'score-source-link';
+        const copy = document.createElement('span');
+        const title = document.createElement('strong');
+        const channel = document.createElement('small');
+        const detail = document.createElement('p');
+        title.textContent = `확인 영상 ${index + 1}`;
+        channel.textContent = video.channel || 'YouTube';
+        detail.textContent = video.title;
+        copy.append(title, channel, detail);
+        const arrow = document.createElement('b');
+        arrow.textContent = '↗';
+        link.append(copy, arrow);
+        return link;
+      });
+      evidenceLinks.replaceChildren(...nodes);
+      evidenceModal.showModal();
+    });
+    document.querySelector('#close-evidence-modal')?.addEventListener('click', closeEvidence);
+    evidenceModal?.addEventListener('click', event => { if (event.target === evidenceModal) closeEvidence(); });
 
     render({updateUrl:false});
   }
