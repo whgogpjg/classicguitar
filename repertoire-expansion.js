@@ -102,6 +102,145 @@
     });
   }));
 
+  // Curated guitar-duo repertoire: established originals and transcriptions
+  // documented in composer catalogues, publisher catalogues, and active duo programmes.
+  const addDuoPack = ({ era, difficulty, region, technique, mood, source, genre = 'classical', items }) => {
+    items.forEach(([title, composer, duration, itemGenre = genre, itemEra = era, itemRegion = region, itemSource = source]) => catalog.push({
+      type: 'duo', era: itemEra, difficulty, region: itemRegion, technique, mood, source: itemSource,
+      genre: itemGenre, year: null, duration, title, composer,
+      status: itemSource === 'original' ? 'core' : 'arrangement', video: '',
+      query: `${composer} ${title} classical guitar duo`
+    }));
+  };
+
+  addDuoPack({
+    era: 'classical', difficulty: 'intermediate', region: 'central-europe', technique: 'counterpoint', mood: 'bright', source: 'original',
+    items: [
+      ['Sonata in D major', 'Christian Gottlieb Scheidler', 9],
+      ['Duo in G major, Op. 34', 'Ferdinando Carulli', 9, undefined, undefined, 'italy'],
+      ['Divertissement, Op. 38', 'Fernando Sor', 8, undefined, undefined, 'spain'],
+      ['Six Waltzes, Op. 39', 'Fernando Sor', 10, undefined, undefined, 'spain'],
+      ['Les Deux Amis, Op. 41', 'Fernando Sor', 13, undefined, undefined, 'spain'],
+      ['Six Easy Waltzes, Op. 44 bis', 'Fernando Sor', 10, undefined, undefined, 'spain'],
+      ['Divertissement militaire, Op. 49', 'Fernando Sor', 10, undefined, undefined, 'spain'],
+      ['Le premier pas vers moi, Op. 53', 'Fernando Sor', 8, undefined, undefined, 'spain'],
+      ['Trois petits divertissements, Op. 61', 'Fernando Sor', 9, undefined, undefined, 'spain'],
+      ['Souvenir de Russie, Op. 63', 'Fernando Sor', 11, undefined, undefined, 'spain']
+    ]
+  });
+
+  addDuoPack({
+    era: 'romantic', difficulty: 'advanced', region: 'central-europe', technique: 'scales', mood: 'dramatic', source: 'original',
+    items: [
+      ['Grand Variations Concertantes, Op. 35', 'Mauro Giuliani', 12, undefined, undefined, 'italy'],
+      ['Le Avventure di amore, Op. 116', 'Mauro Giuliani', 14, undefined, undefined, 'italy'],
+      ['Tre Polonesi Concertanti, Op. 137', 'Mauro Giuliani', 13, undefined, undefined, 'italy'],
+      ['Variations on a Favorite Theme, Op. 57', 'Anton Diabelli', 10],
+      ['Serenade No. 3, Op. 63', 'Anton Diabelli', 12],
+      ['Grand Serenade, Op. 100', 'Anton Diabelli', 14],
+      ['Concertante, Op. 22', 'Marco Aurelio Zani de Ferranti', 12],
+      ['Am Grabe der Geliebten', 'Johann Kaspar Mertz', 5],
+      ['Wasserfahrt am Traunsee', 'Johann Kaspar Mertz', 6],
+      ['Vespergang', 'Johann Kaspar Mertz', 4]
+    ]
+  });
+
+  addDuoPack({
+    era: 'baroque', difficulty: 'advanced', region: 'central-europe', technique: 'counterpoint', mood: 'dramatic', source: 'transcription',
+    items: [
+      ['Concerto in D minor, BWV 974', 'J. S. Bach / Alessandro Marcello', 12],
+      ['Italian Concerto, BWV 971', 'J. S. Bach', 13],
+      ['Prelude and Fugue in C minor, BWV 847', 'J. S. Bach', 6],
+      ['Chaconne in G major, HWV 435', 'G. F. Handel', 8],
+      ['Arrival of the Queen of Sheba', 'G. F. Handel', 4],
+      ['Le Rappel des Oiseaux', 'Jean-Philippe Rameau', 4],
+      ['Les Tendres Plaintes', 'Jean-Philippe Rameau', 4],
+      ['Sonata K. 96', 'Domenico Scarlatti', 5],
+      ['Sonata K. 251', 'Domenico Scarlatti', 4],
+      ['Piano Sonata No. 4, K. 282', 'W. A. Mozart', 12, undefined, 'classical']
+    ]
+  });
+
+  addDuoPack({
+    era: 'modern', difficulty: 'advanced', region: 'spain', technique: 'rhythm', mood: 'dance', source: 'transcription',
+    items: [
+      ['Sevilla, Op. 47 No. 3', 'Isaac Albéniz', 5, undefined, 'romantic'],
+      ['Granada, Op. 47 No. 1', 'Isaac Albéniz', 5, undefined, 'romantic'],
+      ['Asturias, Op. 47 No. 5', 'Isaac Albéniz', 7, undefined, 'romantic'],
+      ['Andaluza, Op. 37 No. 5', 'Enrique Granados', 5, undefined, 'romantic'],
+      ['Ritual Fire Dance', 'Manuel de Falla', 5],
+      ['Scherzino Maya', 'Manuel María Ponce', 4],
+      ['Arrulladora Mexicana', 'Manuel María Ponce', 4],
+      ['Intermezzo', 'Manuel María Ponce', 4],
+      ['Scherzino', 'Manuel María Ponce', 3],
+      ['Scherzino Mexicano', 'Manuel María Ponce', 4]
+    ]
+  });
+
+  addDuoPack({
+    era: 'modern', difficulty: 'virtuoso', region: 'france-uk', technique: 'voicing', mood: 'dark', source: 'original',
+    items: [
+      ['Sérénade pour deux guitares', 'André Jolivet', 12],
+      ['Élégie pour deux guitares', 'Jean-Yves Daniel-Lesur', 7],
+      ['Étude fantastique', 'Ida Presti', 5],
+      ['Fuga Elegiaca', 'Mario Castelnuovo-Tedesco', 9],
+      ['Wave Radiance', 'Phillip Houghton', 8, undefined, 'contemporary'],
+      ['Three Balkan Pieces', 'Dušan Bogdanović', 9, undefined, 'contemporary'],
+      ['Cantilena et Ricercare', 'Dušan Bogdanović', 7, undefined, 'contemporary'],
+      ['Rustem', 'Dušan Bogdanović', 8, undefined, 'contemporary'],
+      ['Winter Tale', 'Dušan Bogdanović', 6, undefined, 'contemporary'],
+      ['Two Little Fugues', 'David Braid', 6, undefined, 'contemporary']
+    ]
+  });
+
+  addDuoPack({
+    era: 'contemporary', difficulty: 'advanced', region: 'latin-america', technique: 'rhythm', mood: 'dance', source: 'original', genre: 'jazz-world',
+    items: [
+      ['Maracaípe', 'Sérgio Assad', 8],
+      ['Suite Brasileira No. 1', 'Sérgio Assad', 12],
+      ['Remembrance', 'Sérgio Assad', 4],
+      ['Suite Retratos', 'Radamés Gnattali', 20],
+      ['Água e Vinho', 'Egberto Gismonti', 4, undefined, undefined, undefined, 'transcription'],
+      ['Sete Anéis', 'Egberto Gismonti', 5, undefined, undefined, undefined, 'transcription'],
+      ['Aphorisms', 'Stephen Goss', 8],
+      ['River Fragments', 'Stephen Goss', 9],
+      ['Camino del Río', 'Javier Farías', 8],
+      ['Prelude and Fugue', 'Javier Farías', 7]
+    ]
+  });
+
+  addDuoPack({
+    era: 'contemporary', difficulty: 'advanced', region: 'latin-america', technique: 'rhythm', mood: 'dance', source: 'transcription', genre: 'jazz-world',
+    items: [
+      ['Primavera Porteña', 'Astor Piazzolla', 6],
+      ['Verano Porteño', 'Astor Piazzolla', 7],
+      ['Otoño Porteño', 'Astor Piazzolla', 6],
+      ['Invierno Porteño', 'Astor Piazzolla', 7],
+      ['Libertango', 'Astor Piazzolla', 4],
+      ['Oblivion', 'Astor Piazzolla', 5],
+      ['Milonga del Ángel', 'Astor Piazzolla', 6],
+      ['La muerte del Ángel', 'Astor Piazzolla', 4],
+      ['Escualo', 'Astor Piazzolla', 4],
+      ['Adiós Nonino', 'Astor Piazzolla', 7]
+    ]
+  });
+
+  addDuoPack({
+    era: 'contemporary', difficulty: 'intermediate', region: 'global', technique: 'voicing', mood: 'lyrical', source: 'transcription',
+    items: [
+      ['Cavatina', 'Stanley Myers', 4, 'film'],
+      ["Gabriel's Oboe", 'Ennio Morricone', 4, 'film'],
+      ['Cinema Paradiso', 'Ennio Morricone', 4, 'film'],
+      ['Merry-Go-Round of Life', 'Joe Hisaishi', 5, 'anime'],
+      ["One Summer's Day", 'Joe Hisaishi', 4, 'anime'],
+      ['Moon River', 'Henry Mancini & Johnny Mercer', 4, 'screen'],
+      ['Bohemian Rhapsody', 'Queen', 6, 'pop'],
+      ['Nuages', 'Django Reinhardt', 5, 'jazz-world'],
+      ['Farewell to Stromness', 'Peter Maxwell Davies', 5, 'classical'],
+      ['Toccatina, Op. 40 No. 3', 'Nikolai Kapustin', 4, 'jazz-world']
+    ]
+  });
+
   // Only songs with an explicitly identified classical/nylon-string performance receive this badge and direct video.
   const verifiedPerformances = new Map([
     ['APT.','gmGvPlvpmRY'],
@@ -122,6 +261,6 @@
   });
 
   catalog.forEach((work, index) => { work.id = `work-${String(index + 1).padStart(3, '0')}`; });
-  if (catalog.length !== 520) console.warn(`Expected 520 works, found ${catalog.length}`);
+  if (catalog.length !== 600) console.warn(`Expected 600 works, found ${catalog.length}`);
   window.repertoireCatalog = catalog;
 })();
