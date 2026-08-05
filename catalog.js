@@ -5,7 +5,7 @@
   document.head.append(stylesheet);
   document.title = '클래식 기타 레퍼토리 파인더 — Aria';
   const description = document.querySelector('meta[name="description"]');
-  if (description) description.content = '680곡을 편성, 장르, 발표 시기, 난이도, 지역, 기법, 분위기와 연주 시간으로 찾는 클래식 기타 레퍼토리';
+  if (description) description.content = '680곡을 조건별로 찾고 연주 영상과 무료 원전·정식 출판 악보 출처를 확인하는 클래식 기타 레퍼토리';
 
   const labels = {
     type: {solo:'솔로', duo:'듀오', trio:'트리오', quartet:'콰르텟', ensemble:'중주'},
@@ -23,6 +23,66 @@
   const filterKeys = ['genre','release','era','difficulty','region','technique','mood','duration','source'];
   const difficultyOrder = {beginner:0, intermediate:1, advanced:2, virtuoso:3};
   const fold = value => String(value).toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const publicDomainModernComposers = [
+    'tárrega', 'tarrega', 'albéniz', 'albeniz', 'granados', 'barrios', 'mangoré',
+    'llobet', 'sagreras', 'debussy', 'ravel', 'de falla', 'ponce', 'turina',
+    'satie', 'janáček', 'janacek', 'scriabin', 'scott joplin'
+  ];
+
+  function isLikelyPublicDomain(work) {
+    if (['renaissance', 'baroque', 'classical', 'romantic'].includes(work.era)) return true;
+    const composer = fold(work.composer);
+    return publicDomainModernComposers.some(name => composer.includes(fold(name)));
+  }
+
+  function scoreSourcesFor(work) {
+    const ensemble = labels.type[work.type] || work.type;
+    const query = `${work.title} ${work.composer} classical guitar ${work.type}`;
+    const encoded = encodeURIComponent(query);
+    const imslpQuery = encodeURIComponent(`${work.title} ${work.composer}`);
+    const links = [];
+    const publicDomain = isLikelyPublicDomain(work);
+
+    if (publicDomain) {
+      links.push({
+        provider: 'IMSLP', badge: '무료 원전',
+        description: work.source === 'transcription' ? '퍼블릭 도메인 원전 검색 · 기타 편곡판의 권리는 별도 확인' : '퍼블릭 도메인 악보와 판본 검색',
+        url: `https://imslp.org/index.php?title=Special:Search&search=${imslpQuery}`
+      });
+    }
+
+    if (work.genre === 'classical' || work.type !== 'solo') {
+      links.push({
+        provider: "Productions d'Oz", badge: '기타 전문 출판사',
+        description: `${ensemble}용 정식 출판 악보 검색`,
+        url: `https://productionsdoz.com/en/catalogue/?search=${encoded}`
+      });
+    }
+
+    if (work.genre !== 'classical' || work.source === 'transcription') {
+      links.push({
+        provider: 'Musicnotes', badge: '정식 디지털 악보',
+        description: '영화·팝·재즈·편곡 악보 검색',
+        url: `https://www.musicnotes.com/search/go?w=${encoded}`
+      });
+    }
+
+    links.push({
+      provider: 'Sheet Music Plus', badge: '출판 악보',
+      description: `${ensemble} 편성의 인쇄·디지털 악보 검색`,
+      url: `https://www.sheetmusicplus.com/en/explore?q=${encoded}`
+    });
+
+    if (!publicDomain && work.genre === 'classical' && links.length < 3) {
+      links.push({
+        provider: 'IMSLP', badge: '작품·판본 확인',
+        description: '작품 정보와 국가별 공개 여부 확인',
+        url: `https://imslp.org/index.php?title=Special:Search&search=${imslpQuery}`
+      });
+    }
+
+    return {publicDomain, links: links.slice(0, 3)};
+  }
 
   function initCatalog() {
     const works = window.repertoireCatalog || [];
@@ -112,12 +172,13 @@
       const action = work.video
         ? `<button class="play-circle play-video" data-video="${work.video}" data-title="${work.title} — ${work.composer}" aria-label="${work.title} 영상 재생">▶</button>`
         : `<button class="play-circle search-youtube" data-query="${work.query}" aria-label="${work.title} YouTube에서 찾기">↗</button>`;
+      const scoreAction = `<button class="score-button open-score" data-score-id="${work.id}" aria-label="${work.title} 악보 찾기"><span aria-hidden="true">♩</span> 악보</button>`;
       return `<article class="piece-card catalog-card ${work.video ? 'has-video' : ''}" ${thumb}>
         <div class="piece-meta"><span>${String(index + 1).padStart(3, '0')} · ${labels.type[work.type]}</span><span>${work.year || labels.era[work.era]}</span></div>
         <h3>${work.title}</h3><p class="composer">${work.composer}</p>
         <div class="catalog-status ${work.status || 'core'}">${labels.status[work.status || 'core']}</div>
         <div class="catalog-tags"><span>${labels.genre[work.genre]}</span><span>${labels.difficulty[work.difficulty]}</span><span>${labels.technique[work.technique]}</span><span>${labels.mood[work.mood]}</span></div>
-        <div class="piece-bottom"><span>약 ${work.duration}분 · ${labels.source[work.source]}</span>${action}</div>
+        <div class="piece-bottom"><span>약 ${work.duration}분 · ${labels.source[work.source]}</span><div class="piece-actions">${scoreAction}${action}</div></div>
       </article>`;
     }
 
@@ -183,6 +244,47 @@
       render();
       grid.querySelector('.piece-card')?.scrollIntoView({behavior:'smooth', block:'center'});
     });
+
+    const scoreModal = document.querySelector('#score-modal');
+    const scoreTitle = document.querySelector('#score-title');
+    const scoreMeta = document.querySelector('#score-meta');
+    const scoreLinks = document.querySelector('#score-links');
+    const closeScore = () => { if (scoreModal?.open) scoreModal.close(); };
+
+    document.addEventListener('click', event => {
+      const trigger = event.target.closest('.open-score');
+      if (!trigger || !scoreModal || !scoreLinks) return;
+      const work = works.find(item => item.id === trigger.dataset.scoreId);
+      if (!work) return;
+      const result = scoreSourcesFor(work);
+      if (scoreTitle) scoreTitle.textContent = `${work.title} — ${work.composer}`;
+      if (scoreMeta) scoreMeta.textContent = result.publicDomain
+        ? '무료 원전을 우선 표시합니다. 기타 편곡판은 편곡자와 출판사의 권리를 별도로 확인하세요.'
+        : '저작권 보호 가능성이 있는 작품입니다. 정식 출판·판매처에서 편성과 이용 범위를 확인하세요.';
+      const nodes = result.links.map(item => {
+        const link = document.createElement('a');
+        link.href = item.url;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.className = 'score-source-link';
+        const copy = document.createElement('span');
+        const provider = document.createElement('strong');
+        const badge = document.createElement('small');
+        const description = document.createElement('p');
+        provider.textContent = item.provider;
+        badge.textContent = item.badge;
+        description.textContent = item.description;
+        copy.append(provider, badge, description);
+        const arrow = document.createElement('b');
+        arrow.textContent = '↗';
+        link.append(copy, arrow);
+        return link;
+      });
+      scoreLinks.replaceChildren(...nodes);
+      scoreModal.showModal();
+    });
+    document.querySelector('#close-score-modal')?.addEventListener('click', closeScore);
+    scoreModal?.addEventListener('click', event => { if (event.target === scoreModal) closeScore(); });
 
     render({updateUrl:false});
   }
