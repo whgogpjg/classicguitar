@@ -1,3 +1,8 @@
+const compactStylesheet = document.createElement('link');
+compactStylesheet.rel = 'stylesheet';
+compactStylesheet.href = 'compact.css';
+document.head.append(compactStylesheet);
+
 const mobileStylesheet = document.createElement('link');
 mobileStylesheet.rel = 'stylesheet';
 mobileStylesheet.href = 'mobile.css';

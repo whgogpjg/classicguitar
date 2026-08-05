@@ -176,6 +176,68 @@
     ['Vals','Bartolomé Calatayud',2]
   ]);
 
+  // Solo · Further landmarks and wider geographies
+  add('solo','renaissance','advanced','italy','counterpoint','meditative','transcription',[
+    ['Fantasia No. 30','Francesco da Milano',4]
+  ]);
+  add('solo','baroque','intermediate','italy','arpeggio','meditative','transcription',[
+    ['Toccata Arpeggiata','Giovanni G. Kapsberger',4]
+  ]);
+  add('solo','baroque','advanced','central-europe','voicing','meditative','transcription',[
+    ['Sarabande, BWV 1002','J. S. Bach',4],['Prelude, BWV 1007','J. S. Bach',3]
+  ]);
+  add('solo','baroque','intermediate','central-europe','voicing','dark','transcription',[
+    ['Sarabande, HWV 437','G. F. Handel',4]
+  ]);
+  add('solo','classical','advanced','central-europe','voicing','bright','original',[
+    ['Sonata in C major, Op. 29 No. 1','Anton Diabelli',12]
+  ]);
+  add('solo','classical','advanced','italy','scales','dramatic','original',[
+    ['Caprice No. 4, Op. 26','Matteo Carcassi',4],['Variations sur les Folies d’Espagne, Op. 45','Mauro Giuliani',8]
+  ]);
+  add('solo','classical','advanced','spain','scales','dramatic','original',[
+    ['Introduction et variations, Op. 28','Fernando Sor',9]
+  ]);
+  add('solo','romantic','virtuoso','italy','scales','dramatic','original',[
+    ['Caprice No. 36, Op. 20','Luigi Legnani',5],['Rondo des Fées, Op. 25','Marco Aurelio Zani de Ferranti',9]
+  ]);
+  add('solo','romantic','advanced','spain','rhythm','dramatic','original',[
+    ['Fantasía sobre La traviata','Julián Arcas',8]
+  ]);
+  add('solo','romantic','intermediate','spain','rhythm','dance','original',[
+    ['Danza Mora','Francisco Tárrega',4]
+  ]);
+  add('solo','romantic','advanced','spain','voicing','lyrical','original',[
+    ['Variaciones sobre un tema de Sor','Miguel Llobet',9]
+  ]);
+  add('solo','modern','virtuoso','spain','voicing','dramatic','original',[
+    ['Sonata para guitarra','Antonio José',23]
+  ]);
+  add('solo','modern','advanced','spain','rhythm','bright','original',[
+    ['Sonatina','Federico Moreno Torroba',12],['Suite Compostelana','Federico Mompou',15]
+  ]);
+  add('solo','modern','advanced','spain','tremolo','meditative','original',[
+    ['Campanas del alba','Eduardo Sainz de la Maza',5]
+  ]);
+  add('solo','modern','advanced','central-europe','voicing','lyrical','original',[
+    ['Cavatina','Alexandre Tansman',15],['Quatre pièces brèves','Frank Martin',11]
+  ]);
+  add('solo','modern','advanced','france-uk','voicing','dramatic','original',[
+    ['Sonatina, Op. 52 No. 1','Lennox Berkeley',12]
+  ]);
+  add('solo','modern','virtuoso','central-europe','voicing','dark','original',[
+    ['Royal Winter Music — Sonata I','Hans Werner Henze',25]
+  ]);
+  add('solo','modern','virtuoso','france-uk','harmonics','dramatic','original',[
+    ['Tiento','Maurice Ohana',8]
+  ]);
+  add('solo','contemporary','advanced','central-europe','harmonics','meditative','original',[
+    ['Serenade for Guitar','Sofia Gubaidulina',4]
+  ]);
+  add('solo','contemporary','intermediate','asia','voicing','lyrical','transcription',[
+    ['Sakura Variations','Traditional / Yūjirō Yocoh',7]
+  ]);
+
   // Duo
   add('duo','classical','intermediate','spain','voicing','lyrical','original',[
     ['L’Encouragement, Op. 34','Fernando Sor',12]
@@ -219,6 +281,31 @@
     ['Clair de lune','Claude Debussy',5],['Pavane pour une infante défunte','Maurice Ravel',6]
   ]);
 
+  add('duo','baroque','intermediate','central-europe','counterpoint','bright','transcription',[
+    ['Invention No. 8, BWV 779','J. S. Bach',2]
+  ]);
+  add('duo','baroque','advanced','france-uk','scales','dramatic','transcription',[
+    ['Les Cyclopes','Jean-Philippe Rameau',4]
+  ]);
+  add('duo','baroque','intermediate','italy','voicing','bright','transcription',[
+    ['Sonata K. 380','Domenico Scarlatti',5]
+  ]);
+  add('duo','modern','advanced','spain','rhythm','dance','transcription',[
+    ['Tango, Op. 165 No. 2','Isaac Albéniz',3]
+  ]);
+  add('duo','modern','advanced','france-uk','rhythm','dance','original',[
+    ['Danse d’Avila','Ida Presti',6]
+  ]);
+  add('duo','modern','intermediate','latin-america','rhythm','bright','original',[
+    ['Música incidental campesina','Leo Brouwer',10]
+  ]);
+  add('duo','contemporary','advanced','north-america','voicing','meditative','original',[
+    ['Sanzen-in','Andrew York',7]
+  ]);
+  add('duo','contemporary','advanced','latin-america','rhythm','dance','transcription',[
+    ['Lo que vendrá','Astor Piazzolla',5]
+  ]);
+
   // Trio
   add('trio','classical','advanced','france-uk','counterpoint','bright','original',[
     ['Trio Concertant, Op. 29','Antoine de Lhoyer',18]
@@ -248,6 +335,28 @@
     ['China West Suite','Chen Yi',16]
   ]);
 
+  add('trio','classical','advanced','france-uk','counterpoint','bright','original',[
+    ['Trio No. 2 in C major, Op. 42','Antoine de Lhoyer',16]
+  ]);
+  add('trio','baroque','advanced','central-europe','counterpoint','bright','transcription',[
+    ['Italian Concerto, BWV 971','J. S. Bach',13]
+  ]);
+  add('trio','modern','advanced','spain','voicing','lyrical','transcription',[
+    ['Castillos de España — 발췌','Federico Moreno Torroba',12]
+  ]);
+  add('trio','contemporary','advanced','latin-america','rhythm','dramatic','transcription',[
+    ['Revirado','Astor Piazzolla',4]
+  ]);
+  add('trio','modern','advanced','france-uk','voicing','meditative','transcription',[
+    ['Ma mère l’Oye — 발췌','Maurice Ravel',13]
+  ]);
+  add('trio','contemporary','advanced','latin-america','voicing','dramatic','original',[
+    ['The Enchanted Island','Sérgio Assad',10]
+  ]);
+  add('trio','modern','intermediate','global','voicing','bright','transcription',[
+    ['Chaplin Medley','Charlie Chaplin / Manuel Barrueco',8]
+  ]);
+
   // Quartet
   add('quartet','classical','advanced','france-uk','voicing','bright','original',[
     ['Air varié et dialogue','Antoine de Lhoyer',12]
@@ -273,6 +382,28 @@
   ]);
   add('quartet','contemporary','advanced','global','voicing','meditative','original',[
     ['The Lotus Eaters','Andrew York',8],['Hidden Realm','Andrew York',9]
+  ]);
+
+  add('quartet','contemporary','advanced','north-america','rhythm','bright','original',[
+    ['Pacific Coast Highway','Andrew York',8],['Passage','Andrew York',12],['Spin','Andrew York',7]
+  ]);
+  add('quartet','contemporary','intermediate','north-america','percussion','dance','original',[
+    ['Monster Beat','Andrew York',8]
+  ]);
+  add('quartet','contemporary','advanced','north-america','rhythm','dramatic','original',[
+    ['Intergalactic Express','Andrew York',11]
+  ]);
+  add('quartet','contemporary','advanced','central-europe','percussion','dramatic','original',[
+    ['Changing the Guard','Nikita Koshkin',8]
+  ]);
+  add('quartet','contemporary','advanced','latin-america','voicing','meditative','transcription',[
+    ['Canciones remotas','Leo Brouwer / Canadian Guitar Quartet',12]
+  ]);
+  add('quartet','modern','advanced','spain','rhythm','dance','transcription',[
+    ['Danza del molinero','Manuel de Falla',4]
+  ]);
+  add('quartet','romantic','advanced','central-europe','voicing','bright','transcription',[
+    ['Holberg Suite — 발췌','Edvard Grieg',15],['Pictures at an Exhibition — 발췌','Modest Mussorgsky',18]
   ]);
 
   window.repertoireCatalog = catalog;

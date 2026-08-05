@@ -5,13 +5,13 @@
   document.head.append(stylesheet);
   document.title = '클래식 기타 레퍼토리 파인더 — Aria';
   const description = document.querySelector('meta[name="description"]');
-  if (description) description.content = '150곡을 편성, 시대, 난이도, 지역, 기법, 분위기, 연주 시간으로 찾는 클래식 기타 레퍼토리';
+  if (description) description.content = '200곡을 편성, 시대, 난이도, 지역, 기법, 분위기, 연주 시간으로 찾는 클래식 기타 레퍼토리';
 
   const labels = {
     type: {solo:'솔로', duo:'듀오', trio:'트리오', quartet:'콰르텟', ensemble:'중주'},
     era: {renaissance:'르네상스', baroque:'바로크', classical:'고전', romantic:'낭만', modern:'20세기', contemporary:'현대', 'modern-plus':'20세기 이후'},
     difficulty: {beginner:'입문', intermediate:'중급', advanced:'고급', virtuoso:'최상급'},
-    region: {spain:'스페인', italy:'이탈리아', 'central-europe':'중부 유럽', 'france-uk':'프랑스·영국', 'latin-america':'라틴아메리카', asia:'아시아', global:'그 밖의 지역'},
+    region: {spain:'스페인', italy:'이탈리아', 'central-europe':'중부 유럽', 'france-uk':'프랑스·영국', 'latin-america':'라틴아메리카', 'north-america':'북아메리카', asia:'아시아', global:'그 밖의 지역'},
     technique: {arpeggio:'아르페지오', tremolo:'트레몰로', counterpoint:'대위법', scales:'스케일', slurs:'슬러', harmonics:'하모닉스', rhythm:'리듬', percussion:'타악적 주법', voicing:'성부 표현'},
     mood: {lyrical:'서정적', dance:'춤곡풍', meditative:'명상적', dramatic:'극적', bright:'밝음', dark:'어두움'},
     duration: {short:'5분 이하', medium:'6–10분', long:'11분 이상'},
