@@ -100,7 +100,7 @@
     if (heroCount) heroCount.textContent = `${works.length} CURATED WORKS`;
     if (finderEyebrow) finderEyebrow.textContent = `${works.length} CURATED WORKS`;
     if (finderCopy) finderCopy.textContent = `솔로 ${works.filter(work => work.type === 'solo').length}곡과 YouTube 다중 검증을 통과한 중주곡을 함께 찾습니다. 듀오는 세부 분류·형식·검색 확인 영상 수·인기도로 좁힐 수 있습니다.`;
-    if (noteCopy) noteCopy.textContent = '듀오는 곡명·작곡가가 일치하는 2대 클래식 기타 실연 영상이 YouTube에서 2건 이상 확인된 곡만 등록합니다. 동일 영상 중복과 악보·MIDI·레슨·반주·솔로 멀티트랙은 제외하고, 서로 다른 채널 수는 상세 창에 별도 표시합니다. “확인 N건”은 최대 3개 검색식에서 찾은 고유 실연 영상의 최소 표본이며 YouTube 전체 총량은 아닙니다.';
+    if (noteCopy) noteCopy.textContent = '듀오는 곡명·작곡가가 일치하는 2대 클래식 기타 실연 영상이 YouTube에서 2건 이상 확인된 곡만 등록합니다. 동일 영상 중복과 악보·MIDI·레슨·반주·솔로 멀티트랙은 제외하고, 서로 다른 채널 수는 상세 창에 별도 표시합니다. “확인 N건”은 최대 5개 검색식에서 찾은 고유 실연 영상의 최소 표본이며 YouTube 전체 총량은 아닙니다.';
 
     const state = {type:'all', genre:'all', release:'all', era:'all', difficulty:'all', region:'all', technique:'all', mood:'all', duration:'all', source:'all', duoCategory:'all', duoForm:'all', popularity:'all', sort:'recommended'};
     let visible = 24;
