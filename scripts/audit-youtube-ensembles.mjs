@@ -14,6 +14,7 @@ const maxCandidates = Number(options['max-candidates'] || 40);
 const measurePopularity = options['measure-popularity'] === 'true';
 const requestTimeout = Number(options.timeout || 5000);
 const requestAttempts = Number(options.attempts || 2);
+const duoCap = Number(options['duo-cap'] || 400);
 const limit = Number(options.limit || 0);
 const offset = Number(options.offset || 0);
 const requestedTypes = new Set((options.types || 'duo,trio,quartet').split(','));
@@ -55,7 +56,8 @@ function catalogueReferences(title) {
 }
 
 function ordinalReferences(title) {
-  return [...normalize(title).matchAll(/\b(?:no|nr)\.?\s*(\d+)\b/g)].map(match => match[1]);
+  /* Covers "No. 4", "Nr 4" and the bare "n4" / "n.4" that uploaders often use. */
+  return [...normalize(title).matchAll(/\b(?:no|nr|n)\.?\s*(\d+)\b/g)].map(match => match[1]);
 }
 
 function compactWords(value) {
@@ -77,7 +79,7 @@ const ensemblePatterns = {
     /altius duo|quantum guitar duo|kupinski guitar duo/,
     /brasil guitar duo|brazil guitar duo|amadeus guitar duo|duo kitharsis|gruber.{0,8}maklar|maccari.{0,8}pugliese|newman.{0,8}oltman|duo sempre|montenegrin guitar duo|roth guitar duo|duo daniyah|artis guitarduo|z\.?o\.?o\.? guitar duo|mobius guitar duo|montes.{0,8}kircher|riverside guitar duo|copenhagen guitar duo|noli.{0,8}soattin|meyer.{0,8}thachuk|angenendt guitar duo|carisma guitar duo|harmonia guitar duo|duo palissandre|australian guitar duo|dacha guitar duo|lucerne guitar duo|vital guitar duo|duo morat.{0,8}fergo|reichelt.{0,8}nissen|tuscan guitar duo/,
     /\bguitar\s*(duo|duet)\b/, /\b(duo|duet)\s*(for|of|de|di|para)?\s*guitars?\b/,
-    /\btwo\s+(classical\s+)?guitars?\b/, /(?<!no\s)(?<!no\.\s)\b2\s+(classical\s+)?guitars?\b/, /guitarrenduo/, /duo\s+de\s+guitarr/,
+    /\btwo\s*(classical\s+)?guitars?\b/, /(?<!no\s)(?<!no\.\s)\b2\s*(classical\s+)?guitars?\b/, /guitarrenduo/, /duo\s+de\s+guitarr/,
     /duo\s+de\s+viol/, /dos\s+guitarr/, /due\s+chitarr/, /duo\s+de\s+guitares?/,
     /기타\s*(듀오|2\s*중주|이중주)/, /(듀오|2\s*중주|이중주).{0,12}기타/,
     /katona twins|assad brothers|beijing guitar duo|eden stell|duo melis|soloduo|solo duo|siquiera lima|grigoryan brothers|presti.{0,8}lagoya|폴리포니\s*기타\s*듀오/
@@ -88,7 +90,7 @@ const ensemblePatterns = {
     /\u30ae\u30bf\u30fc.{0,8}(3\s*\u91cd\u594f|\u4e09\u91cd\u594f|\u30c8\u30ea\u30aa)/,
     /(3\s*\u91cd\u594f|\u4e09\u91cd\u594f|\u30c8\u30ea\u30aa).{0,12}\u30ae\u30bf\u30fc/,
     /\bguitar\s*trio\b/, /\btrio\s*(for|of|de|di|para)?\s*guitars?\b/,
-    /\bthree\s+(classical\s+)?guitars?\b/, /(?<!no\s)(?<!no\.\s)\b3\s+(classical\s+)?guitars?\b/, /gitarrentrio/, /trio\s+de\s+guitarr/,
+    /\bthree\s*(classical\s+)?guitars?\b/, /(?<!no\s)(?<!no\.\s)\b3\s*(classical\s+)?guitars?\b/, /gitarrentrio/, /trio\s+de\s+guitarr/,
     /trio\s+de\s+viol/, /tres\s+guitarr/, /tre\s+chitarr/, /trio\s+de\s+guitares?/,
     /기타\s*(트리오|3\s*중주|삼중주)/, /(트리오|3\s*중주|삼중주).{0,12}기타/,
     /amsterdam guitar trio|california guitar trio|trio con brio/
@@ -99,7 +101,7 @@ const ensemblePatterns = {
     /\u30ae\u30bf\u30fc.{0,8}(4\s*\u91cd\u594f|\u56db\u91cd\u594f|\u30ab\u30eb\u30c6\u30c3\u30c8)/,
     /(4\s*\u91cd\u594f|\u56db\u91cd\u594f|\u30ab\u30eb\u30c6\u30c3\u30c8).{0,12}\u30ae\u30bf\u30fc/,
     /\bguitar\s*quartet\b/, /\bquartet\s*(for|of|de|di|para)?\s*guitars?\b/,
-    /\bfour\s+(classical\s+)?guitars?\b/, /(?<!no\s)(?<!no\.\s)\b4\s+(classical\s+)?guitars?\b/, /gitarrenquartett/, /quarteto\s+de\s+guitarr/,
+    /\bfour\s*(classical\s+)?guitars?\b/, /(?<!no\s)(?<!no\.\s)\b4\s*(classical\s+)?guitars?\b/, /gitarrenquartett/, /quarteto\s+de\s+guitarr/,
     /quarteto\s+de\s+viol/, /cuarteto\s+de\s+guitarr/, /quattro\s+chitarr/, /quatuor\s+de\s+guitares?/,
     /기타\s*(콰르텟|쿼텟|4\s*중주|사중주)/, /(콰르텟|쿼텟|4\s*중주|사중주).{0,12}기타/,
     /los angeles guitar quartet|brazilian guitar quartet|canadian guitar quartet|aquarelle guitar quartet|\blagq\b|\bbgq\b/
@@ -197,7 +199,8 @@ function qualifies(work, video) {
   if (!title || excludedPatterns.test(configurationText) || /\btabs?\b/.test(configurationText)) return false;
   if (/me\s+and\s+myself|played\s+by\s+me|one[-\s]man|multitrack|split[-\s]screen/.test(title)) return false;
   if (work.type === 'duo' && work.genre !== 'classical' && !classicalDuoIdentity.test(configurationText)) return false;
-  if (work.type === 'duo' && /(?:violin|cello|piano|trombone|flute|mandolin|ukulele).{0,16}(?:(?:and|&|\/)\s*)?guitar|guitar.{0,16}(?:(?:and|&|\/)\s*)?(?:violin|cello|piano|trombone|flute|mandolin|ukulele)/.test(title)) return false;
+  const otherInstrument = 'violin|cello|viola|piano|organ|harpsichord|accordion|bandone[oó]n|harp|trombone|trumpet|flute|recorder|clarinet|oboe|saxophone|mandolin|ukulele|bass|percussion|voice|soprano|tenor|vocal';
+  if (work.type === 'duo' && new RegExp(`(?:${otherInstrument}).{0,16}(?:(?:and|&|\\/)\\s*)?guitar|guitar.{0,16}(?:(?:and|&|\\/)\\s*)?(?:${otherInstrument})`).test(title)) return false;
   if (!ensemblePatterns[work.type].some(pattern => pattern.test(configurationText))) return false;
   const tokens = titleTokens(work.title);
   const primaryTokens = titleTokens(String(work.title).split(/\bfrom\b/i)[0]);
@@ -419,7 +422,7 @@ if (options['report-only'] !== 'true') {
   const selectedDuoKeys = new Set([...verifiedResults]
     .filter(result => result.type === 'duo')
     .sort((a, b) => (b.performanceCount || 0) - (a.performanceCount || 0) || a.title.localeCompare(b.title))
-    .slice(0, 300)
+    .slice(0, duoCap)
     .map(result => result.key));
   const publishedResults = verifiedResults.filter(result => result.type !== 'duo' || selectedDuoKeys.has(result.key));
   const evidence = Object.fromEntries(publishedResults.map(result => [result.key, result.videos]));

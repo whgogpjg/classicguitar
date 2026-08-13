@@ -1,14 +1,22 @@
 (() => {
   const audit = {
-  "generatedAt": "2026-08-10T08:25:17.146Z",
+  "generatedAt": "2026-08-10T14:31:16.377Z",
   "threshold": 2,
-  "searched": 694,
-  "verified": 295,
-  "rejected": 399,
+  "searched": 982,
+  "verified": 362,
+  "rejected": 620,
   "byType": {
     "duo": {
-      "searched": 571,
-      "verified": 237
+      "searched": 859,
+      "verified": 304
+    },
+    "trio": {
+      "searched": 57,
+      "verified": 19
+    },
+    "quartet": {
+      "searched": 66,
+      "verified": 39
     }
   },
   "evidence": {
@@ -4050,42 +4058,6 @@
         "url": "https://www.youtube.com/watch?v=VFt9dw-Bji0"
       }
     ],
-    "duo|Prelude and Fugue No. 23, Op. 199|Mario Castelnuovo-Tedesco": [
-      {
-        "id": "Oy1xopJEacM",
-        "title": "Aeon Guitar Duo | Mario Castelnuovo-Tedesco — Prelude & Fugue No. XIII in G major (Op. 199)",
-        "channel": "AeonguitarDuo",
-        "duration": "5:58",
-        "published": "6 months ago",
-        "url": "https://www.youtube.com/watch?v=Oy1xopJEacM"
-      },
-      {
-        "id": "gTbJtcUh_uo",
-        "title": "CASTELNUOVO-TEDESCO- Preludio e fuga op. 199 n. 4 - SOLO DUO live ad Aosta 08/04/2011",
-        "channel": "Gaetano Lo Presti",
-        "duration": "4:31",
-        "published": "15 years ago",
-        "url": "https://www.youtube.com/watch?v=gTbJtcUh_uo"
-      }
-    ],
-    "duo|Prelude and Fugue No. 24, Op. 199|Mario Castelnuovo-Tedesco": [
-      {
-        "id": "VFt9dw-Bji0",
-        "title": "Mario Castelnuovo-Tedesco — Prelude & Fugue No. VII in C-sharp minor (Op. 199) | Aeon Guitar Duo",
-        "channel": "AeonguitarDuo",
-        "duration": "6:34",
-        "published": "6 months ago",
-        "url": "https://www.youtube.com/watch?v=VFt9dw-Bji0"
-      },
-      {
-        "id": "gTbJtcUh_uo",
-        "title": "CASTELNUOVO-TEDESCO- Preludio e fuga op. 199 n. 4 - SOLO DUO live ad Aosta 08/04/2011",
-        "channel": "Gaetano Lo Presti",
-        "duration": "4:31",
-        "published": "15 years ago",
-        "url": "https://www.youtube.com/watch?v=gTbJtcUh_uo"
-      }
-    ],
     "duo|Two-Part Invention No. 8, BWV 779|J. S. Bach": [
       {
         "id": "ia__xUI5DYE",
@@ -4434,24 +4406,6 @@
         "duration": "2:56",
         "published": "",
         "url": "https://www.youtube.com/watch?v=mH0hP4fNKhs"
-      }
-    ],
-    "duo|English Suite No. 1, BWV 806|J. S. Bach": [
-      {
-        "id": "AsHa3vk1n4A",
-        "title": "J.S.Bach - Prelude English Suite n. 2 BWV 806 ( Guitar Duo Scarlatti )",
-        "channel": "Daniele Sardone",
-        "duration": "5:24",
-        "published": "17 years ago",
-        "url": "https://www.youtube.com/watch?v=AsHa3vk1n4A"
-      },
-      {
-        "id": "NuahB-s8IS8",
-        "title": "J. S. BACH: English Suites Nos. 1-3 Arranged for Two Guitars (Montenegrin Guitar Duo) [8.573473]",
-        "channel": "Naxos Music and Danijel Cerović ",
-        "duration": "3:21",
-        "published": "10 years ago",
-        "url": "https://www.youtube.com/watch?v=NuahB-s8IS8"
       }
     ],
     "duo|English Suite No. 2, BWV 807|J. S. Bach": [
@@ -4974,24 +4928,6 @@
         "url": "https://www.youtube.com/watch?v=ub53X2FDIno"
       }
     ],
-    "duo|Duo, Op. 55 No. 2|Fernando Sor": [
-      {
-        "id": "plwzeJNOxqM",
-        "title": "[クラシックギター]　F.ソル デュオ　Duo op.55 No.2 Andante & Allegretto (F.Sor) 徳永真一郎&小暮浩史　（ライブ配信より切り抜き）",
-        "channel": "Hiroshi Kogure 小暮浩史 ",
-        "duration": "5:47",
-        "published": "4 years ago",
-        "url": "https://www.youtube.com/watch?v=plwzeJNOxqM"
-      },
-      {
-        "id": "ub53X2FDIno",
-        "title": "Fernando Sor Duo Op55 N1 - Lima Guitar Duo",
-        "channel": "LimaGuitarDuo",
-        "duration": "5:32",
-        "published": "9 years ago",
-        "url": "https://www.youtube.com/watch?v=ub53X2FDIno"
-      }
-    ],
     "duo|Duo, Op. 55 No. 3|Fernando Sor": [
       {
         "id": "n115m7q_qxc",
@@ -5028,14 +4964,6 @@
         "url": "https://www.youtube.com/watch?v=4sxuqj-9RZA"
       },
       {
-        "id": "7CCEThkzJBw",
-        "title": "Polonaise Concertante - Mauro Giuliani for Classical Guitar Duo by The Bassett Bros.",
-        "channel": "The Bassett Bros.",
-        "duration": "4:53",
-        "published": "8 years ago",
-        "url": "https://www.youtube.com/watch?v=7CCEThkzJBw"
-      },
-      {
         "id": "GybFJgTMQcI",
         "title": "Giuliani's Polonaise Concertante - Guitar Duo",
         "channel": "EMUGuitar",
@@ -5044,33 +4972,7 @@
         "url": "https://www.youtube.com/watch?v=GybFJgTMQcI"
       }
     ],
-    "duo|Polonaise Concertante, Op. 137 No. 2|Mauro Giuliani": [
-      {
-        "id": "4sxuqj-9RZA",
-        "title": "Polonaise Concertante Op. 137 n°2 - Mauro Giuliani for Classical Guitar Duo by ONV Musica",
-        "channel": "ONV Musica",
-        "duration": "5:41",
-        "published": "7 years ago",
-        "url": "https://www.youtube.com/watch?v=4sxuqj-9RZA"
-      },
-      {
-        "id": "7CCEThkzJBw",
-        "title": "Polonaise Concertante - Mauro Giuliani for Classical Guitar Duo by The Bassett Bros.",
-        "channel": "The Bassett Bros.",
-        "duration": "4:53",
-        "published": "8 years ago",
-        "url": "https://www.youtube.com/watch?v=7CCEThkzJBw"
-      }
-    ],
     "duo|Polonaise Concertante, Op. 137 No. 3|Mauro Giuliani": [
-      {
-        "id": "7CCEThkzJBw",
-        "title": "Polonaise Concertante - Mauro Giuliani for Classical Guitar Duo by The Bassett Bros.",
-        "channel": "The Bassett Bros.",
-        "duration": "4:53",
-        "published": "8 years ago",
-        "url": "https://www.youtube.com/watch?v=7CCEThkzJBw"
-      },
       {
         "id": "QIasqVXTU_A",
         "title": "UAH Guitar Duo plays Polonaise Concertante by Mauro Giuliani",
@@ -5174,28 +5076,20 @@
         "url": "https://www.youtube.com/watch?v=tekWSh1fSSg"
       },
       {
-        "id": "5vzDrmXWJ8M",
-        "title": "F. Carulli - Serenade Op. 96 n.1 / Guitar Duo (live recording)",
-        "channel": "Duo Palermini-Palmeri",
-        "duration": "10:01",
-        "published": "3 years ago",
-        "url": "https://www.youtube.com/watch?v=5vzDrmXWJ8M"
-      },
-      {
-        "id": "vsR9lYeRtL0",
-        "title": "Ferdinando Carulli (1770-1841)  Serenade op.96 n.1 in La magg. Guitar duo - D. Nizzi - F. Pietroboni",
-        "channel": "Conservatorio Luca Marenzio",
-        "duration": "5:27",
-        "published": "3 years ago",
-        "url": "https://www.youtube.com/watch?v=vsR9lYeRtL0"
-      },
-      {
         "id": "8VtoBqbFh9c",
         "title": "Serenade Op 96 (Fernando Carulli) Classical Guitar Duet - John Henry Johnson and Roland Gomez",
         "channel": "John Henry Johnson",
         "duration": "5:25",
         "published": "9 years ago",
         "url": "https://www.youtube.com/watch?v=8VtoBqbFh9c"
+      },
+      {
+        "id": "Zy97m3iDJSw",
+        "title": "Ferdinando Carulli - Serenade No 2 Op.96 (Guitar Duet)",
+        "channel": "Michel Rombaut",
+        "duration": "9:41",
+        "published": "1 year ago",
+        "url": "https://www.youtube.com/watch?v=Zy97m3iDJSw"
       }
     ],
     "duo|Serenade, Op. 96 No. 3|Ferdinando Carulli": [
@@ -5618,6 +5512,24 @@
         "duration": "3:07",
         "published": "",
         "url": "https://www.youtube.com/watch?v=uR6aKtU3Kko"
+      }
+    ],
+    "duo|Cuba, Op. 47 No. 8|Isaac Albéniz": [
+      {
+        "id": "TCW1NRR_GDI",
+        "title": "Albéniz: Suite Española, VII. Cuba",
+        "channel": "Scandinavian Guitar Duo - Topic",
+        "duration": "4:26",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=TCW1NRR_GDI"
+      },
+      {
+        "id": "KyqimQ6UCWU",
+        "title": "Cuba. Capricho. Suite Española. Op 47. Nº8. Isaac Albéniz. Dos guitarras",
+        "channel": "sotanito1",
+        "duration": "6:06",
+        "published": "4 years ago",
+        "url": "https://www.youtube.com/watch?v=KyqimQ6UCWU"
       }
     ],
     "duo|Mallorca, Op. 202|Isaac Albéniz": [
@@ -6131,14 +6043,6 @@
       }
     ],
     "duo|Arabesque No. 2|Claude Debussy": [
-      {
-        "id": "tb9PcdcY3u8",
-        "title": "TRAV&LS \"Arabesque N.1\" C.Debussy. Guitar Duo. Luigi Travaglini Luigi Sabbatini",
-        "channel": "TRAV&LS Piceno Classical Guitar Duo",
-        "duration": "4:39",
-        "published": "4 years ago",
-        "url": "https://www.youtube.com/watch?v=tb9PcdcY3u8"
-      },
       {
         "id": "EBq5nREGSbQ",
         "title": "PGF Series - Tomasi/Musso Guitar Duo plays Arabesque I by Claude Debussy",
@@ -6996,14 +6900,6 @@
         "duration": "3:57",
         "published": "",
         "url": "https://www.youtube.com/watch?v=p2i0Pya7uFU"
-      },
-      {
-        "id": "Fe0dkbmszG4",
-        "title": "Chopin Waltz in C sharp minor for two guitars",
-        "channel": "Lazar Der Gregorian",
-        "duration": "4:13",
-        "published": "7 months ago",
-        "url": "https://www.youtube.com/watch?v=Fe0dkbmszG4"
       }
     ],
     "duo|Humoresque, Op. 101 No. 7|Antonín Dvořák": [
@@ -7706,6 +7602,24 @@
         "url": "https://www.youtube.com/watch?v=47KEpWLBAjk"
       }
     ],
+    "duo|Concerto RV 532 III. Allegro|Antonio Vivaldi": [
+      {
+        "id": "ifdlvZcCKaA",
+        "title": "Antonio Vivaldi • Concerto for 2 Guitars in G major, RV 532: III  Allegro",
+        "channel": "Pavel Evseev Guitar",
+        "duration": "3:45",
+        "published": "1 year ago",
+        "url": "https://www.youtube.com/watch?v=ifdlvZcCKaA"
+      },
+      {
+        "id": "suq-qb6PJUw",
+        "title": "Vivaldi - Concerto For Two Guitars In G Major - III. Allegro",
+        "channel": "Celin Romero - Topic",
+        "duration": "3:50",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=suq-qb6PJUw"
+      }
+    ],
     "duo|Concerto RV 522 II. Larghetto|Antonio Vivaldi": [
       {
         "id": "I_FD54raLCc",
@@ -7921,6 +7835,1818 @@
         "published": "7 years ago",
         "url": "https://www.youtube.com/watch?v=Xu_wRuVrfyw"
       }
+    ],
+    "duo|Sheep May Safely Graze, BWV 208|J. S. Bach": [
+      {
+        "id": "iVe8xeP05XU",
+        "title": "Bach, Cantata 208, 9. Sheep May Safely Graze (guitar duet)",
+        "channel": "smalin",
+        "duration": "4:57",
+        "published": "11 years ago",
+        "url": "https://www.youtube.com/watch?v=iVe8xeP05XU"
+      },
+      {
+        "id": "g2RghyM9v_s",
+        "title": "BACH GUITAR DUO - BACH Air \"Sheep may safely graze\" BWV 208",
+        "channel": "Florindo Baldissera",
+        "duration": "4:29",
+        "published": "5 years ago",
+        "url": "https://www.youtube.com/watch?v=g2RghyM9v_s"
+      },
+      {
+        "id": "B-iWvpNX0B8",
+        "title": "Sheep May Safely Graze - JS Bach - Guitar Duet",
+        "channel": "Gangly1",
+        "duration": "5:43",
+        "published": "14 years ago",
+        "url": "https://www.youtube.com/watch?v=B-iWvpNX0B8"
+      },
+      {
+        "id": "5wgKbcJmp0Q",
+        "title": "Bach’s “Sheep May Safely Graze” (Guitar Duet)",
+        "channel": "Mark Phillips",
+        "duration": "1:28",
+        "published": "3 years ago",
+        "url": "https://www.youtube.com/watch?v=5wgKbcJmp0Q"
+      }
+    ],
+    "duo|Wachet auf, ruft uns die Stimme, BWV 645|J. S. Bach": [
+      {
+        "id": "gdMcOUb6MPg",
+        "title": "Bach: Wachet auf ruft uns die Stimme, BWV 140, BWV 645, for two guitars",
+        "channel": "leyenda168",
+        "duration": "7:16",
+        "published": "9 years ago",
+        "url": "https://www.youtube.com/watch?v=gdMcOUb6MPg"
+      },
+      {
+        "id": "sPj5l5kLWyU",
+        "title": "Wachet auf, ruft uns die Stimme, BWV 645 (Arr. for 2 Guitars)",
+        "channel": "Marco Sgura - Topic",
+        "duration": "4:11",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=sPj5l5kLWyU"
+      }
+    ],
+    "duo|Arioso, BWV 156|J. S. Bach": [
+      {
+        "id": "JVuaIa-G4s8",
+        "title": "[클래식 기타 듀오]J.S. Bach - Arioso from Cantata BWV 156 /Guitar Duo/아리오소 기타듀오 요한 세바스찬 바흐/ 연주: 완자 & 심현",
+        "channel": "심현 아름다운 기타",
+        "duration": "3:44",
+        "published": "5 years ago",
+        "url": "https://www.youtube.com/watch?v=JVuaIa-G4s8"
+      },
+      {
+        "id": "V7-V2FpoBlU",
+        "title": "J. S. Bach: Arioso From Cantata BWV 156 | Guitar Duo",
+        "channel": "Braulio Lin",
+        "duration": "1:53",
+        "published": "3 years ago",
+        "url": "https://www.youtube.com/watch?v=V7-V2FpoBlU"
+      },
+      {
+        "id": "Apxc1Y3PNlA",
+        "title": "J. S. BACH - Arioso (Sinfonia) BWV 156 (Ingolstadt Guitar Duo - Ricard Birkuls & Gustav Hase)",
+        "channel": "KORDIUK GUITAR PLATFORM",
+        "duration": "2:55",
+        "published": "3 years ago",
+        "url": "https://www.youtube.com/watch?v=Apxc1Y3PNlA"
+      },
+      {
+        "id": "w536r7hfXno",
+        "title": "2021, 11, 11.  Arioso -  J.S.Bach - Arioso from Cantata BWV 156 - Adagio",
+        "channel": "시라시도 기타듀오 SiraSido Guitar Duo",
+        "duration": "3:59",
+        "published": "4 years ago",
+        "url": "https://www.youtube.com/watch?v=w536r7hfXno"
+      }
+    ],
+    "duo|Bourrée in E minor, BWV 996|J. S. Bach": [
+      {
+        "id": "4bYvLmTISps",
+        "title": "Bach Bourree 8 years old Guitar Duo 2 Guitars Gitarren Young Talents BWV 996",
+        "channel": "edition49 music publishing company",
+        "duration": "1:16",
+        "published": "13 years ago",
+        "url": "https://www.youtube.com/watch?v=4bYvLmTISps"
+      },
+      {
+        "id": "pYKK9qhkka4",
+        "title": "Bach Bourrée in e-minor",
+        "channel": "Z.o.o. guitar duo",
+        "duration": "1:07",
+        "published": "16 years ago",
+        "url": "https://www.youtube.com/watch?v=pYKK9qhkka4"
+      },
+      {
+        "id": "C9xriCfw_NQ",
+        "title": "Bach Bourree Guitar Duet",
+        "channel": "75hum",
+        "duration": "2:04",
+        "published": "6 years ago",
+        "url": "https://www.youtube.com/watch?v=C9xriCfw_NQ"
+      }
+    ],
+    "duo|Canarios|Gaspar Sanz": [
+      {
+        "id": "vXUrocH8nII",
+        "title": "Canarios (Gaspar Sanz) Duo Rubio Franch (Guitar Duo)",
+        "channel": "Duo Rubio & Franch_Guitar Duo",
+        "duration": "3:46",
+        "published": "6 years ago",
+        "url": "https://www.youtube.com/watch?v=vXUrocH8nII"
+      },
+      {
+        "id": "NfHGECeDn0Q",
+        "title": "Canarios by Gaspar Sanz Arranged for Two Guitars",
+        "channel": "Classical Guitar Corner",
+        "duration": "1:18",
+        "published": "3 years ago",
+        "url": "https://www.youtube.com/watch?v=NfHGECeDn0Q"
+      },
+      {
+        "id": "YufhKvRSnRY",
+        "title": "Canarios by Gaspar Sanz classical guitar duet",
+        "channel": "Erica Greene",
+        "duration": "1:52",
+        "published": "3 years ago",
+        "url": "https://www.youtube.com/watch?v=YufhKvRSnRY"
+      },
+      {
+        "id": "KE8aT9s6GRA",
+        "title": "ギターデュオ「カナリオス」CANARIOS G.サンス guitarduo",
+        "channel": "みなくるギター部",
+        "duration": "1:30",
+        "published": "3 years ago",
+        "url": "https://www.youtube.com/watch?v=KE8aT9s6GRA"
+      }
+    ],
+    "duo|Españoleta|Gaspar Sanz": [
+      {
+        "id": "3qYG5rYnL3Y",
+        "title": "Espanoletas by Sanz for classical guitar duet",
+        "channel": "MATTHEW SALLIS",
+        "duration": "2:07",
+        "published": "5 years ago",
+        "url": "https://www.youtube.com/watch?v=3qYG5rYnL3Y"
+      },
+      {
+        "id": "u9Ff81x9u1M",
+        "title": "Españoletas y Canarios - Gaspar Sanz Guitar Duo by Gaetano Canneto & Francesco Maria Palladino",
+        "channel": "Gaetano Canneto JEGO",
+        "duration": "2:16",
+        "published": "9 years ago",
+        "url": "https://www.youtube.com/watch?v=u9Ff81x9u1M"
+      }
+    ],
+    "duo|The Four Seasons: Spring, RV 269|Antonio Vivaldi": [
+      {
+        "id": "2rzRxtAIkdo",
+        "title": "The Four Seasons Spring by Antonio Vivaldi - Guitar Duo",
+        "channel": "Phynh",
+        "duration": "3:45",
+        "published": "12 years ago",
+        "url": "https://www.youtube.com/watch?v=2rzRxtAIkdo"
+      },
+      {
+        "id": "ITnJ8f8No_Y",
+        "title": "Antonio Vivaldi - Spring From The Four Seasons (Electric Guitar Duo)",
+        "channel": "Strings & Frets",
+        "duration": "1:14",
+        "published": "2 years ago",
+        "url": "https://www.youtube.com/watch?v=ITnJ8f8No_Y"
+      }
+    ],
+    "duo|The Four Seasons: Winter, RV 297|Antonio Vivaldi": [
+      {
+        "id": "No98DWG8P14",
+        "title": "A. Vivaldi - Winter (The Four Seasons)",
+        "channel": "CARisMA Guitar Duo",
+        "duration": "3:27",
+        "published": "3 years ago",
+        "url": "https://www.youtube.com/watch?v=No98DWG8P14"
+      },
+      {
+        "id": "GRCxWdQTzCI",
+        "title": "Vivaldi - 'Winter' (The Four Seasons)",
+        "channel": "CARisMA Guitar Duo",
+        "duration": "3:20",
+        "published": "3 years ago",
+        "url": "https://www.youtube.com/watch?v=GRCxWdQTzCI"
+      }
+    ],
+    "duo|Concerto in D minor, BWV 974|J. S. Bach": [
+      {
+        "id": "QIx-af5U-6w",
+        "title": "J. S. Bach - Allegro - Concerto In D Minor Bwv 974 -  Classical Guitar Duo",
+        "channel": "FusionExtrusion",
+        "duration": "2:23",
+        "published": "2 years ago",
+        "url": "https://www.youtube.com/watch?v=QIx-af5U-6w"
+      },
+      {
+        "id": "4D9xEuOjdAA",
+        "title": "JOHANN SEBASTIAN BACH - Concerto in D minor (BWV 974) Andante e spiccato after Alessandro Marcello",
+        "channel": "Eden Stell Guitar Duo",
+        "duration": "3:10",
+        "published": "1 year ago",
+        "url": "https://www.youtube.com/watch?v=4D9xEuOjdAA"
+      },
+      {
+        "id": "klO4vfhPzOk",
+        "title": "A. MARCELLO/BACH :  ADAGIO BWV 974 FOR TWO GUITARS",
+        "channel": "Italian Guitar Ensemble",
+        "duration": "4:08",
+        "published": "9 years ago",
+        "url": "https://www.youtube.com/watch?v=klO4vfhPzOk"
+      }
+    ],
+    "duo|Duo in G major, Op. 146|Ferdinando Carulli": [
+      {
+        "id": "Syt55xJjE3A",
+        "title": "ALMA Guitar Duo - Duetto n. 3 op. 146 (Ferdinando Carulli)",
+        "channel": "ALMA Guitar Duo",
+        "duration": "5:32",
+        "published": "3 years ago",
+        "url": "https://www.youtube.com/watch?v=Syt55xJjE3A"
+      },
+      {
+        "id": "_yThgh69EII",
+        "title": "F. Carulli - Largo op. 146 (for 2 guitars)",
+        "channel": "homayoun saleh",
+        "duration": "1:41",
+        "published": "12 years ago",
+        "url": "https://www.youtube.com/watch?v=_yThgh69EII"
+      }
+    ],
+    "duo|Recuerdos de la Alhambra|Francisco Tárrega": [
+      {
+        "id": "4QcZKFgMOrI",
+        "title": "Beijing Guitar Duo | Recuerdos de la Alhambra by Francisco Tárrega arr. Su & Wang",
+        "channel": "NOVA Performing Arts",
+        "duration": "3:35",
+        "published": "3 months ago",
+        "url": "https://www.youtube.com/watch?v=4QcZKFgMOrI"
+      },
+      {
+        "id": "swGgOuPLzY0",
+        "title": "Recuerdos de la Alhambra (2 Guitars) by Francisco Tárrega, performed by Edson Lopes",
+        "channel": "Edson Lopes",
+        "duration": "4:18",
+        "published": "2 years ago",
+        "url": "https://www.youtube.com/watch?v=swGgOuPLzY0"
+      },
+      {
+        "id": "bqUpYJ-_Kv0",
+        "title": "Beijing Guitar Duo “air” plays Recuerdos de la Alhambra (arr. for two guitars)",
+        "channel": "Meng Su, guitarist",
+        "duration": "3:46",
+        "published": "6 years ago",
+        "url": "https://www.youtube.com/watch?v=bqUpYJ-_Kv0"
+      },
+      {
+        "id": "rYbE3Jg4Gxg",
+        "title": "Recuerdos de la Alhambra | RARE Spanish Guitar Duo Arrangement ",
+        "channel": "David Chiriboga Music",
+        "duration": "3:59",
+        "published": "3 years ago",
+        "url": "https://www.youtube.com/watch?v=rYbE3Jg4Gxg"
+      }
+    ],
+    "duo|Capricho Árabe|Francisco Tárrega": [
+      {
+        "id": "oG-nZDVP9pc",
+        "title": "Capricho Árabe",
+        "channel": "Mono Guitar Duo - Topic",
+        "duration": "5:13",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=oG-nZDVP9pc"
+      },
+      {
+        "id": "FGuq2oIi6to",
+        "title": "Capricho Árabe (Arr. for Guitar Duo by Arnaud Dumond) (Live)",
+        "channel": "Arnaud Dumond",
+        "duration": "6:05",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=FGuq2oIi6to"
+      }
+    ],
+    "duo|Gran Vals|Francisco Tárrega": [
+      {
+        "id": "BuAqIewqGlc",
+        "title": "Francisco Tárrega - Gran Vals (guitar duo)",
+        "channel": "Кладовая гитариста",
+        "duration": "2:19",
+        "published": "2 years ago",
+        "url": "https://www.youtube.com/watch?v=BuAqIewqGlc"
+      },
+      {
+        "id": "kpncRrTExU4",
+        "title": "Gran Vals, Nokia Tune",
+        "channel": "Katona Twins Guitar Duo (Katona Twins)",
+        "duration": "4:53",
+        "published": "1 year ago",
+        "url": "https://www.youtube.com/watch?v=kpncRrTExU4"
+      }
+    ],
+    "duo|Lágrima|Francisco Tárrega": [
+      {
+        "id": "TLeDohlJaHw",
+        "title": "Lágrima",
+        "channel": "Mono Guitar Duo - Topic",
+        "duration": "2:23",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=TLeDohlJaHw"
+      },
+      {
+        "id": "MjtIptZn7bc",
+        "title": "LAGRIMAS or tears DUET GUITAR TARREGA INSTRUCTIONAL VIDEO",
+        "channel": "frankbatista4guitar",
+        "duration": "1:51",
+        "published": "12 years ago",
+        "url": "https://www.youtube.com/watch?v=MjtIptZn7bc"
+      },
+      {
+        "id": "owIcMZcyFIE",
+        "title": "LAGRIMA-TARREGA, F.-GUITAR DUET",
+        "channel": "Ismael Rodriguez",
+        "duration": "1:54",
+        "published": "16 years ago",
+        "url": "https://www.youtube.com/watch?v=owIcMZcyFIE"
+      },
+      {
+        "id": "vblmju9fAlo",
+        "title": "Tárrega F. Lágrima (Preludio) para dos guitarras",
+        "channel": "Mario Alvarez",
+        "duration": "2:06",
+        "published": "3 years ago",
+        "url": "https://www.youtube.com/watch?v=vblmju9fAlo"
+      }
+    ],
+    "duo|Adelita|Francisco Tárrega": [
+      {
+        "id": "4DIz3MOyUD0",
+        "title": "Adelita duet guitars",
+        "channel": "Zviad Rusia",
+        "duration": "1:36",
+        "published": "9 years ago",
+        "url": "https://www.youtube.com/watch?v=4DIz3MOyUD0"
+      },
+      {
+        "id": "zmhtUUwc8p0",
+        "title": "F. Tárrega. Adelita para dos guitarras",
+        "channel": "Mario Alvarez",
+        "duration": "1:00",
+        "published": "10 years ago",
+        "url": "https://www.youtube.com/watch?v=zmhtUUwc8p0"
+      }
+    ],
+    "duo|Romance Anónimo|Anónimo": [
+      {
+        "id": "SWD0rEFClsI",
+        "title": "Spanish Romance -Romanza -Romance d'Amour, Romance Anónimo, Jeux Interdits -Guitar duet Sheets music",
+        "channel": "Мюзик арт център - Уроци по китара, пиано и други",
+        "duration": "1:48",
+        "published": "6 years ago",
+        "url": "https://www.youtube.com/watch?v=SWD0rEFClsI"
+      },
+      {
+        "id": "HFo-5fbp1jQ",
+        "title": "Romance Anónimo Versión para dos Guitarras",
+        "channel": "alice",
+        "duration": "2:00",
+        "published": "10 years ago",
+        "url": "https://www.youtube.com/watch?v=HFo-5fbp1jQ"
+      },
+      {
+        "id": "KT8XXBQyxQ8",
+        "title": "Anónimo. Romance anónimo- Dúo de guitarras",
+        "channel": "Mario Alvarez",
+        "duration": "2:13",
+        "published": "13 years ago",
+        "url": "https://www.youtube.com/watch?v=KT8XXBQyxQ8"
+      },
+      {
+        "id": "PLweOLEtBL4",
+        "title": "Romance anónimo - Fernando Arocena (arreglo para dos guitarras Venancio García Velasco)",
+        "channel": "Fernando Arocena (Hand Solo)",
+        "duration": "2:56",
+        "published": "6 years ago",
+        "url": "https://www.youtube.com/watch?v=PLweOLEtBL4"
+      }
+    ],
+    "duo|Serenata Española|Joaquín Malats": [
+      {
+        "id": "qr3uWN-dt88",
+        "title": "Serenata Espanola",
+        "channel": "The Albanach Guitar Duo - Topic",
+        "duration": "4:14",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=qr3uWN-dt88"
+      },
+      {
+        "id": "S3e3zWyMZEc",
+        "title": "For two guitars / Joaquín Malats - Serenata Española",
+        "channel": "Miri Zara",
+        "duration": "3:20",
+        "published": "4 years ago",
+        "url": "https://www.youtube.com/watch?v=S3e3zWyMZEc"
+      },
+      {
+        "id": "RceUYnRoRos",
+        "title": "Serenata española (Arr. for 2 Guitars by Peter Katona and Zoltán Katona)",
+        "channel": "Katona Twins - Topic",
+        "duration": "5:13",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=RceUYnRoRos"
+      }
+    ],
+    "duo|Bolero|Julián Arcas": [
+      {
+        "id": "TewSdUvU-O4",
+        "title": "Guitarra Española: Bolero menorquín (Arr. for Two Guitars)",
+        "channel": "Duo Pomponio-Zárate - Topic",
+        "duration": "2:55",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=TewSdUvU-O4"
+      },
+      {
+        "id": "7-wdSKAPw1Y",
+        "title": "Bolero, for 2 guitars",
+        "channel": "unagondolaunremo",
+        "duration": "6:38",
+        "published": "13 years ago",
+        "url": "https://www.youtube.com/watch?v=7-wdSKAPw1Y"
+      }
+    ],
+    "duo|Tango Español|Emilio Pujol": [
+      {
+        "id": "9QXMDf7ujF0",
+        "title": "2 danzas españolas, Op. 164: II. Tango (Transc. Pujol for 2 Guitars)",
+        "channel": "Turibio Santos - Topic",
+        "duration": "5:10",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=9QXMDf7ujF0"
+      },
+      {
+        "id": "ytIIfth1gd4",
+        "title": "2 Danzas Españolas, Op. 164: No. 2, Tango (Transc. Pujol for Two Guitars)",
+        "channel": "Turibio Santos - Topic",
+        "duration": "5:10",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=ytIIfth1gd4"
+      }
+    ],
+    "duo|Córdoba, Op. 232 No. 4|Isaac Albéniz": [
+      {
+        "id": "WknuzQj0H5A",
+        "title": "Albeniz: Cordoba played by The Meyer-Thachuk Guitar Duo from the CD - Evocación",
+        "channel": "The Meyer Thachuk Guitar Duo",
+        "duration": "5:59",
+        "published": "11 years ago",
+        "url": "https://www.youtube.com/watch?v=WknuzQj0H5A"
+      },
+      {
+        "id": "w2Sw0VE9BNI",
+        "title": "Duo Gruber & Maklar - Cordoba - (Isaac Albeniz)",
+        "channel": "Gitarrenduo Gruber & Maklar guitarduo",
+        "duration": "6:03",
+        "published": "11 years ago",
+        "url": "https://www.youtube.com/watch?v=w2Sw0VE9BNI"
+      },
+      {
+        "id": "o2UU-j_nAcY",
+        "title": "I. Albeniz, Cordoba No. 4 de Cantos de Espana by 10P11 Guitar Duo",
+        "channel": "Sira Tindukasiri",
+        "duration": "6:43",
+        "published": "12 years ago",
+        "url": "https://www.youtube.com/watch?v=o2UU-j_nAcY"
+      },
+      {
+        "id": "MwuSELuY12k",
+        "title": "Cordoba by Albeniz, Astrum Guitar Duo",
+        "channel": "amyperryguitar",
+        "duration": "6:05",
+        "published": "14 years ago",
+        "url": "https://www.youtube.com/watch?v=MwuSELuY12k"
+      }
+    ],
+    "duo|Rumores de la Caleta, Op. 71 No. 6|Isaac Albéniz": [
+      {
+        "id": "-mePv_NSAVs",
+        "title": "Rumores de la Caleta, Malaguena, No. 6 - Isaac Albeniz",
+        "channel": "The Meyer Thachuk Guitar Duo",
+        "duration": "4:09",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=-mePv_NSAVs"
+      },
+      {
+        "id": "fO-KpHvo5l4",
+        "title": "Albeniz:Rumores de la Caleta played by The Meyer-Thachuk Guitar Duo from the CD - Evocación",
+        "channel": "The Meyer Thachuk Guitar Duo",
+        "duration": "4:09",
+        "published": "11 years ago",
+        "url": "https://www.youtube.com/watch?v=fO-KpHvo5l4"
+      },
+      {
+        "id": "cCAyh3w-oTI",
+        "title": "Odeum Guitar Duo - Isaac Albeniz - Rumores de la Caleta  - 5/25/2014",
+        "channel": "Robert Wetzel",
+        "duration": "3:48",
+        "published": "12 years ago",
+        "url": "https://www.youtube.com/watch?v=cCAyh3w-oTI"
+      }
+    ],
+    "duo|Danza Ritual del Fuego|Manuel de Falla": [
+      {
+        "id": "e7oZxgL1zhw",
+        "title": "Manuel de Falla - Danza Ritual del Fuego - concert live",
+        "channel": "KUPINSKI GUITAR DUO",
+        "duration": "4:53",
+        "published": "2 years ago",
+        "url": "https://www.youtube.com/watch?v=e7oZxgL1zhw"
+      },
+      {
+        "id": "3D-jmnqUl3k",
+        "title": "Manuel de Falla - Danza ritual del fuego / MONTENEGRIN GUITAR DUO 몬테네그린 기타듀오",
+        "channel": "PARTITA STUDIO",
+        "duration": "4:34",
+        "published": "9 years ago",
+        "url": "https://www.youtube.com/watch?v=3D-jmnqUl3k"
+      },
+      {
+        "id": "peNGzXAZ-rU",
+        "title": "Guitar Duo KM - Danza ritual del fuego, Manuel de Falla",
+        "channel": "Duo KM",
+        "duration": "4:07",
+        "published": "11 years ago",
+        "url": "https://www.youtube.com/watch?v=peNGzXAZ-rU"
+      },
+      {
+        "id": "OpagpVdVbHs",
+        "title": "M. De Falla - Danza Ritual del Fuego / Guitar Duo",
+        "channel": "Duo Palermini-Palmeri",
+        "duration": "4:15",
+        "published": "5 years ago",
+        "url": "https://www.youtube.com/watch?v=OpagpVdVbHs"
+      }
+    ],
+    "duo|Canción del fuego fatuo|Manuel de Falla": [
+      {
+        "id": "jow0Gz8hajs",
+        "title": "Canción del Fuego Fatuo a cuatro manos. +Que2 guitar dúo",
+        "channel": "Fer Co",
+        "duration": "1:56",
+        "published": "16 years ago",
+        "url": "https://www.youtube.com/watch?v=jow0Gz8hajs"
+      },
+      {
+        "id": "TwVn_oqqvlI",
+        "title": "El Amor Brujo: Cancion Del Fuego Fatuo (Arr. for Guitar Duo)",
+        "channel": "Claudia Hein - Topic",
+        "duration": "1:36",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=TwVn_oqqvlI"
+      },
+      {
+        "id": "LFLm_Grb7N8",
+        "title": "Odeum Guitar Duo - Manuel de Falla - Cancion del Fuego Fatuo - April 28, 2014",
+        "channel": "Robert Wetzel",
+        "duration": "1:31",
+        "published": "12 years ago",
+        "url": "https://www.youtube.com/watch?v=LFLm_Grb7N8"
+      }
+    ],
+    "duo|Nana|Manuel de Falla": [
+      {
+        "id": "91tlIE_5COY",
+        "title": "Nana (Siete canciones populares Españolas no. 5) - M. de Falla, Eline & Eva",
+        "channel": "Eline&Eva voice and guitar duo",
+        "duration": "1:38",
+        "published": "5 years ago",
+        "url": "https://www.youtube.com/watch?v=91tlIE_5COY"
+      },
+      {
+        "id": "G--CLsZYFV4",
+        "title": "Nana; Suite populaire espagnole",
+        "channel": "Athens Guitar Duo",
+        "duration": "2:06",
+        "published": "7 years ago",
+        "url": "https://www.youtube.com/watch?v=G--CLsZYFV4"
+      },
+      {
+        "id": "oka1N7bhV4o",
+        "title": "7 Canciones populares españolas: No. 5, Nana (Transcr. Llobet for Two Guitars)",
+        "channel": "Ernesto Bitetti - Topic",
+        "duration": "1:27",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=oka1N7bhV4o"
+      }
+    ],
+    "duo|Asturiana|Manuel de Falla": [
+      {
+        "id": "YxuKzyfObaY",
+        "title": "7 Canciones populares españolas: No. 3, Asturiana (Transcr. Llobet for Two Guitars)",
+        "channel": "Ernesto Bitetti - Topic",
+        "duration": "2:09",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=YxuKzyfObaY"
+      },
+      {
+        "id": "OXpcmx4r3H4",
+        "title": "Suite Populaire Espagnole, de Siete canciones populares españolas: 3. Asturiana (Arr. Edward...",
+        "channel": "Grigoryan Brothers",
+        "duration": "2:16",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=OXpcmx4r3H4"
+      }
+    ],
+    "duo|La Catedral|Agustín Barrios Mangoré": [
+      {
+        "id": "IIVU5rJbJ7c",
+        "title": "La Catedral (Two Guitars) by Agustin Barrios, performed by Edson Lopes & Guilherme Sparrapan",
+        "channel": "Edson Lopes",
+        "duration": "5:11",
+        "published": "10 years ago",
+        "url": "https://www.youtube.com/watch?v=IIVU5rJbJ7c"
+      },
+      {
+        "id": "DsN99H_GNps",
+        "title": "La Catedral de Agustín Barrios Mangoré | Allegro a Dos Guitarras con PDF descargable",
+        "channel": "Buscadores Flamencos",
+        "duration": "3:43",
+        "published": "4 years ago",
+        "url": "https://www.youtube.com/watch?v=DsN99H_GNps"
+      },
+      {
+        "id": "ykV0389eLhw",
+        "title": "Duo Encuentro plays La Catedral from Agustin Barrios Mangore - Arr. Edson Lopes for two Guitars",
+        "channel": "Duo Encuentro",
+        "duration": "3:59",
+        "published": "6 years ago",
+        "url": "https://www.youtube.com/watch?v=ykV0389eLhw"
+      },
+      {
+        "id": "asMk4p6VcKA",
+        "title": "Agustín Barrios Mangoré - La Catedral - Allegro Solemne /for two guitars according to Yamandu Costa/",
+        "channel": "Miri Zara",
+        "duration": "3:28",
+        "published": "4 years ago",
+        "url": "https://www.youtube.com/watch?v=asMk4p6VcKA"
+      }
+    ],
+    "duo|Julia Florida|Agustín Barrios Mangoré": [
+      {
+        "id": "gAbVDWMghG0",
+        "title": "Agustin Barrios: Julia Florida - Luca Soattin, historical guitar",
+        "channel": "Noli-Soattin Guitar Duo",
+        "duration": "5:19",
+        "published": "6 years ago",
+        "url": "https://www.youtube.com/watch?v=gAbVDWMghG0"
+      },
+      {
+        "id": "9PHMc0OQ0zc",
+        "title": "Julia Florida",
+        "channel": "Southwest Guitar Duo - Topic",
+        "duration": "3:54",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=9PHMc0OQ0zc"
+      },
+      {
+        "id": "tBtWMICYWkU",
+        "title": "Julia Florida",
+        "channel": "Dúo de Guitarras Boccacio Gallino - Topic",
+        "duration": "3:55",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=tBtWMICYWkU"
+      }
+    ],
+    "duo|Las Abejas|Agustín Barrios Mangoré": [
+      {
+        "id": "K4cHDHAoVvE",
+        "title": "Las Abejas (for two guitars arr. Edson Lopes)",
+        "channel": "Duo Imbesi Zangarà - Topic",
+        "duration": "2:41",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=K4cHDHAoVvE"
+      },
+      {
+        "id": "2apP1xKkrWA",
+        "title": "Las Abejas (Guitar Duet) by Edson Lopes & Guilherme Sparrapan, performed by Edson Lopes",
+        "channel": "Edson Lopes",
+        "duration": "1:25",
+        "published": "7 years ago",
+        "url": "https://www.youtube.com/watch?v=2apP1xKkrWA"
+      },
+      {
+        "id": "tw5ZNIttd2s",
+        "title": "Las abejas a dos guitarras (Orlando Martínez)",
+        "channel": "Orlando Martinez",
+        "duration": "2:41",
+        "published": "11 years ago",
+        "url": "https://www.youtube.com/watch?v=tw5ZNIttd2s"
+      }
+    ],
+    "duo|Estrellita|Manuel María Ponce": [
+      {
+        "id": "-AuL2BbPf40",
+        "title": "Manuel María Ponce - Estrellita",
+        "channel": "GuitarDuo Zunett",
+        "duration": "2:56",
+        "published": "3 years ago",
+        "url": "https://www.youtube.com/watch?v=-AuL2BbPf40"
+      },
+      {
+        "id": "CBn3Ro8xpK0",
+        "title": "Dúo Montes-Kircher play Estrellita by Manuel Ponce",
+        "channel": "Montes Kircher",
+        "duration": "2:42",
+        "published": "18 years ago",
+        "url": "https://www.youtube.com/watch?v=CBn3Ro8xpK0"
+      },
+      {
+        "id": "oMKxqheQFdc",
+        "title": "Dos canciones mexicanas: 2. Estrellita (Arr. Edward Grigoryan)",
+        "channel": "Grigoryan Brothers",
+        "duration": "3:35",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=oMKxqheQFdc"
+      },
+      {
+        "id": "OP4s7trp_sM",
+        "title": "Estrellita - dúo de guitarras",
+        "channel": "Ushío",
+        "duration": "1:00",
+        "published": "6 years ago",
+        "url": "https://www.youtube.com/watch?v=OP4s7trp_sM"
+      }
+    ],
+    "duo|Danza Paraguaya|Agustín Barrios Mangoré": [
+      {
+        "id": "vIRUow_gseM",
+        "title": "Danza Paraguaya No. 1 (A. Barrios)",
+        "channel": "Brasilis Guitar Duo",
+        "duration": "2:33",
+        "published": "9 years ago",
+        "url": "https://www.youtube.com/watch?v=vIRUow_gseM"
+      },
+      {
+        "id": "RDXhE9i91K0",
+        "title": "Guitar Duo Duolisme plays Danza Paraguaya no. 1 by A. Barrios",
+        "channel": "Duolisme",
+        "duration": "2:34",
+        "published": "18 years ago",
+        "url": "https://www.youtube.com/watch?v=RDXhE9i91K0"
+      },
+      {
+        "id": "4XrVYztXb_A",
+        "title": "Barrios' \"Danza Paraguaya\" arranged for 2 guitars by Barrios Mangore, from \"El Libro de Oro\", Vol. 2",
+        "channel": "Guitar Salon International",
+        "duration": "2:05",
+        "published": "6 years ago",
+        "url": "https://www.youtube.com/watch?v=4XrVYztXb_A"
+      },
+      {
+        "id": "o_kuvgYZpI4",
+        "title": "Danza Paraguaya (Arr. for Guitar Duo)",
+        "channel": "Milan Zelenka - Topic",
+        "duration": "2:10",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=o_kuvgYZpI4"
+      }
+    ],
+    "duo|Cueca|Agustín Barrios Mangoré": [
+      {
+        "id": "Y9Zt58cCjvo",
+        "title": "CUECA - Bolivian Guitar Duet - Sissi & Karen Muenchen",
+        "channel": "karenmuenchen",
+        "duration": "1:53",
+        "published": "3 years ago",
+        "url": "https://www.youtube.com/watch?v=Y9Zt58cCjvo"
+      },
+      {
+        "id": "P-edQnLlTXE",
+        "title": "Cueca - Arr: Carlos Perez - played by 2Guitars.sk",
+        "channel": "2Guitars_sk",
+        "duration": "1:10",
+        "published": "9 years ago",
+        "url": "https://www.youtube.com/watch?v=P-edQnLlTXE"
+      },
+      {
+        "id": "IXwxHFesYE0",
+        "title": "\"Cueca\" - guitar duo",
+        "channel": "Vangelis Gaglias",
+        "duration": "1:15",
+        "published": "17 years ago",
+        "url": "https://www.youtube.com/watch?v=IXwxHFesYE0"
+      }
+    ],
+    "duo|Danza Brasilera|Jorge Morel": [
+      {
+        "id": "61LGeSLpZeU",
+        "title": "Danza Brasilera || by Jorge Morel",
+        "channel": "Solstice Guitar Duo",
+        "duration": "2:53",
+        "published": "1 year ago",
+        "url": "https://www.youtube.com/watch?v=61LGeSLpZeU"
+      },
+      {
+        "id": "g1CDHo5ad-0",
+        "title": "Danza Brasilera (J. Morel) for two guitars",
+        "channel": "Guitar Duo Ronald Smulders & Roderick Peters",
+        "duration": "3:06",
+        "published": "3 years ago",
+        "url": "https://www.youtube.com/watch?v=g1CDHo5ad-0"
+      },
+      {
+        "id": "R9_FHpmHV7E",
+        "title": "Danza Brasileras - Jorge Morel MJC Guitar Duet",
+        "channel": "Jeremy Scharmann",
+        "duration": "4:40",
+        "published": "12 years ago",
+        "url": "https://www.youtube.com/watch?v=R9_FHpmHV7E"
+      }
+    ],
+    "duo|Seis por Derecho|Antonio Lauro": [
+      {
+        "id": "Si2TnyLuD9I",
+        "title": "Seis por Derecho",
+        "channel": "Alram Guitar Duo - Topic",
+        "duration": "3:50",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=Si2TnyLuD9I"
+      },
+      {
+        "id": "WnbbIJ-Mni8",
+        "title": "Seis por Derecho",
+        "channel": "Alram Guitar Duo - Topic",
+        "duration": "3:45",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=WnbbIJ-Mni8"
+      },
+      {
+        "id": "idc9umf1N30",
+        "title": "Antonio Lauro's Seis por Derecho played by Duo Montes-Kircher",
+        "channel": "Montes Kircher",
+        "duration": "2:57",
+        "published": "18 years ago",
+        "url": "https://www.youtube.com/watch?v=idc9umf1N30"
+      }
+    ],
+    "duo|La Gatica|Antonio Lauro": [
+      {
+        "id": "yJeP5rvp3tM",
+        "title": "Z.o.o. guitar duo (live): 'La Gatica'",
+        "channel": "Z.o.o. guitar duo",
+        "duration": "1:22",
+        "published": "14 years ago",
+        "url": "https://www.youtube.com/watch?v=yJeP5rvp3tM"
+      },
+      {
+        "id": "iMp-psaXVjY",
+        "title": "Z.o.o. Guitarduo - La Gatica, Pica Pica & los Caujaritos",
+        "channel": "Peter Aerts",
+        "duration": "5:55",
+        "published": "8 years ago",
+        "url": "https://www.youtube.com/watch?v=iMp-psaXVjY"
+      }
+    ],
+    "duo|Milonga|Jorge Cardoso": [
+      {
+        "id": "CZ4Ud-iOwCo",
+        "title": "Taracea Guitar Duo -  Milonga by Jorge Cardoso",
+        "channel": "Taracea Guitar Duo",
+        "duration": "4:13",
+        "published": "9 years ago",
+        "url": "https://www.youtube.com/watch?v=CZ4Ud-iOwCo"
+      },
+      {
+        "id": "Rcs2MdIIbIg",
+        "title": "Milonga by Jorge Cardoso",
+        "channel": "Petar & Daniel Guitar Duo",
+        "duration": "4:33",
+        "published": "10 years ago",
+        "url": "https://www.youtube.com/watch?v=Rcs2MdIIbIg"
+      },
+      {
+        "id": "IFLpW7V9FCQ",
+        "title": "J. Cardoso - Milonga  / Guitar Duo (live recording)",
+        "channel": "Duo Palermini-Palmeri",
+        "duration": "4:00",
+        "published": "4 years ago",
+        "url": "https://www.youtube.com/watch?v=IFLpW7V9FCQ"
+      },
+      {
+        "id": "VmzRPjE3LTk",
+        "title": "Milonga (Jorge Cardoso) for two guitars",
+        "channel": "Guitar Duo Ronald Smulders & Roderick Peters",
+        "duration": "3:02",
+        "published": "2 years ago",
+        "url": "https://www.youtube.com/watch?v=VmzRPjE3LTk"
+      }
+    ],
+    "duo|El Marabino|Antonio Lauro": [
+      {
+        "id": "MNsh7_mIYP0",
+        "title": "\"El Marabino\" (Antonio Lauro) - Dwi Hansen - Gunawan Duo Guitar",
+        "channel": "S D Hansen",
+        "duration": "1:34",
+        "published": "7 years ago",
+        "url": "https://www.youtube.com/watch?v=MNsh7_mIYP0"
+      },
+      {
+        "id": "_C5d_Pbs-5Q",
+        "title": "【HanSolo Wooden】El Marabino (Guitar Duo) | A. Lauro",
+        "channel": "HanSoloGuitar",
+        "duration": "1:42",
+        "published": "7 years ago",
+        "url": "https://www.youtube.com/watch?v=_C5d_Pbs-5Q"
+      },
+      {
+        "id": "YA4mqa1tMH8",
+        "title": "El marabino (arr. for 2 guitars and cuatro)",
+        "channel": "Morgan Szymanski - Topic",
+        "duration": "1:18",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=YA4mqa1tMH8"
+      }
+    ],
+    "duo|Angostura|Antonio Lauro": [
+      {
+        "id": "zP63680Iv18",
+        "title": "Lauro: 'Angostura' (Z.o.o. guitar duo)",
+        "channel": "Z.o.o. guitar duo",
+        "duration": "1:35",
+        "published": "4 years ago",
+        "url": "https://www.youtube.com/watch?v=zP63680Iv18"
+      },
+      {
+        "id": "G5xuRe-NWlY",
+        "title": "Vals Angostura (from  Suite \"Lugares\") by Alfonso Montes Published by Nogatz Verlag (K&N 1207)",
+        "channel": "Montes Kircher",
+        "duration": "3:04",
+        "published": "13 years ago",
+        "url": "https://www.youtube.com/watch?v=G5xuRe-NWlY"
+      }
+    ],
+    "duo|Bate-Coxa|Marco Pereira": [
+      {
+        "id": "-0_wMJnM5rc",
+        "title": "Brasil Guitar Duo performs Marco Pereira's Bate-Coxa",
+        "channel": "Americas Society/Council of the Americas",
+        "duration": "4:21",
+        "published": "10 years ago",
+        "url": "https://www.youtube.com/watch?v=-0_wMJnM5rc"
+      },
+      {
+        "id": "mSLsepzaSbc",
+        "title": "Brasil Guitar Duo - Bate Coxa",
+        "channel": "João Luiz",
+        "duration": "3:42",
+        "published": "15 years ago",
+        "url": "https://www.youtube.com/watch?v=mSLsepzaSbc"
+      },
+      {
+        "id": "HqRrcOBwt54",
+        "title": "Bate-Coxa",
+        "channel": "Brasil Guitar Duo",
+        "duration": "3:32",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=HqRrcOBwt54"
+      }
+    ],
+    "duo|Romanian Folk Dances, Sz. 56|Béla Bartók": [
+      {
+        "id": "tfhRd1yQm80",
+        "title": "Béla Bartók, Romanian Folk Dances I, arranged for guitar duo",
+        "channel": "Duo1810 ",
+        "duration": "1:15",
+        "published": "3 years ago",
+        "url": "https://www.youtube.com/watch?v=tfhRd1yQm80"
+      },
+      {
+        "id": "zimCR9AofeE",
+        "title": "Romanian Folk Dances, Sz. 56: IV. Buciumeana (Transc. Cáceres for 2 Guitars)",
+        "channel": "Turibio Santos - Topic",
+        "duration": "1:49",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=zimCR9AofeE"
+      },
+      {
+        "id": "jF0ZnOlqCjw",
+        "title": "Romanian Folk Dances, Sz. 56, No. 3: In One Spot (Arr. for Guitar Duo)",
+        "channel": "Release - Topic",
+        "duration": "1:07",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=jF0ZnOlqCjw"
+      },
+      {
+        "id": "3TNY-3o9K0M",
+        "title": "Bela Bartok \"Romanian Folk Dances\"  Arranged for two guitars by Kağan Korad, Terci-Korad Duo / Live",
+        "channel": "Kagan Korad",
+        "duration": "5:03",
+        "published": "3 years ago",
+        "url": "https://www.youtube.com/watch?v=3TNY-3o9K0M"
+      }
+    ],
+    "duo|In the Hall of the Mountain King|Edvard Grieg": [
+      {
+        "id": "deGXGyO9hUs",
+        "title": "In the Hall of the Mountain King~Edvard Grieg(1843 1907)Acoustic Guitar and Classical Guitar Duet",
+        "channel": "Gan Kok Wah",
+        "duration": "1:14",
+        "published": "8 years ago",
+        "url": "https://www.youtube.com/watch?v=deGXGyO9hUs"
+      },
+      {
+        "id": "14jUxoZDQAA",
+        "title": "In the Hall of the Mountain King (Classical guitar duet)",
+        "channel": "Thomas Furnari",
+        "duration": "2:04",
+        "published": "5 years ago",
+        "url": "https://www.youtube.com/watch?v=14jUxoZDQAA"
+      },
+      {
+        "id": "XG_V0mHvHpc",
+        "title": "Hall Of The Mountain King by E Grieg (Duo Guitar)",
+        "channel": "Ba Khang Nguyen",
+        "duration": "1:41",
+        "published": "15 years ago",
+        "url": "https://www.youtube.com/watch?v=XG_V0mHvHpc"
+      }
+    ],
+    "duo|Habanera from Carmen|Georges Bizet": [
+      {
+        "id": "O6NAebyZXyM",
+        "title": "Habanera from Carmen Suite by Georges Bizet - Guitar Duo",
+        "channel": "Sirisan Sobhanasiri",
+        "duration": "2:01",
+        "published": "3 years ago",
+        "url": "https://www.youtube.com/watch?v=O6NAebyZXyM"
+      },
+      {
+        "id": "-DvhzMDEHbU",
+        "title": "Georges Bizet - Carmen Suite (Introduction - Aragonaise - Habanera) - Duo Saldaña Bravo",
+        "channel": "Saldaña-Bravo guitar duo",
+        "duration": "6:05",
+        "published": "4 years ago",
+        "url": "https://www.youtube.com/watch?v=-DvhzMDEHbU"
+      },
+      {
+        "id": "AJ7FcfLAMY4",
+        "title": "Habanera 2 guitars Carmen Bizet opera  (excerpt) Boris Bagger",
+        "channel": "edition49 music publishing company",
+        "duration": "1:30",
+        "published": "17 years ago",
+        "url": "https://www.youtube.com/watch?v=AJ7FcfLAMY4"
+      }
+    ],
+    "duo|Flight of the Bumblebee|Nikolai Rimsky-Korsakov": [
+      {
+        "id": "DdFmYQ72Up4",
+        "title": "The flight of the bumblebee for  two guitars",
+        "channel": "Italian Guitar Ensemble",
+        "duration": "1:18",
+        "published": "8 years ago",
+        "url": "https://www.youtube.com/watch?v=DdFmYQ72Up4"
+      },
+      {
+        "id": "4zq0twUeQb4",
+        "title": "Nikolaj Andreevič Rimskij-Korsakov : Flight of the Bumblebee, (1899-1900) For Two Guitar",
+        "channel": "Italian Guitar Ensemble",
+        "duration": "1:07",
+        "published": "4 years ago",
+        "url": "https://www.youtube.com/watch?v=4zq0twUeQb4"
+      },
+      {
+        "id": "cTy8yE-PNbA",
+        "title": "Flight of the Bumblebee, Volo del calabrone acoustic guitar duo",
+        "channel": "Ranieri Sessa",
+        "duration": "1:19",
+        "published": "12 years ago",
+        "url": "https://www.youtube.com/watch?v=cTy8yE-PNbA"
+      }
+    ],
+    "duo|Prelude in E minor, Op. 28 No. 4|Frédéric Chopin": [
+      {
+        "id": "x9W2viA73Y0",
+        "title": "Prelude, Op.28: No. 4 in e-minor - Frederic Chopin (1810-1949) [Duo Kitharsis]",
+        "channel": "Duo Kitharsis - classical guitar duo",
+        "duration": "2:15",
+        "published": "6 years ago",
+        "url": "https://www.youtube.com/watch?v=x9W2viA73Y0"
+      },
+      {
+        "id": "N_WoeqsDcxM",
+        "title": "Frederic Chopin Prelude op. 28 No. 4",
+        "channel": "KUPINSKI GUITAR DUO",
+        "duration": "2:10",
+        "published": "5 years ago",
+        "url": "https://www.youtube.com/watch?v=N_WoeqsDcxM"
+      },
+      {
+        "id": "zLRd_Au7WPU",
+        "title": "Chopin Prelude Op.28 No.4 for 2 guitars",
+        "channel": "Bridget Mermikides",
+        "duration": "2:06",
+        "published": "4 years ago",
+        "url": "https://www.youtube.com/watch?v=zLRd_Au7WPU"
+      },
+      {
+        "id": "Mw1MczpD6cU",
+        "title": "Chopin:Prelude in E minor, Op. 28 No. 4 for classical guitar duo.MP4",
+        "channel": "Dve Kytary",
+        "duration": "2:21",
+        "published": "15 years ago",
+        "url": "https://www.youtube.com/watch?v=Mw1MczpD6cU"
+      }
+    ],
+    "duo|Pavane, Op. 50|Gabriel Fauré": [
+      {
+        "id": "Hq1vPbg1Kmw",
+        "title": "Pavane by Gabriel Faure for two guitars",
+        "channel": "atrafana",
+        "duration": "5:15",
+        "published": "16 years ago",
+        "url": "https://www.youtube.com/watch?v=Hq1vPbg1Kmw"
+      },
+      {
+        "id": "oqTsx9SdVfM",
+        "title": "Pavane by Faure two guitars arrangment",
+        "channel": "kotekspierdolotek",
+        "duration": "5:49",
+        "published": "11 years ago",
+        "url": "https://www.youtube.com/watch?v=oqTsx9SdVfM"
+      },
+      {
+        "id": "aEdkOQG6VBw",
+        "title": "Pavane op 50 Gabriel Fauré (arr by Guy Bergeron) duo guitars Elias Nasr and Thierry Ghaouche",
+        "channel": "Elias Nasr",
+        "duration": "4:47",
+        "published": "10 years ago",
+        "url": "https://www.youtube.com/watch?v=aEdkOQG6VBw"
+      },
+      {
+        "id": "SkStal30FLM",
+        "title": "Fauré - Pavane (Classical Guitar Duo)",
+        "channel": "Alejandro Lobo",
+        "duration": "5:45",
+        "published": "3 years ago",
+        "url": "https://www.youtube.com/watch?v=SkStal30FLM"
+      }
+    ],
+    "duo|Rêverie|Claude Debussy": [
+      {
+        "id": "qbNerxTpz4c",
+        "title": "Claude Debussy - Reverie - Arranged for Two Guitars",
+        "channel": "Matthew Lister",
+        "duration": "4:45",
+        "published": "15 years ago",
+        "url": "https://www.youtube.com/watch?v=qbNerxTpz4c"
+      },
+      {
+        "id": "ejegBjg_Gh0",
+        "title": "Groningen Guitar Duo - Reverie - Claude Debussy",
+        "channel": "GGDerik",
+        "duration": "5:00",
+        "published": "18 years ago",
+        "url": "https://www.youtube.com/watch?v=ejegBjg_Gh0"
+      },
+      {
+        "id": "ttRwOghAZN0",
+        "title": "BG Guitar Duo - Debussy: Reverie",
+        "channel": "Omer Goldberg",
+        "duration": "3:57",
+        "published": "8 years ago",
+        "url": "https://www.youtube.com/watch?v=ttRwOghAZN0"
+      },
+      {
+        "id": "oFwm9LPE_xw",
+        "title": "Rêverie, L. 68 (Transcr. for Guitar Duo)",
+        "channel": "Davide Giovanni Tomasi - Topic",
+        "duration": "3:52",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=oFwm9LPE_xw"
+      }
+    ],
+    "duo|La fille aux cheveux de lin|Claude Debussy": [
+      {
+        "id": "91w4L1Y52gA",
+        "title": "Préludes, Book 1, L. 117: VIII. La fille aux cheveux de lin (Arr. for Two Guitars)",
+        "channel": "Marko Feri - Topic",
+        "duration": "2:56",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=91w4L1Y52gA"
+      },
+      {
+        "id": "tnpQMi_dAQg",
+        "title": "Debussy “La Fille Aux Cheveux de Lin” (The Girl With The Flaxen Hair) for two guitars.",
+        "channel": "Small House Songs (Steve Serra)",
+        "duration": "2:37",
+        "published": "1 year ago",
+        "url": "https://www.youtube.com/watch?v=tnpQMi_dAQg"
+      }
+    ],
+    "duo|Ode to Joy|Ludwig van Beethoven": [
+      {
+        "id": "qzDTOmvHlzk",
+        "title": "Ode To Joy - Ludwig van Beethoven | Guitar Duo (Guitar 2) | 95 BPM",
+        "channel": "Newark Guitar",
+        "duration": "2:08",
+        "published": "1 month ago",
+        "url": "https://www.youtube.com/watch?v=qzDTOmvHlzk"
+      },
+      {
+        "id": "W0mZIt6x7q0",
+        "title": "Ode To Joy - Ludwig van Beethoven | Guitar Duo (Guitar 1) | 95 BPM",
+        "channel": "Newark Guitar",
+        "duration": "2:08",
+        "published": "1 month ago",
+        "url": "https://www.youtube.com/watch?v=W0mZIt6x7q0"
+      },
+      {
+        "id": "6nsKaY8GE9Y",
+        "title": "Ode to Joy (guitar duet)",
+        "channel": "Ramzi El Rumbero",
+        "duration": "1:04",
+        "published": "13 years ago",
+        "url": "https://www.youtube.com/watch?v=6nsKaY8GE9Y"
+      },
+      {
+        "id": "OUQU4vGITsg",
+        "title": "Ode To Joy - Ludwig van Beethoven | Guitar Duo (Guitar 2) | 70 BPM",
+        "channel": "Newark Guitar",
+        "duration": "2:53",
+        "published": "1 month ago",
+        "url": "https://www.youtube.com/watch?v=OUQU4vGITsg"
+      }
+    ],
+    "duo|Côté Nord|Roland Dyens": [
+      {
+        "id": "s_o7ZR0BtvM",
+        "title": "Côte Nord: I. Danish Time",
+        "channel": "Eden-Stell Guitar Duo - Topic",
+        "duration": "6:15",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=s_o7ZR0BtvM"
+      },
+      {
+        "id": "Zw2OplAvq_M",
+        "title": "Côte Nord: II. Hillerød",
+        "channel": "Eden-Stell Guitar Duo - Topic",
+        "duration": "9:40",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=Zw2OplAvq_M"
+      },
+      {
+        "id": "5ZgBFNkb8Ng",
+        "title": "Côte Nord: III. Ga-Jol Dance",
+        "channel": "Eden-Stell Guitar Duo - Topic",
+        "duration": "5:44",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=5ZgBFNkb8Ng"
+      }
+    ],
+    "duo|El Noi de la Mare|Miguel Llobet": [
+      {
+        "id": "-oPCKcspBi0",
+        "title": "Guitar Duo KM - El Noi de la Mare (trad. catalan christmas song)",
+        "channel": "Duo KM",
+        "duration": "3:38",
+        "published": "4 years ago",
+        "url": "https://www.youtube.com/watch?v=-oPCKcspBi0"
+      },
+      {
+        "id": "_LOTG74m7Mk",
+        "title": "El Noi De La Mare",
+        "channel": "Small-Torres Guitar Duo - Topic",
+        "duration": "5:33",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=_LOTG74m7Mk"
+      },
+      {
+        "id": "Gr6IplzAcMk",
+        "title": "Catalan Christmas song \"El Noi de la Mare\".",
+        "channel": "Guitar duo FOLIA and Karina Bezdudnaya",
+        "duration": "1:48",
+        "published": "4 years ago",
+        "url": "https://www.youtube.com/watch?v=Gr6IplzAcMk"
+      },
+      {
+        "id": "TsqP-CIxC_w",
+        "title": "El Noi de la Mare - Guitar Duet (New Arrangement)",
+        "channel": "GeorgetheHalfScott",
+        "duration": "3:30",
+        "published": "2 years ago",
+        "url": "https://www.youtube.com/watch?v=TsqP-CIxC_w"
+      }
+    ],
+    "duo|Canço del Lladre|Miguel Llobet": [
+      {
+        "id": "Twxw0f1kfxU",
+        "title": "Cançó del lladre - Miguel Llobet",
+        "channel": "SuoniNuovi GuitarDuo",
+        "duration": "1:36",
+        "published": "5 years ago",
+        "url": "https://www.youtube.com/watch?v=Twxw0f1kfxU"
+      },
+      {
+        "id": "K8bSOSoQBY8",
+        "title": "La cançó del lladre - Cançó tradicional del S-XVIII (Catalunya)",
+        "channel": "Magnolia Guitar Duo",
+        "duration": "2:03",
+        "published": "1 month ago",
+        "url": "https://www.youtube.com/watch?v=K8bSOSoQBY8"
+      }
+    ],
+    "duo|Zapateado|Regino Sáinz de la Maza": [
+      {
+        "id": "astLxAg7xxg",
+        "title": "Zapateado duet guitars",
+        "channel": "Zviad Rusia",
+        "duration": "1:18",
+        "published": "9 years ago",
+        "url": "https://www.youtube.com/watch?v=astLxAg7xxg"
+      },
+      {
+        "id": "HtK8zjG2u5U",
+        "title": "Zapateado from Dos Guitarras by Kacha Metreveli #guitarra #zapateado #guitarraespañola #dosguitarras",
+        "channel": "Kacha Metreveli - Composer & Guitarist           ",
+        "duration": "2:03",
+        "published": "9 years ago",
+        "url": "https://www.youtube.com/watch?v=HtK8zjG2u5U"
+      }
+    ],
+    "duo|Habanera|Regino Sáinz de la Maza": [
+      {
+        "id": "e-DF824BV40",
+        "title": "Guitar Duo Zema Lencsès Plays Habanera",
+        "channel": "sazem58",
+        "duration": "3:30",
+        "published": "14 years ago",
+        "url": "https://www.youtube.com/watch?v=e-DF824BV40"
+      },
+      {
+        "id": "xDHvNXCBc_A",
+        "title": "Habanera Carmen - Guitar Duet",
+        "channel": "Andie and Aaron",
+        "duration": "3:29",
+        "published": "6 years ago",
+        "url": "https://www.youtube.com/watch?v=xDHvNXCBc_A"
+      }
+    ],
+    "duo|Tango|Vicente Asencio": [
+      {
+        "id": "EcALn23bGvk",
+        "title": "Tango Suite - For 2 Guitars: 1. Deciso",
+        "channel": "Andrew Blanch - Topic",
+        "duration": "5:35",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=EcALn23bGvk"
+      },
+      {
+        "id": "2r8X0JHVa9M",
+        "title": "Tango Papas Calientes Eduardo Arolas Guitar Duo",
+        "channel": "cattialove",
+        "duration": "2:19",
+        "published": "9 years ago",
+        "url": "https://www.youtube.com/watch?v=2r8X0JHVa9M"
+      },
+      {
+        "id": "GHBv9fhlOgU",
+        "title": "Tango Suite: No. 3, Allegro vivace",
+        "channel": "Garau-Millet Guitar Duo - Topic",
+        "duration": "6:34",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=GHBv9fhlOgU"
+      }
+    ],
+    "duo|Bajo la palmera, Op. 232 No. 3|Isaac Albéniz": [
+      {
+        "id": "lbBZrHOR0cs",
+        "title": "Isaac Albeniz: Bajo la Palmera, Sous le Palmier op.232 No3 (Arr for 2 Guitars) Bream and Williams",
+        "channel": "Tony Montana80",
+        "duration": "5:37",
+        "published": "4 years ago",
+        "url": "https://www.youtube.com/watch?v=lbBZrHOR0cs"
+      },
+      {
+        "id": "s033U-YU5xU",
+        "title": "Isaac Albeniz: Bajo La Palmera (Guitar Duo)",
+        "channel": "chinguitar",
+        "duration": "4:54",
+        "published": "6 years ago",
+        "url": "https://www.youtube.com/watch?v=s033U-YU5xU"
+      },
+      {
+        "id": "Wh_SxCFBElg",
+        "title": "Isaac Albeniz: Bajo la palmera - Luca Pier Paolo D'Amore and Fabrizio Porrazzini, guitar duo",
+        "channel": "Luca Pier Paolo D'Amore",
+        "duration": "4:55",
+        "published": "8 years ago",
+        "url": "https://www.youtube.com/watch?v=Wh_SxCFBElg"
+      },
+      {
+        "id": "X8XUVVoVvc4",
+        "title": "Bajo La Palmera - Isaac Albéniz - Joan Furió & Joan Furió Guitar Duo",
+        "channel": "Joan Furió Vivas Guitar",
+        "duration": "4:56",
+        "published": "4 years ago",
+        "url": "https://www.youtube.com/watch?v=X8XUVVoVvc4"
+      }
+    ],
+    "duo|Duo, Op. 27|Ferdinando Carulli": [
+      {
+        "id": "ZfmvQVF9NmA",
+        "title": "Carulli: Guitar Duet Op. 27 No. 4 for Student-Teacher. Shreeya Aggarwal & Alberto Ubach, guitars.",
+        "channel": "alberto ubach",
+        "duration": "1:26",
+        "published": "4 years ago",
+        "url": "https://www.youtube.com/watch?v=ZfmvQVF9NmA"
+      },
+      {
+        "id": "FB4b8DqRIVU",
+        "title": "Ferdinando Carulli - Op 27 No 8 | Classical Guitar Duo | Classical Guitar Song",
+        "channel": "Cem Tunali Music",
+        "duration": "1:31",
+        "published": "5 years ago",
+        "url": "https://www.youtube.com/watch?v=FB4b8DqRIVU"
+      },
+      {
+        "id": "PeQYfIGaRRA",
+        "title": "Carulli: Guitar Duet Op. 27 No. 5 for Student and Teacher. Linda Ryall and Alberto Ubach, guitars.",
+        "channel": "alberto ubach",
+        "duration": "1:36",
+        "published": "3 years ago",
+        "url": "https://www.youtube.com/watch?v=PeQYfIGaRRA"
+      }
+    ],
+    "duo|Swan Lake|P. I. Tchaikovsky": [
+      {
+        "id": "8OVDOwxceK0",
+        "title": "Spanish Dance from 'Swan Lake' (P.I. Tchaikovsky) - arr. CARisMA Guitar Duo",
+        "channel": "CARisMA Guitar Duo",
+        "duration": "2:35",
+        "published": "4 years ago",
+        "url": "https://www.youtube.com/watch?v=8OVDOwxceK0"
+      },
+      {
+        "id": "GDBKgo4q0PU",
+        "title": "Pyotr Tchaikovski - Swan Lake Theme (Electric Guitar Duo)",
+        "channel": "Strings & Frets",
+        "duration": "1:08",
+        "published": "2 years ago",
+        "url": "https://www.youtube.com/watch?v=GDBKgo4q0PU"
+      },
+      {
+        "id": "mw_weh9pdhA",
+        "title": "Tchaikovsky - Swan Lake: Dance of the Little Swans (for guitar duo)",
+        "channel": "Classical Escape",
+        "duration": "1:28",
+        "published": "2 months ago",
+        "url": "https://www.youtube.com/watch?v=mw_weh9pdhA"
+      }
+    ],
+    "duo|Symphony No. 40, K. 550|W. A. Mozart": [
+      {
+        "id": "NhzekOsQQj8",
+        "title": "Symphony No. 40 (Mozart) Cover - Guitar duet - Tập luyện",
+        "channel": "Anh Ngọc Music",
+        "duration": "1:18",
+        "published": "13 years ago",
+        "url": "https://www.youtube.com/watch?v=NhzekOsQQj8"
+      },
+      {
+        "id": "VRPfbyYu17g",
+        "title": "Mozart Symphony #40 + 2 Guitars",
+        "channel": "Eitan Müller",
+        "duration": "3:44",
+        "published": "13 years ago",
+        "url": "https://www.youtube.com/watch?v=VRPfbyYu17g"
+      }
+    ],
+    "duo|Un Día de Noviembre|Leo Brouwer": [
+      {
+        "id": "_gYmMSXA-OE",
+        "title": "Leo Brouwer - Un dia de Noviembre - Yuliya Lonskaya & Lulo Reinhardt Live! - Guitar Duo",
+        "channel": "Yuliya Lonskaya",
+        "duration": "5:08",
+        "published": "4 years ago",
+        "url": "https://www.youtube.com/watch?v=_gYmMSXA-OE"
+      },
+      {
+        "id": "0uEYRIEB_lY",
+        "title": "Leo Brouwer   Un Dia De Noviembre (Guitar Duo Y2K)",
+        "channel": "대전기타리스트협회",
+        "duration": "3:53",
+        "published": "7 months ago",
+        "url": "https://www.youtube.com/watch?v=0uEYRIEB_lY"
+      }
+    ],
+    "duo|Sonata for Two Guitars|Sérgio Assad": [
+      {
+        "id": "9BHvQbOvoag",
+        "title": "Sonata for Two Guitars, by Miguel A. Roig-Francolí--World Premiere by Duo Melis",
+        "channel": "M.A. Roig-Francolí",
+        "duration": "14:53",
+        "published": "9 years ago",
+        "url": "https://www.youtube.com/watch?v=9BHvQbOvoag"
+      },
+      {
+        "id": "x6KDZu2TA3s",
+        "title": "A. Strajnar: Sonata for two guitars No. 2 (2001)",
+        "channel": "Aleš Andrej Strajnar",
+        "duration": "13:13",
+        "published": "8 years ago",
+        "url": "https://www.youtube.com/watch?v=x6KDZu2TA3s"
+      },
+      {
+        "id": "iaQX9yETXRA",
+        "title": "Sergio Assad: Farewell for two guitars",
+        "channel": "ldhs1000",
+        "duration": "3:29",
+        "published": "12 years ago",
+        "url": "https://www.youtube.com/watch?v=iaQX9yETXRA"
+      },
+      {
+        "id": "an_h6L0ZJnk",
+        "title": "Edino Krieger: Concerto for Two Guitars, Duo Assad, Cordoba Orchestra, Leo Brower",
+        "channel": "Roberto Carvalho de Magalhães",
+        "duration": "21:24",
+        "published": "3 years ago",
+        "url": "https://www.youtube.com/watch?v=an_h6L0ZJnk"
+      }
+    ],
+    "duo|Tango en Skaï|Roland Dyens": [
+      {
+        "id": "TVCSpn8eRp0",
+        "title": "Tango en Skaï - Bruskers Guitar Duo",
+        "channel": "Bruskers Guitar Duo",
+        "duration": "2:36",
+        "published": "15 years ago",
+        "url": "https://www.youtube.com/watch?v=TVCSpn8eRp0"
+      },
+      {
+        "id": "SV_4Z5ayCsg",
+        "title": "TANGO EN SKAI by Roland Dyens - Likhachev Guitar Duo",
+        "channel": "Mikhail Likhachev",
+        "duration": "2:15",
+        "published": "10 years ago",
+        "url": "https://www.youtube.com/watch?v=SV_4Z5ayCsg"
+      },
+      {
+        "id": "XsSEKG1BPic",
+        "title": "Tango En Skai  - Roland Dyens (arr. for 2 guitars)",
+        "channel": "Rafael Ronquillo",
+        "duration": "2:50",
+        "published": "9 years ago",
+        "url": "https://www.youtube.com/watch?v=XsSEKG1BPic"
+      },
+      {
+        "id": "srUQwVdQCEo",
+        "title": "Tango en Skaï by Roland Dyens Guitar Duo 432 Hz",
+        "channel": "Soltan Treasure",
+        "duration": "1:56",
+        "published": "1 year ago",
+        "url": "https://www.youtube.com/watch?v=srUQwVdQCEo"
+      }
+    ],
+    "duo|Bist du bei mir, BWV 508|J. S. Bach": [
+      {
+        "id": "PiNpcMrt4eA",
+        "title": "Bist du bei Mir (2 guitars) Stölzel/Bach",
+        "channel": "Z.o.o. guitar duo",
+        "duration": "2:57",
+        "published": "11 years ago",
+        "url": "https://www.youtube.com/watch?v=PiNpcMrt4eA"
+      },
+      {
+        "id": "_Ad72ScgOFc",
+        "title": "Duo Montes Kircher Plays Bach (Bist du bei mir (BWV 508) Arranged by Irina Kircher for two guitars",
+        "channel": "Montes Kircher",
+        "duration": "2:31",
+        "published": "11 years ago",
+        "url": "https://www.youtube.com/watch?v=_Ad72ScgOFc"
+      }
+    ],
+    "duo|Sarabande in D minor|G. F. Handel": [
+      {
+        "id": "2W6QAlS0zzo",
+        "title": "Handel, Sarabande in D Minor - Frary Guitar Duo",
+        "channel": "Peter Frary",
+        "duration": "1:42",
+        "published": "10 years ago",
+        "url": "https://www.youtube.com/watch?v=2W6QAlS0zzo"
+      },
+      {
+        "id": "_dQP7pFBVmg",
+        "title": "George Frideric Handel - Sarabande - Guitar duet",
+        "channel": "Hæmoride jørgen",
+        "duration": "1:51",
+        "published": "8 years ago",
+        "url": "https://www.youtube.com/watch?v=_dQP7pFBVmg"
+      }
+    ],
+    "duo|Danza Española No. 3|Enrique Granados": [
+      {
+        "id": "QbmuuvRWAnU",
+        "title": "Granados: 12 Danzas Españolas: No. 3, Zarabanda (Arr. A. Romero for 2 Guitars)",
+        "channel": "Angel Romero - Topic",
+        "duration": "3:58",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=QbmuuvRWAnU"
+      },
+      {
+        "id": "zqdyfCj2P5Y",
+        "title": "Enrique Granados, Danza española n° 2, Oriental - Fluctus guitar duo",
+        "channel": "didatticamente musica",
+        "duration": "1:54",
+        "published": "2 years ago",
+        "url": "https://www.youtube.com/watch?v=zqdyfCj2P5Y"
+      }
+    ],
+    "duo|Nocturno|Federico Moreno Torroba": [
+      {
+        "id": "vC880y_jegU",
+        "title": "3 Nocturnos (version for 2 guitars and orchestra) : No. 1. Hogueras",
+        "channel": "+Que2 Guitar Duo - Topic",
+        "duration": "9:17",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=vC880y_jegU"
+      },
+      {
+        "id": "y7I1pDqXhls",
+        "title": "3 Nocturnos (version for 2 guitars and orchestra) : No. 2. Sombras",
+        "channel": "+Que2 Guitar Duo - Topic",
+        "duration": "5:00",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=y7I1pDqXhls"
+      },
+      {
+        "id": "8Q8ijpbgT2M",
+        "title": "3 Nocturnos (version for 2 guitars and orchestra) : No. 3. Brujas",
+        "channel": "+Que2 Guitar Duo - Topic",
+        "duration": "9:48",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=8Q8ijpbgT2M"
+      }
+    ],
+    "duo|Suite Castellana|Federico Moreno Torroba": [
+      {
+        "id": "hse0Y77pZ9Y",
+        "title": "Federico Moreno Torroba - Suite Castellana | Martina Angenendt",
+        "channel": "Angenendt Guitar Duo",
+        "duration": "9:54",
+        "published": "1 year ago",
+        "url": "https://www.youtube.com/watch?v=hse0Y77pZ9Y"
+      },
+      {
+        "id": "QLPR8uTXtJk",
+        "title": "Moreno Torroba: \"Danza Castellana\" arranged for 2 guitars by Barrios, from \"El Libro de Oro\", Vol. 2",
+        "channel": "Guitar Salon International",
+        "duration": "3:16",
+        "published": "6 years ago",
+        "url": "https://www.youtube.com/watch?v=QLPR8uTXtJk"
+      }
+    ],
+    "duo|El Amor Brujo|Manuel de Falla": [
+      {
+        "id": "E3am4LFpM4k",
+        "title": "Katona Twins - Manuel de Falla - El Amor Brujo",
+        "channel": "GuitarArtFestival",
+        "duration": "11:20",
+        "published": "11 years ago",
+        "url": "https://www.youtube.com/watch?v=E3am4LFpM4k"
+      },
+      {
+        "id": "anbICInPHWc",
+        "title": "Manuel de Falla - El Círculo Mágico (from El Amor Brujo). Performed by a guitar duet \"Folia\"",
+        "channel": "Guitar duo FOLIA",
+        "duration": "2:28",
+        "published": "5 years ago",
+        "url": "https://www.youtube.com/watch?v=anbICInPHWc"
+      },
+      {
+        "id": "10KGRpfnR7A",
+        "title": "de Falla: El Amor Brujo - El circulo Mágico",
+        "channel": "Scandinavian Guitar Duo - Topic",
+        "duration": "2:19",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=10KGRpfnR7A"
+      },
+      {
+        "id": "jLIWpGxEln0",
+        "title": "de Falla: El Amor Brujo - Introducción y Pantomima",
+        "channel": "Scandinavian Guitar Duo - Topic",
+        "duration": "4:47",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=jLIWpGxEln0"
+      }
+    ],
+    "duo|Greensleeves|Anónimo": [
+      {
+        "id": "87aW2L5krLY",
+        "title": "Greensleeves (to a ground) - Frary Guitar Duo",
+        "channel": "Peter Frary",
+        "duration": "2:04",
+        "published": "10 years ago",
+        "url": "https://www.youtube.com/watch?v=87aW2L5krLY"
+      },
+      {
+        "id": "WXkumDNSB3o",
+        "title": "greensleeves 2 guitars",
+        "channel": "lftmusicclass",
+        "duration": "1:12",
+        "published": "14 years ago",
+        "url": "https://www.youtube.com/watch?v=WXkumDNSB3o"
+      }
+    ],
+    "duo|Malagueña|Ernesto Lecuona": [
+      {
+        "id": "_If1ZsbhTMA",
+        "title": "Ernesto Lecuona - Malagueña (Date: 1933) For  Classical Guitar Duo",
+        "channel": "Italian Guitar Ensemble",
+        "duration": "3:47",
+        "published": "2 years ago",
+        "url": "https://www.youtube.com/watch?v=_If1ZsbhTMA"
+      },
+      {
+        "id": "xI0o2BqYTgQ",
+        "title": "Malagueña by Ernesto Lecuona--Hauser Guitar Duo",
+        "channel": "tony hauser guitarist",
+        "duration": "3:41",
+        "published": "8 months ago",
+        "url": "https://www.youtube.com/watch?v=xI0o2BqYTgQ"
+      },
+      {
+        "id": "uWPBXp9LFwk",
+        "title": "Ernesto Lecuona - Malaguena Duo Tornado",
+        "channel": "Guitar Duo Tornado",
+        "duration": "3:42",
+        "published": "17 years ago",
+        "url": "https://www.youtube.com/watch?v=uWPBXp9LFwk"
+      },
+      {
+        "id": "cxQTA4wEtOQ",
+        "title": "Acoustik Element - \"Malaguena\" - Guitar Duo",
+        "channel": "Acoustik Element",
+        "duration": "5:13",
+        "published": "4 years ago",
+        "url": "https://www.youtube.com/watch?v=cxQTA4wEtOQ"
+      }
+    ],
+    "duo|María Luisa|Antonio Lauro": [
+      {
+        "id": "AGEcJPE3Qds",
+        "title": "Maria Luisa",
+        "channel": "Solstice Guitar Duo - Topic",
+        "duration": "2:32",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=AGEcJPE3Qds"
+      },
+      {
+        "id": "DbhW-1rxgtk",
+        "title": "Santiagueña María Luisa Anido The Anido Guitar Duo",
+        "channel": "Annette Kruisbrink",
+        "duration": "1:38",
+        "published": "18 years ago",
+        "url": "https://www.youtube.com/watch?v=DbhW-1rxgtk"
+      },
+      {
+        "id": "t7KddLjGdT4",
+        "title": "Triste nr.1  María Luisa Anido The Anido Guitar Duo",
+        "channel": "Annette Kruisbrink",
+        "duration": "2:49",
+        "published": "18 years ago",
+        "url": "https://www.youtube.com/watch?v=t7KddLjGdT4"
+      },
+      {
+        "id": "T6i1MpxrMi0",
+        "title": "Guitar Duo Maria Luisa",
+        "channel": "Avfry andi",
+        "duration": "2:21",
+        "published": "9 years ago",
+        "url": "https://www.youtube.com/watch?v=T6i1MpxrMi0"
+      }
+    ],
+    "duo|Decarísimo|Astor Piazzolla": [
+      {
+        "id": "XpFPmtOukds",
+        "title": "Decarísimo - Astor Piazzolla. Gantriis-Zimmermann Guitar Duo live",
+        "channel": "Gantriis-Zimmermann Guitar Duo",
+        "duration": "4:01",
+        "published": "4 years ago",
+        "url": "https://www.youtube.com/watch?v=XpFPmtOukds"
+      },
+      {
+        "id": "MST5Lq5NnvU",
+        "title": "Decarísimo",
+        "channel": "Gantriis-Zimmermann Guitar Duo - Topic",
+        "duration": "3:43",
+        "published": "",
+        "url": "https://www.youtube.com/watch?v=MST5Lq5NnvU"
+      }
     ]
   },
   "metrics": {
@@ -7985,8 +9711,8 @@
       "popularity": "medium"
     },
     "duo|Tango Suite|Astor Piazzolla": {
-      "performanceCount": 31,
-      "channelCount": 23,
+      "performanceCount": 30,
+      "channelCount": 22,
       "popularity": "very-high"
     },
     "duo|Fuga y Misterio|Astor Piazzolla": {
@@ -8659,16 +10385,6 @@
       "channelCount": 2,
       "popularity": "niche"
     },
-    "duo|Prelude and Fugue No. 23, Op. 199|Mario Castelnuovo-Tedesco": {
-      "performanceCount": 2,
-      "channelCount": 2,
-      "popularity": "niche"
-    },
-    "duo|Prelude and Fugue No. 24, Op. 199|Mario Castelnuovo-Tedesco": {
-      "performanceCount": 2,
-      "channelCount": 2,
-      "popularity": "niche"
-    },
     "duo|Two-Part Invention No. 8, BWV 779|J. S. Bach": {
       "performanceCount": 2,
       "channelCount": 2,
@@ -8743,11 +10459,6 @@
       "performanceCount": 27,
       "channelCount": 7,
       "popularity": "very-high"
-    },
-    "duo|English Suite No. 1, BWV 806|J. S. Bach": {
-      "performanceCount": 2,
-      "channelCount": 2,
-      "popularity": "niche"
     },
     "duo|English Suite No. 2, BWV 807|J. S. Bach": {
       "performanceCount": 6,
@@ -8849,29 +10560,19 @@
       "channelCount": 3,
       "popularity": "niche"
     },
-    "duo|Duo, Op. 55 No. 2|Fernando Sor": {
-      "performanceCount": 2,
-      "channelCount": 2,
-      "popularity": "niche"
-    },
     "duo|Duo, Op. 55 No. 3|Fernando Sor": {
       "performanceCount": 2,
       "channelCount": 1,
       "popularity": "niche"
     },
     "duo|Polonaise Concertante, Op. 137 No. 1|Mauro Giuliani": {
-      "performanceCount": 4,
-      "channelCount": 4,
-      "popularity": "niche"
-    },
-    "duo|Polonaise Concertante, Op. 137 No. 2|Mauro Giuliani": {
-      "performanceCount": 2,
-      "channelCount": 2,
+      "performanceCount": 3,
+      "channelCount": 3,
       "popularity": "niche"
     },
     "duo|Polonaise Concertante, Op. 137 No. 3|Mauro Giuliani": {
-      "performanceCount": 4,
-      "channelCount": 4,
+      "performanceCount": 3,
+      "channelCount": 3,
       "popularity": "niche"
     },
     "duo|Duo in A major, Op. 34 No. 2|Ferdinando Carulli": {
@@ -8885,8 +10586,8 @@
       "popularity": "medium"
     },
     "duo|Serenade, Op. 96 No. 2|Ferdinando Carulli": {
-      "performanceCount": 5,
-      "channelCount": 5,
+      "performanceCount": 3,
+      "channelCount": 3,
       "popularity": "niche"
     },
     "duo|Serenade, Op. 96 No. 3|Ferdinando Carulli": {
@@ -8960,6 +10661,11 @@
       "popularity": "niche"
     },
     "duo|Castilla, Op. 47 No. 7|Isaac Albéniz": {
+      "performanceCount": 2,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|Cuba, Op. 47 No. 8|Isaac Albéniz": {
       "performanceCount": 2,
       "channelCount": 2,
       "popularity": "niche"
@@ -9060,8 +10766,8 @@
       "popularity": "medium"
     },
     "duo|Arabesque No. 2|Claude Debussy": {
-      "performanceCount": 4,
-      "channelCount": 4,
+      "performanceCount": 3,
+      "channelCount": 3,
       "popularity": "niche"
     },
     "duo|Gnossienne No. 2|Erik Satie": {
@@ -9225,8 +10931,8 @@
       "popularity": "niche"
     },
     "duo|Waltz in C-sharp minor, Op. 64 No. 2|Frédéric Chopin": {
-      "performanceCount": 3,
-      "channelCount": 3,
+      "performanceCount": 2,
+      "channelCount": 2,
       "popularity": "niche"
     },
     "duo|Humoresque, Op. 101 No. 7|Antonín Dvořák": {
@@ -9359,6 +11065,11 @@
       "channelCount": 3,
       "popularity": "niche"
     },
+    "duo|Concerto RV 532 III. Allegro|Antonio Vivaldi": {
+      "performanceCount": 2,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
     "duo|Concerto RV 522 II. Larghetto|Antonio Vivaldi": {
       "performanceCount": 2,
       "channelCount": 1,
@@ -9397,6 +11108,356 @@
     "duo|Danzas Argentinas II. Danza de la moza donosa|Alberto Ginastera": {
       "performanceCount": 3,
       "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|Sheep May Safely Graze, BWV 208|J. S. Bach": {
+      "performanceCount": 4,
+      "channelCount": 4,
+      "popularity": "niche"
+    },
+    "duo|Wachet auf, ruft uns die Stimme, BWV 645|J. S. Bach": {
+      "performanceCount": 2,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|Arioso, BWV 156|J. S. Bach": {
+      "performanceCount": 6,
+      "channelCount": 6,
+      "popularity": "medium"
+    },
+    "duo|Bourrée in E minor, BWV 996|J. S. Bach": {
+      "performanceCount": 3,
+      "channelCount": 3,
+      "popularity": "niche"
+    },
+    "duo|Canarios|Gaspar Sanz": {
+      "performanceCount": 4,
+      "channelCount": 4,
+      "popularity": "niche"
+    },
+    "duo|Españoleta|Gaspar Sanz": {
+      "performanceCount": 2,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|The Four Seasons: Spring, RV 269|Antonio Vivaldi": {
+      "performanceCount": 2,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|The Four Seasons: Winter, RV 297|Antonio Vivaldi": {
+      "performanceCount": 2,
+      "channelCount": 1,
+      "popularity": "niche"
+    },
+    "duo|Concerto in D minor, BWV 974|J. S. Bach": {
+      "performanceCount": 3,
+      "channelCount": 3,
+      "popularity": "niche"
+    },
+    "duo|Duo in G major, Op. 146|Ferdinando Carulli": {
+      "performanceCount": 2,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|Recuerdos de la Alhambra|Francisco Tárrega": {
+      "performanceCount": 23,
+      "channelCount": 21,
+      "popularity": "high"
+    },
+    "duo|Capricho Árabe|Francisco Tárrega": {
+      "performanceCount": 2,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|Gran Vals|Francisco Tárrega": {
+      "performanceCount": 2,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|Lágrima|Francisco Tárrega": {
+      "performanceCount": 4,
+      "channelCount": 4,
+      "popularity": "niche"
+    },
+    "duo|Adelita|Francisco Tárrega": {
+      "performanceCount": 2,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|Romance Anónimo|Anónimo": {
+      "performanceCount": 5,
+      "channelCount": 5,
+      "popularity": "niche"
+    },
+    "duo|Serenata Española|Joaquín Malats": {
+      "performanceCount": 3,
+      "channelCount": 3,
+      "popularity": "niche"
+    },
+    "duo|Bolero|Julián Arcas": {
+      "performanceCount": 2,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|Tango Español|Emilio Pujol": {
+      "performanceCount": 2,
+      "channelCount": 1,
+      "popularity": "niche"
+    },
+    "duo|Córdoba, Op. 232 No. 4|Isaac Albéniz": {
+      "performanceCount": 7,
+      "channelCount": 7,
+      "popularity": "medium"
+    },
+    "duo|Rumores de la Caleta, Op. 71 No. 6|Isaac Albéniz": {
+      "performanceCount": 3,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|Danza Ritual del Fuego|Manuel de Falla": {
+      "performanceCount": 7,
+      "channelCount": 7,
+      "popularity": "medium"
+    },
+    "duo|Canción del fuego fatuo|Manuel de Falla": {
+      "performanceCount": 3,
+      "channelCount": 3,
+      "popularity": "niche"
+    },
+    "duo|Nana|Manuel de Falla": {
+      "performanceCount": 3,
+      "channelCount": 3,
+      "popularity": "niche"
+    },
+    "duo|Asturiana|Manuel de Falla": {
+      "performanceCount": 2,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|La Catedral|Agustín Barrios Mangoré": {
+      "performanceCount": 6,
+      "channelCount": 6,
+      "popularity": "medium"
+    },
+    "duo|Julia Florida|Agustín Barrios Mangoré": {
+      "performanceCount": 3,
+      "channelCount": 3,
+      "popularity": "niche"
+    },
+    "duo|Las Abejas|Agustín Barrios Mangoré": {
+      "performanceCount": 3,
+      "channelCount": 3,
+      "popularity": "niche"
+    },
+    "duo|Estrellita|Manuel María Ponce": {
+      "performanceCount": 4,
+      "channelCount": 4,
+      "popularity": "niche"
+    },
+    "duo|Danza Paraguaya|Agustín Barrios Mangoré": {
+      "performanceCount": 16,
+      "channelCount": 16,
+      "popularity": "high"
+    },
+    "duo|Cueca|Agustín Barrios Mangoré": {
+      "performanceCount": 3,
+      "channelCount": 3,
+      "popularity": "niche"
+    },
+    "duo|Danza Brasilera|Jorge Morel": {
+      "performanceCount": 3,
+      "channelCount": 3,
+      "popularity": "niche"
+    },
+    "duo|Seis por Derecho|Antonio Lauro": {
+      "performanceCount": 3,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|La Gatica|Antonio Lauro": {
+      "performanceCount": 2,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|Milonga|Jorge Cardoso": {
+      "performanceCount": 23,
+      "channelCount": 22,
+      "popularity": "high"
+    },
+    "duo|El Marabino|Antonio Lauro": {
+      "performanceCount": 3,
+      "channelCount": 3,
+      "popularity": "niche"
+    },
+    "duo|Angostura|Antonio Lauro": {
+      "performanceCount": 2,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|Bate-Coxa|Marco Pereira": {
+      "performanceCount": 3,
+      "channelCount": 3,
+      "popularity": "niche"
+    },
+    "duo|Romanian Folk Dances, Sz. 56|Béla Bartók": {
+      "performanceCount": 15,
+      "channelCount": 5,
+      "popularity": "high"
+    },
+    "duo|In the Hall of the Mountain King|Edvard Grieg": {
+      "performanceCount": 3,
+      "channelCount": 3,
+      "popularity": "niche"
+    },
+    "duo|Habanera from Carmen|Georges Bizet": {
+      "performanceCount": 3,
+      "channelCount": 3,
+      "popularity": "niche"
+    },
+    "duo|Flight of the Bumblebee|Nikolai Rimsky-Korsakov": {
+      "performanceCount": 3,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|Prelude in E minor, Op. 28 No. 4|Frédéric Chopin": {
+      "performanceCount": 6,
+      "channelCount": 5,
+      "popularity": "medium"
+    },
+    "duo|Pavane, Op. 50|Gabriel Fauré": {
+      "performanceCount": 12,
+      "channelCount": 12,
+      "popularity": "high"
+    },
+    "duo|Rêverie|Claude Debussy": {
+      "performanceCount": 9,
+      "channelCount": 8,
+      "popularity": "medium"
+    },
+    "duo|La fille aux cheveux de lin|Claude Debussy": {
+      "performanceCount": 2,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|Ode to Joy|Ludwig van Beethoven": {
+      "performanceCount": 16,
+      "channelCount": 11,
+      "popularity": "high"
+    },
+    "duo|Côté Nord|Roland Dyens": {
+      "performanceCount": 3,
+      "channelCount": 1,
+      "popularity": "niche"
+    },
+    "duo|El Noi de la Mare|Miguel Llobet": {
+      "performanceCount": 7,
+      "channelCount": 7,
+      "popularity": "medium"
+    },
+    "duo|Canço del Lladre|Miguel Llobet": {
+      "performanceCount": 2,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|Zapateado|Regino Sáinz de la Maza": {
+      "performanceCount": 2,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|Habanera|Regino Sáinz de la Maza": {
+      "performanceCount": 2,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|Tango|Vicente Asencio": {
+      "performanceCount": 3,
+      "channelCount": 3,
+      "popularity": "niche"
+    },
+    "duo|Bajo la palmera, Op. 232 No. 3|Isaac Albéniz": {
+      "performanceCount": 6,
+      "channelCount": 6,
+      "popularity": "medium"
+    },
+    "duo|Duo, Op. 27|Ferdinando Carulli": {
+      "performanceCount": 3,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|Swan Lake|P. I. Tchaikovsky": {
+      "performanceCount": 3,
+      "channelCount": 3,
+      "popularity": "niche"
+    },
+    "duo|Symphony No. 40, K. 550|W. A. Mozart": {
+      "performanceCount": 2,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|Un Día de Noviembre|Leo Brouwer": {
+      "performanceCount": 2,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|Sonata for Two Guitars|Sérgio Assad": {
+      "performanceCount": 4,
+      "channelCount": 4,
+      "popularity": "niche"
+    },
+    "duo|Tango en Skaï|Roland Dyens": {
+      "performanceCount": 5,
+      "channelCount": 5,
+      "popularity": "niche"
+    },
+    "duo|Bist du bei mir, BWV 508|J. S. Bach": {
+      "performanceCount": 2,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|Sarabande in D minor|G. F. Handel": {
+      "performanceCount": 2,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|Danza Española No. 3|Enrique Granados": {
+      "performanceCount": 2,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|Nocturno|Federico Moreno Torroba": {
+      "performanceCount": 3,
+      "channelCount": 1,
+      "popularity": "niche"
+    },
+    "duo|Suite Castellana|Federico Moreno Torroba": {
+      "performanceCount": 2,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|El Amor Brujo|Manuel de Falla": {
+      "performanceCount": 11,
+      "channelCount": 6,
+      "popularity": "medium"
+    },
+    "duo|Greensleeves|Anónimo": {
+      "performanceCount": 2,
+      "channelCount": 2,
+      "popularity": "niche"
+    },
+    "duo|Malagueña|Ernesto Lecuona": {
+      "performanceCount": 9,
+      "channelCount": 9,
+      "popularity": "medium"
+    },
+    "duo|María Luisa|Antonio Lauro": {
+      "performanceCount": 5,
+      "channelCount": 3,
+      "popularity": "niche"
+    },
+    "duo|Decarísimo|Astor Piazzolla": {
+      "performanceCount": 2,
+      "channelCount": 1,
       "popularity": "niche"
     }
   }

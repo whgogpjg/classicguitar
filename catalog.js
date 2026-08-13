@@ -5,7 +5,7 @@
   document.head.append(stylesheet);
   document.title = '클래식 기타 레퍼토리 파인더 — Aria';
   const description = document.querySelector('meta[name="description"]');
-  if (description) description.content = '클래식 기타 740곡을 조건별로 찾고, YouTube 고유 실연 2건 이상으로 검증한 듀오 237곡의 인기도와 악보 출처를 확인하는 아카이브';
+  if (description) description.content = '클래식 기타 807곡을 조건별로 찾고, YouTube 고유 실연 2건 이상으로 검증한 중주 362곡의 인기도와 악보 출처를 확인하는 아카이브';
 
   const labels = {
     type: {solo:'솔로', duo:'듀오', trio:'트리오', quartet:'콰르텟', ensemble:'중주'},
@@ -18,12 +18,12 @@
     source: {original:'기타 원곡', transcription:'편곡·전사'},
     genre: {classical:'클래식 기타', crossover:'세미클래식·크로스오버', film:'영화 음악', screen:'TV·뮤지컬', game:'게임 음악', anime:'애니·지브리', pop:'팝·록 명곡', 'recent-pop':'컨템퍼러리 팝', kpop:'K-pop·한국', 'jazz-world':'재즈·월드'},
     release: {recent:'2020년 이후', millennium:'2000–2019', legacy:'2000년 이전'},
-    duoCategory: {'original-classical':'고전 듀오 원곡', 'original-romantic':'낭만 듀오 원곡', 'original-modern':'20세기 듀오 원곡', 'original-contemporary':'현대 듀오 원곡', 'baroque-transcription':'바로크 전사', 'iberian-transcription':'스페인·이베리아 전사', 'keyboard-orchestral-transcription':'건반·관현악 전사', 'latin-tango':'탱고·라틴', 'latin-brazilian':'브라질', 'film-animation':'영화·애니', 'pop-jazz-arrangement':'팝·재즈 편곡'},
-    duoForm: {sonata:'소나타', suite:'모음곡', concerto:'협주곡', variations:'변주곡', fantasy:'환상곡', 'prelude-fugue':'전주곡·푸가', fugue:'푸가·대위', waltz:'왈츠', tango:'탱고', dance:'춤곡', serenade:'세레나데', soundtrack:'OST', song:'노래 편곡', 'character-piece':'성격소품·기타', duo:'듀오 작품', invention:'인벤션'},
+    ensembleCategory: {'original-classical':'고전시대 원곡', 'original-romantic':'낭만시대 원곡', 'original-modern':'20세기 원곡', 'original-contemporary':'현대 원곡', 'baroque-transcription':'바로크 전사', 'iberian-transcription':'스페인·이베리아 전사', 'keyboard-orchestral-transcription':'건반·관현악 전사', 'latin-tango':'탱고·라틴', 'latin-brazilian':'브라질', 'latin-hispanic':'라틴 – 스페인어권', 'film-animation':'영화·애니', 'pop-jazz-arrangement':'팝·재즈 편곡'},
+    ensembleForm: {sonata:'소나타', suite:'모음곡', concerto:'협주곡', variations:'변주곡', fantasy:'환상곡', 'prelude-fugue':'전주곡·푸가', fugue:'푸가·대위', canon:'카논', overture:'서곡', prelude:'전주곡·토카타', etude:'연습곡', waltz:'왈츠', tango:'탱고', milonga:'밀롱가', choro:'쇼루·삼바', nocturne:'녹턴', dance:'춤곡', serenade:'세레나데', soundtrack:'OST', song:'노래 편곡', 'character-piece':'성격소품·기타', ensemble:'중주 원곡', invention:'인벤션'},
     popularity: {'very-high':'매우 높음', high:'높음', medium:'보통', niche:'전문 레퍼토리'},
     status: {core:'기타 레퍼토리', arrangement:'클래식 기타 편곡', verified:'클래식 기타 연주 영상 확인', 'ensemble-verified':'편성 연주 2개 이상 확인'}
   };
-  const filterKeys = ['genre','release','era','difficulty','region','technique','mood','duration','source','duoCategory','duoForm','popularity'];
+  const filterKeys = ['genre','release','era','difficulty','region','technique','mood','duration','source','ensembleCategory','ensembleForm','popularity'];
   const difficultyOrder = {beginner:0, intermediate:1, advanced:2, virtuoso:3};
   const fold = value => String(value).toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   const publicDomainModernComposers = [
@@ -99,10 +99,10 @@
     const noteCopy = document.querySelector('.catalog-note p');
     if (heroCount) heroCount.textContent = `${works.length} CURATED WORKS`;
     if (finderEyebrow) finderEyebrow.textContent = `${works.length} CURATED WORKS`;
-    if (finderCopy) finderCopy.textContent = `솔로 ${works.filter(work => work.type === 'solo').length}곡과 YouTube 다중 검증을 통과한 중주곡을 함께 찾습니다. 듀오는 세부 분류·형식·검색 확인 영상 수·인기도로 좁힐 수 있습니다.`;
-    if (noteCopy) noteCopy.textContent = '듀오는 곡명·작곡가가 일치하는 2대 클래식 기타 실연 영상이 YouTube에서 2건 이상 확인된 곡만 등록합니다. 동일 영상 중복과 악보·MIDI·레슨·반주·솔로 멀티트랙은 제외하고, 서로 다른 채널 수는 상세 창에 별도 표시합니다. “확인 N건”은 최대 5개 검색식에서 찾은 고유 실연 영상의 최소 표본이며 YouTube 전체 총량은 아닙니다.';
+    if (finderCopy) finderCopy.textContent = `솔로 ${works.filter(work => work.type === 'solo').length}곡과 YouTube 다중 검증을 통과한 중주 ${works.filter(work => work.type !== 'solo').length}곡을 함께 찾습니다. 듀오·트리오·콰르텟은 세부 분류·형식·검색 확인 영상 수·인기도로 좁힐 수 있습니다.`;
+    if (noteCopy) noteCopy.textContent = '중주는 곡명·작곡가와 편성(2·3·4대 클래식 기타)이 일치하는 실연 영상이 YouTube에서 2건 이상 확인된 곡만 등록합니다. 동일 영상 중복과 악보·MIDI·레슨·반주·솔로 멀티트랙은 제외하고, 서로 다른 채널 수는 상세 창에 별도 표시합니다. “확인 N건”은 최대 5개 검색식에서 찾은 고유 실연 영상의 최소 표본이며 YouTube 전체 총량은 아닙니다.';
 
-    const state = {type:'all', genre:'all', release:'all', era:'all', difficulty:'all', region:'all', technique:'all', mood:'all', duration:'all', source:'all', duoCategory:'all', duoForm:'all', popularity:'all', sort:'recommended'};
+    const state = {type:'all', genre:'all', release:'all', era:'all', difficulty:'all', region:'all', technique:'all', mood:'all', duration:'all', source:'all', ensembleCategory:'all', ensembleForm:'all', popularity:'all', sort:'recommended'};
     let visible = 24;
     const controls = Object.fromEntries(filterKeys.map(key => [key, document.querySelector(`#piece-${key}`)]));
     const sortControl = document.querySelector('#piece-sort');
@@ -131,7 +131,11 @@
       'duo-film': work => work.type === 'duo' && work.genre === 'film',
       'duo-crossover': work => work.type === 'duo' && work.genre === 'crossover',
       'duo-pop': work => work.type === 'duo' && work.genre === 'pop',
-      'duo-korean': work => work.type === 'duo' && work.genre === 'kpop'
+      'duo-korean': work => work.type === 'duo' && work.genre === 'kpop',
+      'duo-tango': work => work.type === 'duo' && work.ensembleCategory === 'latin-tango',
+      'duo-iberian': work => work.type === 'duo' && work.ensembleCategory === 'iberian-transcription',
+      'duo-baroque': work => work.type === 'duo' && work.ensembleCategory === 'baroque-transcription',
+      'duo-original': work => work.type === 'duo' && work.source === 'original'
     };
     document.querySelectorAll('[data-preset]').forEach(button => {
       const test = presetHasResults[button.dataset.preset];
@@ -153,7 +157,7 @@
       const filtered = works.filter(work => {
         const typeMatch = state.type === 'all' || work.type === state.type || (state.type === 'ensemble' && work.type !== 'solo');
         const eraMatch = state.era === 'all' || work.era === state.era || (state.era === 'modern-plus' && ['modern','contemporary'].includes(work.era));
-        const text = fold(`${work.title} ${work.composer} ${work.year || ''} ${labels.genre[work.genre]} ${labels.era[work.era]} ${labels.region[work.region]} ${labels.technique[work.technique]} ${labels.duoCategory[work.duoCategory] || ''} ${labels.duoForm[work.duoForm] || ''}`);
+        const text = fold(`${work.title} ${work.composer} ${work.year || ''} ${labels.genre[work.genre]} ${labels.era[work.era]} ${labels.region[work.region]} ${labels.technique[work.technique]} ${labels.ensembleCategory[work.ensembleCategory] || ''} ${labels.ensembleForm[work.ensembleForm] || ''}`);
         return typeMatch && eraMatch &&
           (state.genre === 'all' || work.genre === state.genre) &&
           releaseMatches(work.year, state.release) &&
@@ -163,8 +167,8 @@
           (state.mood === 'all' || work.mood === state.mood) &&
           durationMatches(work.duration, state.duration) &&
           (state.source === 'all' || work.source === state.source) &&
-          (state.duoCategory === 'all' || work.duoCategory === state.duoCategory) &&
-          (state.duoForm === 'all' || work.duoForm === state.duoForm) &&
+          (state.ensembleCategory === 'all' || work.ensembleCategory === state.ensembleCategory) &&
+          (state.ensembleForm === 'all' || work.ensembleForm === state.ensembleForm) &&
           (state.popularity === 'all' || work.youtubePopularity === state.popularity) &&
           (!term || text.includes(term));
       });
@@ -203,14 +207,14 @@
       const evidenceAction = work.ensembleVideos?.length
         ? `<button class="score-button open-evidence" data-evidence-id="${work.id}" aria-label="${work.title} 편성 검증 영상 보기"><span aria-hidden="true">▶</span> 확인 ${work.youtubePerformanceCount || work.ensembleVideos.length}건</button>`
         : '';
-      const duoTags = work.type === 'duo'
-        ? `<span>${labels.duoCategory[work.duoCategory] || '듀오'}</span><span>${labels.duoForm[work.duoForm] || '기타 형식'}</span><span class="popularity-tag ${work.youtubePopularity || 'niche'}">인기 ${labels.popularity[work.youtubePopularity] || '전문 레퍼토리'}</span>`
+      const ensembleTags = work.type !== 'solo'
+        ? `<span>${labels.ensembleCategory[work.ensembleCategory] || '중주'}</span><span>${labels.ensembleForm[work.ensembleForm] || '기타 형식'}</span><span class="popularity-tag ${work.youtubePopularity || 'niche'}">인기 ${labels.popularity[work.youtubePopularity] || '전문 레퍼토리'}</span>`
         : '';
       return `<article class="piece-card catalog-card ${work.video ? 'has-video' : ''}" ${thumb}>
         <div class="piece-meta"><span>${String(index + 1).padStart(3, '0')} · ${labels.type[work.type]}</span><span>${work.year || labels.era[work.era]}</span></div>
         <h3>${work.title}</h3><p class="composer">${work.composer}</p>
         <div class="catalog-status ${work.status || 'core'}">${labels.status[work.status || 'core']}</div>
-        <div class="catalog-tags"><span>${labels.genre[work.genre]}</span><span>${labels.difficulty[work.difficulty]}</span><span>${labels.technique[work.technique]}</span><span>${labels.mood[work.mood]}</span>${duoTags}</div>
+        <div class="catalog-tags"><span>${labels.genre[work.genre]}</span><span>${labels.difficulty[work.difficulty]}</span><span>${labels.technique[work.technique]}</span><span>${labels.mood[work.mood]}</span>${ensembleTags}</div>
         <div class="piece-bottom"><span>약 ${work.duration}분 · ${labels.source[work.source]}</span><div class="piece-actions">${scoreAction}${evidenceAction}${action}</div></div>
       </article>`;
     }
@@ -230,7 +234,7 @@
     }
 
     function reset({keepSearch = false} = {}) {
-      Object.assign(state, {type:'all', genre:'all', release:'all', era:'all', difficulty:'all', region:'all', technique:'all', mood:'all', duration:'all', source:'all', duoCategory:'all', duoForm:'all', popularity:'all', sort:'recommended'});
+      Object.assign(state, {type:'all', genre:'all', release:'all', era:'all', difficulty:'all', region:'all', technique:'all', mood:'all', duration:'all', source:'all', ensembleCategory:'all', ensembleForm:'all', popularity:'all', sort:'recommended'});
       if (!keepSearch) search.value = '';
       filterKeys.forEach(key => { if (controls[key]) controls[key].value = 'all'; });
       if (sortControl) sortControl.value = 'recommended';
@@ -268,6 +272,10 @@
       if (preset === 'duo-crossover') { state.type = 'duo'; state.genre = controls.genre.value = 'crossover'; }
       if (preset === 'duo-pop') { state.type = 'duo'; state.genre = controls.genre.value = 'pop'; }
       if (preset === 'duo-korean') { state.type = 'duo'; state.genre = controls.genre.value = 'kpop'; }
+      if (preset === 'duo-tango') { state.type = 'duo'; state.ensembleCategory = controls.ensembleCategory.value = 'latin-tango'; }
+      if (preset === 'duo-iberian') { state.type = 'duo'; state.ensembleCategory = controls.ensembleCategory.value = 'iberian-transcription'; }
+      if (preset === 'duo-baroque') { state.type = 'duo'; state.ensembleCategory = controls.ensembleCategory.value = 'baroque-transcription'; }
+      if (preset === 'duo-original') { state.type = 'duo'; state.source = controls.source.value = 'original'; }
       render();
       document.querySelector('#library')?.scrollIntoView({behavior:'smooth', block:'start'});
     }));
